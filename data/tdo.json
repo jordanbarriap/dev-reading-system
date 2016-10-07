@@ -1,0 +1,305 @@
+{"name":"The Discipline of Organizing", "type":"course", "children": [
+    {"name":"Ch. 1", "type":"lecture", "title":"Chapter 1: Foundations for Organizing Systems", "docno":"lecture-15", "id":"1", "children": 
+    [
+      { "name" : "1.1 The Discipline of Organizing", "type" : "doc", "docno" : "tdo-2001", "id":"2001", "bookid" : "tdo", "title" : "1.1 The Discipline of Organizing","spage" : "22", "epage" : "27", "links" : [{"url" : "tdo/00000022.jpg"},{"url" : "tdo/00000023.jpg"},{"url" : "tdo/00000024.jpg"},{"url" : "tdo/00000025.jpg"},{"url" : "tdo/00000026.jpg"},{"url" : "tdo/00000027.jpg"}], "children":
+      [
+      ]},
+      { "name" : "1.2 The Organizing System Concept", "type" : "doc", "docno" : "tdo-2002", "id":"2002", "bookid" : "tdo", "title" : "1.2 The Organizing System Concept","spage" : "27", "epage" : "29", "links" : [{"url" : "tdo/00000027.jpg"},{"url" : "tdo/00000028.jpg"},{"url" : "tdo/00000029.jpg"}], "children":
+      [
+        { "name" : "1.2.1 The Concept of Resource", "type" : "doc", "docno" : "tdo-2003", "id":"2003", "bookid" : "tdo", "title" : "1.2.1 The Concept of Resource","spage" : "29", "epage" : "30", "links" : [{"url" : "tdo/00000029.jpg"},{"url" : "tdo/00000030.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.2.2 The Concept of Collection", "type" : "doc", "docno" : "tdo-2004", "id":"2004", "bookid" : "tdo", "title" : "1.2.2 The Concept of Collection","spage" : "31", "epage" : "31", "links" : [{"url" : "tdo/00000031.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.2.3 The Concept of Intentional Arrangement", "type" : "doc", "docno" : "tdo-2005", "id":"2005", "bookid" : "tdo", "title" : "1.2.3 The Concept of Intentional Arrangement","spage" : "31", "epage" : "33", "links" : [{"url" : "tdo/00000031.jpg"},{"url" : "tdo/00000032.jpg"},{"url" : "tdo/00000033.jpg"}], "children":
+        [
+          { "name" : "1.2.3.1 The Concept of Organizing Principle", "type" : "doc", "docno" : "tdo-2006", "id":"2006", "bookid" : "tdo", "title" : "1.2.3.1 The Concept of Organizing Principle","spage" : "33", "epage" : "36", "links" : [{"url" : "tdo/00000033.jpg"},{"url" : "tdo/00000034.jpg"},{"url" : "tdo/00000035.jpg"},{"url" : "tdo/00000036.jpg"}], "children":
+          [
+          ]},
+          { "name" : "1.2.3.2 The Concept of Agent", "type" : "doc", "docno" : "tdo-2007", "id":"2007", "bookid" : "tdo", "title" : "1.2.3.2 The Concept of Agent","spage" : "37", "epage" : "37", "links" : [{"url" : "tdo/00000037.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "1.2.4 The Concept of Interactions", "type" : "doc", "docno" : "tdo-2008", "id":"2008", "bookid" : "tdo", "title" : "1.2.4 The Concept of Interactions","spage" : "37", "epage" : "39", "links" : [{"url" : "tdo/00000037.jpg"},{"url" : "tdo/00000038.jpg"},{"url" : "tdo/00000039.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "1.3 Design Decisions in Organizing Systems", "type" : "doc", "docno" : "tdo-2009", "id":"2009", "bookid" : "tdo", "title" : "1.3 Design Decisions in Organizing Systems","spage" : "39", "epage" : "40", "links" : [{"url" : "tdo/00000039.jpg"},{"url" : "tdo/00000040.jpg"}], "children":
+      [
+        { "name" : "1.3.1 Organizing Systems in a Design Space", "type" : "doc", "docno" : "tdo-2010", "id":"2010", "bookid" : "tdo", "title" : "1.3.1 Organizing Systems in a Design Space","spage" : "40", "epage" : "41", "links" : [{"url" : "tdo/00000040.jpg"},{"url" : "tdo/00000041.jpg"}], "children":
+        [
+          { "name" : "1.3.1.1 Conventional Ways to Classify Organizing Systems", "type" : "doc", "docno" : "tdo-2011", "id":"2011", "bookid" : "tdo", "title" : "1.3.1.1 Conventional Ways to Classify Organizing Systems","spage" : "41", "epage" : "41", "links" : [{"url" : "tdo/00000041.jpg"}], "children":
+          [
+          ]},
+          { "name" : "1.3.1.2 A Multifaceted or Multidimensional View", "type" : "doc", "docno" : "tdo-2012", "id":"2012", "bookid" : "tdo", "title" : "1.3.1.2 A Multifaceted or Multidimensional View","spage" : "42", "epage" : "44", "links" : [{"url" : "tdo/00000042.jpg"},{"url" : "tdo/00000043.jpg"},{"url" : "tdo/00000044.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "1.3.2 What Is Being Organized? ", "type" : "doc", "docno" : "tdo-2013", "id":"2013", "bookid" : "tdo", "title" : "1.3.2 What Is Being Organized? ","spage" : "44", "epage" : "46", "links" : [{"url" : "tdo/00000044.jpg"},{"url" : "tdo/00000045.jpg"},{"url" : "tdo/00000046.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.3.3 Why Is It Being Organized?", "type" : "doc", "docno" : "tdo-2014", "id":"2014", "bookid" : "tdo", "title" : "1.3.3 Why Is It Being Organized?","spage" : "46", "epage" : "49", "links" : [{"url" : "tdo/00000046.jpg"},{"url" : "tdo/00000047.jpg"},{"url" : "tdo/00000048.jpg"},{"url" : "tdo/00000049.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.3.4 How Much Is It Being Organized?", "type" : "doc", "docno" : "tdo-2015", "id":"2015", "bookid" : "tdo", "title" : "1.3.4 How Much Is It Being Organized?","spage" : "49", "epage" : "52", "links" : [{"url" : "tdo/00000049.jpg"},{"url" : "tdo/00000050.jpg"},{"url" : "tdo/00000051.jpg"},{"url" : "tdo/00000052.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.3.5 When Is It Being Organized?", "type" : "doc", "docno" : "tdo-2016", "id":"2016", "bookid" : "tdo", "title" : "1.3.5 When Is It Being Organized?","spage" : "52", "epage" : "54", "links" : [{"url" : "tdo/00000052.jpg"},{"url" : "tdo/00000053.jpg"},{"url" : "tdo/00000054.jpg"}], "children":
+        [
+        ]},
+        { "name" : "1.3.6 How (or by Whom) Is It Organized?", "type" : "doc", "docno" : "tdo-2017", "id":"2017", "bookid" : "tdo", "title" : "1.3.6 How (or by Whom) Is It Organized?","spage" : "54", "epage" : "57", "links" : [{"url" : "tdo/00000054.jpg"},{"url" : "tdo/00000055.jpg"},{"url" : "tdo/00000056.jpg"},{"url" : "tdo/00000057.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "1.4 Organizing This Book", "type" : "doc", "docno" : "tdo-2018", "id":"2018", "bookid" : "tdo", "title" : "1.4 Organizing This Book","spage" : "57", "epage" : "60", "links" : [{"url" : "tdo/00000057.jpg"},{"url" : "tdo/00000058.jpg"},{"url" : "tdo/00000059.jpg"},{"url" : "tdo/00000060.jpg"}], "children":
+      [
+      ]}
+  ]},
+    {"name":"Ch. 2", "type":"lecture", "title":"Chapter 2: Activities in Organizing Systems", "docno":"lecture-16", "id":"2", "children": 
+    [
+      { "name" : "2.1 Introduction", "type" : "doc", "docno" : "tdo-2021", "id":"2021", "bookid" : "tdo", "title" : "2.1 Introduction","spage" : "68", "epage" : "71", "links" : [{"url" : "tdo/00000068.jpg"},{"url" : "tdo/00000069.jpg"},{"url" : "tdo/00000070.jpg"},{"url" : "tdo/00000071.jpg"}], "children":
+      [
+      ]},
+      { "name" : "2.2 Selecting Resources", "type" : "doc", "docno" : "tdo-2022", "id":"2022", "bookid" : "tdo", "title" : "2.2 Selecting Resources","spage" : "72", "epage" : "72", "links" : [{"url" : "tdo/00000072.jpg"}], "children":
+      [
+        { "name" : "2.2.1 Selecting and, or, vs Organizing", "type" : "doc", "docno" : "tdo-2023", "id":"2023", "bookid" : "tdo", "title" : "2.2.1 Selecting and, or, vs Organizing","spage" : "72", "epage" : "73", "links" : [{"url" : "tdo/00000072.jpg"},{"url" : "tdo/00000073.jpg"}], "children":
+        [
+        ]},
+        { "name" : "2.2.2 Selection Principles", "type" : "doc", "docno" : "tdo-2024", "id":"2024", "bookid" : "tdo", "title" : "2.2.2 Selection Principles","spage" : "73", "epage" : "74", "links" : [{"url" : "tdo/00000073.jpg"},{"url" : "tdo/00000074.jpg"}], "children":
+        [
+        ]},
+        { "name" : "2.2.3 Selection of Digital and Web-Based Resources", "type" : "doc", "docno" : "tdo-2025", "id":"2025", "bookid" : "tdo", "title" : "2.2.3 Selection of Digital and Web-Based Resources","spage" : "74", "epage" : "75", "links" : [{"url" : "tdo/00000074.jpg"},{"url" : "tdo/00000075.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "2.3 Organizing Resources", "type" : "doc", "docno" : "tdo-2026", "id":"2026", "bookid" : "tdo", "title" : "2.3 Organizing Resources","spage" : "75", "epage" : "76", "links" : [{"url" : "tdo/00000075.jpg"},{"url" : "tdo/00000076.jpg"}], "children":
+      [
+        { "name" : "2.3.1 Organizing Physical Resources", "type" : "doc", "docno" : "tdo-2027", "id":"2027", "bookid" : "tdo", "title" : "2.3.1 Organizing Physical Resources","spage" : "76", "epage" : "77", "links" : [{"url" : "tdo/00000076.jpg"},{"url" : "tdo/00000077.jpg"}], "children":
+        [
+          { "name" : "2.3.1.1 Organizing with Properties of Physical Resources", "type" : "doc", "docno" : "tdo-2028", "id":"2028", "bookid" : "tdo", "title" : "2.3.1.1 Organizing with Properties of Physical Resources","spage" : "77", "epage" : "77", "links" : [{"url" : "tdo/00000077.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.3.1.2 Organizing with Descriptions of Physical Resources", "type" : "doc", "docno" : "tdo-2029", "id":"2029", "bookid" : "tdo", "title" : "2.3.1.2 Organizing with Descriptions of Physical Resources","spage" : "78", "epage" : "78", "links" : [{"url" : "tdo/00000078.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "2.3.2 Organizing Digital Resources", "type" : "doc", "docno" : "tdo-2030", "id":"2030", "bookid" : "tdo", "title" : "2.3.2 Organizing Digital Resources","spage" : "78", "epage" : "79", "links" : [{"url" : "tdo/00000078.jpg"},{"url" : "tdo/00000079.jpg"}], "children":
+        [
+          { "name" : "2.3.2.1 Organizing Web-Based Resources", "type" : "doc", "docno" : "tdo-2031", "id":"2031", "bookid" : "tdo", "title" : "2.3.2.1 Organizing Web-Based Resources","spage" : "79", "epage" : "80", "links" : [{"url" : "tdo/00000079.jpg"},{"url" : "tdo/00000080.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.3.2.2 Information Architecture and Organizing Systems", "type" : "doc", "docno" : "tdo-2032", "id":"2032", "bookid" : "tdo", "title" : "2.3.2.2 Information Architecture and Organizing Systems","spage" : "80", "epage" : "81", "links" : [{"url" : "tdo/00000080.jpg"},{"url" : "tdo/00000081.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "2.3.3 Organizing with Multiple Resource Properties", "type" : "doc", "docno" : "tdo-2033", "id":"2033", "bookid" : "tdo", "title" : "2.3.3 Organizing with Multiple Resource Properties","spage" : "81", "epage" : "82", "links" : [{"url" : "tdo/00000081.jpg"},{"url" : "tdo/00000082.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "2.4 Designing Resource-Based Interactions", "type" : "doc", "docno" : "tdo-2034", "id":"2034", "bookid" : "tdo", "title" : "2.4 Designing Resource-Based Interactions","spage" : "82", "epage" : "82", "links" : [{"url" : "tdo/00000082.jpg"}], "children":
+      [
+        { "name" : "2.4.1 Affordance and Capability", "type" : "doc", "docno" : "tdo-2035", "id":"2035", "bookid" : "tdo", "title" : "2.4.1 Affordance and Capability","spage" : "82", "epage" : "84", "links" : [{"url" : "tdo/00000082.jpg"},{"url" : "tdo/00000083.jpg"},{"url" : "tdo/00000084.jpg"}], "children":
+        [
+        ]},
+        { "name" : "2.4.2 Interaction and Value Creation", "type" : "doc", "docno" : "tdo-2036", "id":"2036", "bookid" : "tdo", "title" : "2.4.2 Interaction and Value Creation","spage" : "84", "epage" : "84", "links" : [{"url" : "tdo/00000084.jpg"}], "children":
+        [
+          { "name" : "2.4.2.1 Value Creation with Physical Resources", "type" : "doc", "docno" : "tdo-2037", "id":"2037", "bookid" : "tdo", "title" : "2.4.2.1 Value Creation with Physical Resources","spage" : "84", "epage" : "85", "links" : [{"url" : "tdo/00000084.jpg"},{"url" : "tdo/00000085.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.4.2.2 Value Creation with Digital Resources", "type" : "doc", "docno" : "tdo-2038", "id":"2038", "bookid" : "tdo", "title" : "2.4.2.2 Value Creation with Digital Resources","spage" : "85", "epage" : "87", "links" : [{"url" : "tdo/00000085.jpg"},{"url" : "tdo/00000086.jpg"},{"url" : "tdo/00000087.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "2.4.3 Access Policies", "type" : "doc", "docno" : "tdo-2039", "id":"2039", "bookid" : "tdo", "title" : "2.4.3 Access Policies","spage" : "87", "epage" : "89", "links" : [{"url" : "tdo/00000087.jpg"},{"url" : "tdo/00000088.jpg"},{"url" : "tdo/00000089.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "2.5 Maintaining Resources", "type" : "doc", "docno" : "tdo-2040", "id":"2040", "bookid" : "tdo", "title" : "2.5 Maintaining Resources","spage" : "89", "epage" : "89", "links" : [{"url" : "tdo/00000089.jpg"}], "children":
+      [
+        { "name" : "2.5.1 Motivations for Maintaining Resources", "type" : "doc", "docno" : "tdo-2041", "id":"2041", "bookid" : "tdo", "title" : "2.5.1 Motivations for Maintaining Resources","spage" : "89", "epage" : "90", "links" : [{"url" : "tdo/00000089.jpg"},{"url" : "tdo/00000090.jpg"}], "children":
+        [
+        ]},
+        { "name" : "2.5.2 Preservation", "type" : "doc", "docno" : "tdo-2042", "id":"2042", "bookid" : "tdo", "title" : "2.5.2 Preservation","spage" : "90", "epage" : "91", "links" : [{"url" : "tdo/00000090.jpg"},{"url" : "tdo/00000091.jpg"}], "children":
+        [
+          { "name" : "2.5.2.1 Digitization and Preserving Resources", "type" : "doc", "docno" : "tdo-2043", "id":"2043", "bookid" : "tdo", "title" : "2.5.2.1 Digitization and Preserving Resources","spage" : "91", "epage" : "92", "links" : [{"url" : "tdo/00000091.jpg"},{"url" : "tdo/00000092.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.2.2 Preserving the Web", "type" : "doc", "docno" : "tdo-2044", "id":"2044", "bookid" : "tdo", "title" : "2.5.2.2 Preserving the Web","spage" : "92", "epage" : "93", "links" : [{"url" : "tdo/00000092.jpg"},{"url" : "tdo/00000093.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.2.3 Preserving Resource Instances", "type" : "doc", "docno" : "tdo-2045", "id":"2045", "bookid" : "tdo", "title" : "2.5.2.3 Preserving Resource Instances","spage" : "93", "epage" : "94", "links" : [{"url" : "tdo/00000093.jpg"},{"url" : "tdo/00000094.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.2.4 Preserving Resource Types", "type" : "doc", "docno" : "tdo-2046", "id":"2046", "bookid" : "tdo", "title" : "2.5.2.4 Preserving Resource Types","spage" : "94", "epage" : "95", "links" : [{"url" : "tdo/00000094.jpg"},{"url" : "tdo/00000095.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.2.5 Preserving Resource Collections", "type" : "doc", "docno" : "tdo-2047", "id":"2047", "bookid" : "tdo", "title" : "2.5.2.5 Preserving Resource Collections","spage" : "95", "epage" : "95", "links" : [{"url" : "tdo/00000095.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "2.5.3 Curation", "type" : "doc", "docno" : "tdo-2048", "id":"2048", "bookid" : "tdo", "title" : "2.5.3 Curation","spage" : "95", "epage" : "96", "links" : [{"url" : "tdo/00000095.jpg"},{"url" : "tdo/00000096.jpg"}], "children":
+        [
+          { "name" : "2.5.3.1 Institutional Curation", "type" : "doc", "docno" : "tdo-2049", "id":"2049", "bookid" : "tdo", "title" : "2.5.3.1 Institutional Curation","spage" : "96", "epage" : "96", "links" : [{"url" : "tdo/00000096.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.3.2 Individual Curation", "type" : "doc", "docno" : "tdo-2050", "id":"2050", "bookid" : "tdo", "title" : "2.5.3.2 Individual Curation","spage" : "96", "epage" : "96", "links" : [{"url" : "tdo/00000096.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.3.3 Social and Web Curation", "type" : "doc", "docno" : "tdo-2051", "id":"2051", "bookid" : "tdo", "title" : "2.5.3.3 Social and Web Curation","spage" : "96", "epage" : "97", "links" : [{"url" : "tdo/00000096.jpg"},{"url" : "tdo/00000097.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.3.4 Computational Curation", "type" : "doc", "docno" : "tdo-2052", "id":"2052", "bookid" : "tdo", "title" : "2.5.3.4 Computational Curation","spage" : "97", "epage" : "98", "links" : [{"url" : "tdo/00000097.jpg"},{"url" : "tdo/00000098.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "2.5.4 Governance", "type" : "doc", "docno" : "tdo-2053", "id":"2053", "bookid" : "tdo", "title" : "2.5.4 Governance","spage" : "98", "epage" : "99", "links" : [{"url" : "tdo/00000098.jpg"},{"url" : "tdo/00000099.jpg"}], "children":
+        [
+          { "name" : "2.5.4.1 Governance in Business Organizing Systems", "type" : "doc", "docno" : "tdo-2054", "id":"2054", "bookid" : "tdo", "title" : "2.5.4.1 Governance in Business Organizing Systems","spage" : "99", "epage" : "99", "links" : [{"url" : "tdo/00000099.jpg"}], "children":
+          [
+          ]},
+          { "name" : "2.5.4.2 Governance in Scientific Organizing Systems", "type" : "doc", "docno" : "tdo-2055", "id":"2055", "bookid" : "tdo", "title" : "2.5.4.2 Governance in Scientific Organizing Systems","spage" : "99", "epage" : "100", "links" : [{"url" : "tdo/00000099.jpg"},{"url" : "tdo/00000100.jpg"}], "children":
+          [
+          ]}
+        ]}
+      ]},
+      { "name" : "2.6 Key Points in Chapter Two", "type" : "doc", "docno" : "tdo-2056", "id":"2056", "bookid" : "tdo", "title" : "2.6 Key Points in Chapter Two","spage" : "100", "epage" : "101", "links" : [{"url" : "tdo/00000100.jpg"},{"url" : "tdo/00000101.jpg"}], "children":
+      [
+      ]}
+  ]},
+    {"name":"Ch. 3", "type":"lecture", "title":"Chapter 3: Resources in Organizing Systems", "docno":"lecture-17", "id":"3", "children": 
+    [
+      { "name" : "3.1 Introduction", "type" : "doc", "docno" : "tdo-2059", "id":"2059", "bookid" : "tdo", "title" : "3.1 Introduction","spage" : "116", "epage" : "116", "links" : [{"url" : "tdo/00000116.jpg"}], "children":
+      [
+        { "name" : "3.1.1 What Is a Resource?", "type" : "doc", "docno" : "tdo-2060", "id":"2060", "bookid" : "tdo", "title" : "3.1.1 What Is a Resource?","spage" : "117", "epage" : "117", "links" : [{"url" : "tdo/00000117.jpg"}], "children":
+        [
+          { "name" : "3.1.1.1 Resources with Parts", "type" : "doc", "docno" : "tdo-2061", "id":"2061", "bookid" : "tdo", "title" : "3.1.1.1 Resources with Parts","spage" : "117", "epage" : "118", "links" : [{"url" : "tdo/00000117.jpg"},{"url" : "tdo/00000118.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.1.1.2 Bibliographic Resources, Information Components, and Smart Things as Resources", "type" : "doc", "docno" : "tdo-2062", "id":"2062", "bookid" : "tdo", "title" : "3.1.1.2 Bibliographic Resources, Information Components, and Smart Things as Resources","spage" : "118", "epage" : "119", "links" : [{"url" : "tdo/00000118.jpg"},{"url" : "tdo/00000119.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "3.1.2 Identity, Identifiers, and Names", "type" : "doc", "docno" : "tdo-2063", "id":"2063", "bookid" : "tdo", "title" : "3.1.2 Identity, Identifiers, and Names","spage" : "119", "epage" : "120", "links" : [{"url" : "tdo/00000119.jpg"},{"url" : "tdo/00000120.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "3.2 Four Distinctions about Resources", "type" : "doc", "docno" : "tdo-2064", "id":"2064", "bookid" : "tdo", "title" : "3.2 Four Distinctions about Resources","spage" : "120", "epage" : "121", "links" : [{"url" : "tdo/00000120.jpg"},{"url" : "tdo/00000121.jpg"}], "children":
+      [
+        { "name" : "3.2.1 Resource Domain", "type" : "doc", "docno" : "tdo-2065", "id":"2065", "bookid" : "tdo", "title" : "3.2.1 Resource Domain","spage" : "121", "epage" : "123", "links" : [{"url" : "tdo/00000121.jpg"},{"url" : "tdo/00000122.jpg"},{"url" : "tdo/00000123.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.2.2 Resource Format", "type" : "doc", "docno" : "tdo-2066", "id":"2066", "bookid" : "tdo", "title" : "3.2.2 Resource Format","spage" : "123", "epage" : "125", "links" : [{"url" : "tdo/00000123.jpg"},{"url" : "tdo/00000124.jpg"},{"url" : "tdo/00000125.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.2.3 Resource Agency", "type" : "doc", "docno" : "tdo-2067", "id":"2067", "bookid" : "tdo", "title" : "3.2.3 Resource Agency","spage" : "126", "epage" : "126", "links" : [{"url" : "tdo/00000126.jpg"}], "children":
+        [
+          { "name" : "3.2.3.1 Passive or Operand Resources", "type" : "doc", "docno" : "tdo-2068", "id":"2068", "bookid" : "tdo", "title" : "3.2.3.1 Passive or Operand Resources","spage" : "126", "epage" : "126", "links" : [{"url" : "tdo/00000126.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.2.3.2 Active or Operant Resources", "type" : "doc", "docno" : "tdo-2069", "id":"2069", "bookid" : "tdo", "title" : "3.2.3.2 Active or Operant Resources","spage" : "126", "epage" : "127", "links" : [{"url" : "tdo/00000126.jpg"},{"url" : "tdo/00000127.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "3.2.4 Resource Focus", "type" : "doc", "docno" : "tdo-2070", "id":"2070", "bookid" : "tdo", "title" : "3.2.4 Resource Focus","spage" : "127", "epage" : "128", "links" : [{"url" : "tdo/00000127.jpg"},{"url" : "tdo/00000128.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.2.5 Resource Format x Focus", "type" : "doc", "docno" : "tdo-2071", "id":"2071", "bookid" : "tdo", "title" : "3.2.5 Resource Format x Focus","spage" : "128", "epage" : "128", "links" : [{"url" : "tdo/00000128.jpg"}], "children":
+        [
+          { "name" : "3.2.5.1 Physical Description of a Primary Physical Resource", "type" : "doc", "docno" : "tdo-2072", "id":"2072", "bookid" : "tdo", "title" : "3.2.5.1 Physical Description of a Primary Physical Resource","spage" : "128", "epage" : "129", "links" : [{"url" : "tdo/00000128.jpg"},{"url" : "tdo/00000129.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.2.5.2 Digital Description of a Primary Physical Resource", "type" : "doc", "docno" : "tdo-2073", "id":"2073", "bookid" : "tdo", "title" : "3.2.5.2 Digital Description of a Primary Physical Resource","spage" : "129", "epage" : "130", "links" : [{"url" : "tdo/00000129.jpg"},{"url" : "tdo/00000130.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.2.5.3 Digital Description of a Primary Digital Resource", "type" : "doc", "docno" : "tdo-2074", "id":"2074", "bookid" : "tdo", "title" : "3.2.5.3 Digital Description of a Primary Digital Resource","spage" : "130", "epage" : "130", "links" : [{"url" : "tdo/00000130.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.2.5.4 Physical Description of a Primary Digital Resource", "type" : "doc", "docno" : "tdo-2075", "id":"2075", "bookid" : "tdo", "title" : "3.2.5.4 Physical Description of a Primary Digital Resource","spage" : "130", "epage" : "130", "links" : [{"url" : "tdo/00000130.jpg"}], "children":
+          [
+          ]}
+        ]}
+      ]},
+      { "name" : "3.3 Resource Identity", "type" : "doc", "docno" : "tdo-2076", "id":"2076", "bookid" : "tdo", "title" : "3.3 Resource Identity","spage" : "130", "epage" : "131", "links" : [{"url" : "tdo/00000130.jpg"},{"url" : "tdo/00000131.jpg"}], "children":
+      [
+        { "name" : "3.3.1 Identity and Physical Resources", "type" : "doc", "docno" : "tdo-2077", "id":"2077", "bookid" : "tdo", "title" : "3.3.1 Identity and Physical Resources","spage" : "131", "epage" : "131", "links" : [{"url" : "tdo/00000131.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.3.2 Identity and Bibliographic Resources", "type" : "doc", "docno" : "tdo-2078", "id":"2078", "bookid" : "tdo", "title" : "3.3.2 Identity and Bibliographic Resources","spage" : "131", "epage" : "133", "links" : [{"url" : "tdo/00000131.jpg"},{"url" : "tdo/00000132.jpg"},{"url" : "tdo/00000133.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.3.3 Identity and Information Components", "type" : "doc", "docno" : "tdo-2079", "id":"2079", "bookid" : "tdo", "title" : "3.3.3 Identity and Information Components","spage" : "133", "epage" : "135", "links" : [{"url" : "tdo/00000133.jpg"},{"url" : "tdo/00000134.jpg"},{"url" : "tdo/00000135.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.3.4 Identity and Active Resources", "type" : "doc", "docno" : "tdo-2080", "id":"2080", "bookid" : "tdo", "title" : "3.3.4 Identity and Active Resources","spage" : "135", "epage" : "136", "links" : [{"url" : "tdo/00000135.jpg"},{"url" : "tdo/00000136.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "3.4 Naming Resources", "type" : "doc", "docno" : "tdo-2081", "id":"2081", "bookid" : "tdo", "title" : "3.4 Naming Resources","spage" : "137", "epage" : "137", "links" : [{"url" : "tdo/00000137.jpg"}], "children":
+      [
+        { "name" : "3.4.1 Whats in a Name?", "type" : "doc", "docno" : "tdo-2082", "id":"2082", "bookid" : "tdo", "title" : "3.4.1 Whats in a Name?","spage" : "137", "epage" : "137", "links" : [{"url" : "tdo/00000137.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.4.2 The Problems of Naming", "type" : "doc", "docno" : "tdo-2083", "id":"2083", "bookid" : "tdo", "title" : "3.4.2 The Problems of Naming","spage" : "137", "epage" : "137", "links" : [{"url" : "tdo/00000137.jpg"}], "children":
+        [
+          { "name" : "3.4.2.1 The Vocabulary Problem", "type" : "doc", "docno" : "tdo-2084", "id":"2084", "bookid" : "tdo", "title" : "3.4.2.1 The Vocabulary Problem","spage" : "137", "epage" : "138", "links" : [{"url" : "tdo/00000137.jpg"},{"url" : "tdo/00000138.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.2.2 Homonymy, Polysemy, and False Cognates", "type" : "doc", "docno" : "tdo-2085", "id":"2085", "bookid" : "tdo", "title" : "3.4.2.2 Homonymy, Polysemy, and False Cognates","spage" : "138", "epage" : "138", "links" : [{"url" : "tdo/00000138.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.2.3 Names with Undesirable Associations", "type" : "doc", "docno" : "tdo-2086", "id":"2086", "bookid" : "tdo", "title" : "3.4.2.3 Names with Undesirable Associations","spage" : "138", "epage" : "139", "links" : [{"url" : "tdo/00000138.jpg"},{"url" : "tdo/00000139.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.2.4 Names that Assume Impermanent Attributes", "type" : "doc", "docno" : "tdo-2087", "id":"2087", "bookid" : "tdo", "title" : "3.4.2.4 Names that Assume Impermanent Attributes","spage" : "139", "epage" : "139", "links" : [{"url" : "tdo/00000139.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.2.5 The Semantic Gap", "type" : "doc", "docno" : "tdo-2088", "id":"2088", "bookid" : "tdo", "title" : "3.4.2.5 The Semantic Gap","spage" : "140", "epage" : "140", "links" : [{"url" : "tdo/00000140.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "3.4.3 Choosing Good Names and Identifiers", "type" : "doc", "docno" : "tdo-2089", "id":"2089", "bookid" : "tdo", "title" : "3.4.3 Choosing Good Names and Identifiers","spage" : "140", "epage" : "141", "links" : [{"url" : "tdo/00000140.jpg"},{"url" : "tdo/00000141.jpg"}], "children":
+        [
+          { "name" : "3.4.3.1 Make Names Informative", "type" : "doc", "docno" : "tdo-2090", "id":"2090", "bookid" : "tdo", "title" : "3.4.3.1 Make Names Informative","spage" : "141", "epage" : "142", "links" : [{"url" : "tdo/00000141.jpg"},{"url" : "tdo/00000142.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.3.2 Use Controlled Vocabularies", "type" : "doc", "docno" : "tdo-2091", "id":"2091", "bookid" : "tdo", "title" : "3.4.3.2 Use Controlled Vocabularies","spage" : "142", "epage" : "143", "links" : [{"url" : "tdo/00000142.jpg"},{"url" : "tdo/00000143.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.3.3 Allow Aliasing", "type" : "doc", "docno" : "tdo-2092", "id":"2092", "bookid" : "tdo", "title" : "3.4.3.3 Allow Aliasing","spage" : "143", "epage" : "143", "links" : [{"url" : "tdo/00000143.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.3.4 Make Identifiers Unique or Qualified", "type" : "doc", "docno" : "tdo-2093", "id":"2093", "bookid" : "tdo", "title" : "3.4.3.4 Make Identifiers Unique or Qualified","spage" : "143", "epage" : "144", "links" : [{"url" : "tdo/00000143.jpg"},{"url" : "tdo/00000144.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.4.3.5 Distinguish Identifying and Resolving", "type" : "doc", "docno" : "tdo-2094", "id":"2094", "bookid" : "tdo", "title" : "3.4.3.5 Distinguish Identifying and Resolving","spage" : "144", "epage" : "144", "links" : [{"url" : "tdo/00000144.jpg"}], "children":
+          [
+          ]}
+        ]}
+      ]},
+      { "name" : "3.5 Resources over Time", "type" : "doc", "docno" : "tdo-2095", "id":"2095", "bookid" : "tdo", "title" : "3.5 Resources over Time","spage" : "144", "epage" : "145", "links" : [{"url" : "tdo/00000144.jpg"},{"url" : "tdo/00000145.jpg"}], "children":
+      [
+        { "name" : "3.5.1 Persistence", "type" : "doc", "docno" : "tdo-2096", "id":"2096", "bookid" : "tdo", "title" : "3.5.1 Persistence","spage" : "145", "epage" : "145", "links" : [{"url" : "tdo/00000145.jpg"}], "children":
+        [
+          { "name" : "3.5.1.1 Persistent Identifiers", "type" : "doc", "docno" : "tdo-2097", "id":"2097", "bookid" : "tdo", "title" : "3.5.1.1 Persistent Identifiers","spage" : "145", "epage" : "145", "links" : [{"url" : "tdo/00000145.jpg"}], "children":
+          [
+          ]},
+          { "name" : "3.5.1.2 Persistent Resources", "type" : "doc", "docno" : "tdo-2098", "id":"2098", "bookid" : "tdo", "title" : "3.5.1.2 Persistent Resources","spage" : "145", "epage" : "146", "links" : [{"url" : "tdo/00000145.jpg"},{"url" : "tdo/00000146.jpg"}], "children":
+          [
+          ]}
+        ]},
+        { "name" : "3.5.2 Effectivity", "type" : "doc", "docno" : "tdo-2099", "id":"2099", "bookid" : "tdo", "title" : "3.5.2 Effectivity","spage" : "146", "epage" : "147", "links" : [{"url" : "tdo/00000146.jpg"},{"url" : "tdo/00000147.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.5.3 Authenticity", "type" : "doc", "docno" : "tdo-2100", "id":"2100", "bookid" : "tdo", "title" : "3.5.3 Authenticity","spage" : "147", "epage" : "147", "links" : [{"url" : "tdo/00000147.jpg"}], "children":
+        [
+        ]},
+        { "name" : "3.5.4 Provenance", "type" : "doc", "docno" : "tdo-2101", "id":"2101", "bookid" : "tdo", "title" : "3.5.4 Provenance","spage" : "147", "epage" : "148", "links" : [{"url" : "tdo/00000147.jpg"},{"url" : "tdo/00000148.jpg"}], "children":
+        [
+        ]}
+      ]},
+      { "name" : "3.6 Key Points in Chapter Three", "type" : "doc", "docno" : "tdo-2102", "id":"2102", "bookid" : "tdo", "title" : "3.6 Key Points in Chapter Three","spage" : "148", "epage" : "149", "links" : [{"url" : "tdo/00000148.jpg"},{"url" : "tdo/00000149.jpg"}], "children":
+      [
+      ]}
+  ]}
+]}

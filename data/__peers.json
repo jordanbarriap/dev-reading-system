@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Peter Brusilovsky",
+    "Lecture 1" : "22",
+    "Lecture 2" : "41",
+    "Lecture 3" : "16",
+    "Lecture 4" : "11",
+    "Lecture 5" : "64",
+    "Lecture 6" : "10",
+    "Lecture 7" : "60",
+    "Lecture 8" : "41",
+    "Lecture 9" : "20",
+    "Lecture 10" : "66",
+    "Lecture 11" : "19",
+    "Lecture 12" : "15",
+    "Lecture 13" : "19"
+	},
+    {
+        "name": "yi-ling lin",
+        "Lecture 1" : "22",
+        "Lecture 2" : "41",
+        "Lecture 3" : "16",
+        "Lecture 4" : "11",
+        "Lecture 5" : "64",
+        "Lecture 6" : "10",
+        "Lecture 7" : "60",
+        "Lecture 8" : "41",
+        "Lecture 9" : "20",
+        "Lecture 10" : "66",
+        "Lecture 11" : "19",
+        "Lecture 12" : "15",
+        "Lecture 13" : "19"
+    },
+    {
+        "name": "Hsiao, Sharon (I-Han)",
+        "Lecture 1" : "22",
+        "Lecture 2" : "41",
+        "Lecture 3" : "16",
+        "Lecture 4" : "11",
+        "Lecture 5" : "64",
+        "Lecture 6" : "10",
+        "Lecture 7" : "60",
+        "Lecture 8" : "41",
+        "Lecture 9" : "20",
+        "Lecture 10" : "66",
+        "Lecture 11" : "19",
+        "Lecture 12" : "15",
+        "Lecture 13" : "19"
+    }
+]

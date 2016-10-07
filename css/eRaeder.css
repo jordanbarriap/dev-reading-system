@@ -1,0 +1,158 @@
+body, #container, #content, #sidebar{
+    min-height: 100%;
+
+}
+
+body{
+    min-width: 960px;
+    background-color: #898989;
+
+	 /* Ruikun's work part3.a*/
+	 position:relative;
+	 /* part3.a end */
+
+}
+
+/* ---- side bar ---- */
+
+#sidebar{
+    position: fixed;
+    width: 450px;
+    left: 0;
+    background-color: #f4f4f4;
+    box-shadow: 2px 2px 15px #000000;
+}
+
+#tab-content {
+	position: relative;
+}
+
+/* ---- index ---- */
+
+#toggle-question-status {
+	font-size: 11px;
+	width: 90px;
+	height: 15px;
+	padding-top: 2px;
+	line-height: 10px;
+	position: fixed;
+	margin-top: 0px;
+	margin-left: 320px;
+}
+    
+/* 0 Correct */
+.qShow a.status-0 {
+    color: green;
+	font-weight: bold;
+}
+
+/* 1 Incorrect */
+.qShow a.status-1 {
+    color: orange;
+}
+
+/* 2 Unanswered */
+.qShow a.status-2 {
+    color: orange;
+}
+
+/* 3 No questions */
+.qShow a.status-3 {
+    color: blue;
+/*    text-decoration: line-through; */
+}
+
+/* 4 Not being read */
+.qShow a.status-4 {
+    color: gray;
+/*    text-decoration: line-through; */
+}
+
+/* 0 Correct */
+.qShow a.status-0-qmark {
+    color: green;
+}
+
+/* 1 Incorrect */
+.qShow a.status-1-qmark {
+    color: orange;
+/*    text-decoration: line-through; */
+}
+
+/* 2 Unanswered */
+.qShow a.status-2-qmark {
+    color: orange;
+/*    text-decoration: line-through; */
+}
+
+/* 3 No questions */
+.qShow a.status-3-qmark {
+    color: white;
+/*    text-decoration: line-through; */
+}
+
+/* 4 Not being read */
+.qShow a.status-4-qmark {
+    color: white;
+/*    text-decoration: line-through; */
+}
+
+/* ---- reading content ---- */
+
+#content{
+    padding: 0 0 0 500px;
+    background-color: #898989;
+}
+
+
+#readings{
+
+}
+
+/* ---- slide button ----*/
+
+#slide-btn{
+    position: fixed;
+    top: 150px;
+    left: 450px;
+}
+
+#slide-toggle{
+    height: 150px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 5px #000000;
+}
+
+/* ---- iframe ---- */
+
+iframe{
+    border: none;
+}
+
+/* Ruikun's work part3.b */
+#container { width:100%}
+#peerCompareShowBox { width:100%; height:100%; background: url(../img/bullet.png); position:absolute; z-index:9; left:0; top:0; display:none }
+#peerCompareShowWrapper  { width:900px; clear:both; padding:0 60px; margin:0 auto; background:#f7fff7; }
+#closeBtn { width:60px; height:20px; border:1px solid #666; border-radius:3px; display:block; position:absolute; z-index:10; right:3%; top:2%; color:#FFF; cursor:pointer; background:#333;font:14px Arial, Gadget, sans-serif; text-align:center; line-height:20px;}
+.chartCompare { float:left; height:500px; overflow:hidden; background:#f7fff7 }
+.chartCompare h5 { display:block; width:100%; height:30px; font:14px Arial, Gadget, sans-serif; text-align:center; color: #069; margin:0; padding:0; background:#f7fff7;}
+
+#chart2 { position:relative;}
+#chart2Btn { position:absolute; z-index:99; left:0; top:0;}
+#chart2Btn a { display:block; width:140px; height:175px; overflow:hidden; float:left; font-size:0;}
+/* part3.b end */
+
+
+#overlay {
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.75);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  cursor: pointer;
+  display: none;
+}

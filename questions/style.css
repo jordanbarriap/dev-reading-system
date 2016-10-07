@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+body {
+	padding: 24px;
+	background-color: #F0F8FF;
+}
+
+#close-btn {
+	font: bold 20px sans-serif;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	color: gray;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	padding-top: 1px;
+	padding-left: 3px;
+}
+
+#submit {
+	height: 26px; /* to prevent status text being bigger and causing this to shift down */
+}
+
+#questions {
+
+}
+
+#question-img {
+    max-width: 20px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 3px;
+    padding-right: 3px;
+}

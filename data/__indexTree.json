@@ -1,0 +1,344 @@
+{"name":"Interactive System Design", "type":"course", "children":[
+    {
+        "name":"Lecture 1",
+        "type":"lecture",
+        "title":"<b>Lecture 01</b><br />Introduction<br />Introduction to Java Applets",
+        "docno":"lecture-1",
+        "id":"1",
+        "children":[
+            {
+                "name":"CHAPTER 1 Introduction",
+                "type":"doc",
+                "docno":"lamming-0001",
+                "id":"1",
+                "bookid":"lamming",
+                "title":"CHAPTER 1 Introduction",
+                "spage":"3",
+                "epage":"3",
+                "links":[
+                    {
+                        "url":"lamming/00000003.jpg"
+                    }
+                ],
+                "children":[
+                    {
+                        "name":"1.1 Interactive systems",
+                        "type":"doc",
+                        "docno":"lamming-0002",
+                        "id":"2",
+                        "bookid":"lamming",
+                        "title":"1.1 Interactive systems",
+                        "spage":"3",
+                        "epage":"3",
+                        "links":[
+                            {
+                                "url":"lamming/00000003.jpg"
+                            }
+                        ],
+                        "children":[
+                        ]
+                    },
+                    {
+                        "name":"1.2 Success in interactive system design",
+                        "type":"doc",
+                        "docno":"lamming-0003",
+                        "id":"3",
+                        "bookid":"lamming",
+                        "title":"1.2 Success in interactive system design",
+                        "spage":"4",
+                        "epage":"6",
+                        "links":[
+                            {
+                                "url":"lamming/00000004.jpg"
+                            },
+                            {
+                                "url":"lamming/00000005.jpg"
+                            },
+                            {
+                                "url":"lamming/00000006.jpg"
+                            }
+                        ],
+                        "children":[
+                            {
+                                "name":"1.2.1 What are interactive systems?",
+                                "type":"doc",
+                                "docno":"lamming-0004",
+                                "id":"4",
+                                "bookid":"lamming",
+                                "title":"1.2.1 What are interactive systems?",
+                                "spage":"6",
+                                "epage":"6",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000006.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.2.2 Why do we design them?",
+                                "type":"doc",
+                                "docno":"lamming-0005",
+                                "id":"5",
+                                "bookid":"lamming",
+                                "title":"1.2.2 Why do we design them?",
+                                "spage":"6",
+                                "epage":"7",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000006.jpg"
+                                    },
+                                    {
+                                        "url":"lamming/00000007.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.2.3 How do we know if we have succeeded?",
+                                "type":"doc",
+                                "docno":"lamming-0006",
+                                "id":"6",
+                                "bookid":"lamming",
+                                "title":"1.2.3 How do we know if we have succeeded?",
+                                "spage":"7",
+                                "epage":"8",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000007.jpg"
+                                    },
+                                    {
+                                        "url":"lamming/00000008.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.2.4 What happens if we fail?",
+                                "type":"doc",
+                                "docno":"lamming-0007",
+                                "id":"7",
+                                "bookid":"lamming",
+                                "title":"1.2.4 What happens if we fail?",
+                                "spage":"8",
+                                "epage":"9",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000008.jpg"
+                                    },
+                                    {
+                                        "url":"lamming/00000009.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.2.5 How do we maintain a track record of success?",
+                                "type":"doc",
+                                "docno":"lamming-0008",
+                                "id":"8",
+                                "bookid":"lamming",
+                                "title":"1.2.5 How do we maintain a track record of success?",
+                                "spage":"9",
+                                "epage":"10",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000009.jpg"
+                                    },
+                                    {
+                                        "url":"lamming/00000010.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.2.6 Creativity in engineering design",
+                                "type":"doc",
+                                "docno":"lamming-0009",
+                                "id":"9",
+                                "bookid":"lamming",
+                                "title":"1.2.6 Creativity in engineering design",
+                                "spage":"10",
+                                "epage":"10",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000010.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name":"1.3 The nature of the methods we use",
+                        "type":"doc",
+                        "docno":"lamming-0010",
+                        "id":"10",
+                        "bookid":"lamming",
+                        "title":"1.3 The nature of the methods we use",
+                        "spage":"10",
+                        "epage":"10",
+                        "links":[
+                            {
+                                "url":"lamming/00000010.jpg"
+                            }
+                        ],
+                        "children":[
+                            {
+                                "name":"1.3.1 Analysis and synthesis",
+                                "type":"doc",
+                                "docno":"lamming-0011",
+                                "id":"11",
+                                "bookid":"lamming",
+                                "title":"1.3.1 Analysis and synthesis",
+                                "spage":"11",
+                                "epage":"11",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000011.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"1.3.2 The supporting activities",
+                                "type":"doc",
+                                "docno":"lamming-0012",
+                                "id":"12",
+                                "bookid":"lamming",
+                                "title":"1.3.2 The supporting activities",
+                                "spage":"11",
+                                "epage":"12",
+                                "links":[
+                                    {
+                                        "url":"lamming/00000011.jpg"
+                                    },
+                                    {
+                                        "url":"lamming/00000012.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name":"1.4 In conclusion",
+                        "type":"doc",
+                        "docno":"lamming-0013",
+                        "id":"13",
+                        "bookid":"lamming",
+                        "title":"1.4 In conclusion",
+                        "spage":"12",
+                        "epage":"12",
+                        "links":[
+                            {
+                                "url":"lamming/00000012.jpg"
+                            }
+                        ],
+                        "children":[
+                        ]
+                    }
+                ]
+            },
+            {
+                "name":"0. Foreword",
+                "title":"0. Foreword",
+                "spage":"0",
+                "epage":"0",
+                "links":[
+                    {
+                        "url":"lewis/00000000.jpg"
+                    }
+                ],
+                "children":[
+                    {
+                        "name":"0.1 What's This Book All About?",
+                        "title":"0.1 What's This Book All About?",
+                        "spage":"0",
+                        "epage":"0",
+                        "links":[
+                            {
+                                "url":"lewis/00000000.jpg"
+                            }
+                        ],
+                        "children":[
+                            {
+                                "name":"0.1.1 Who Should Be Reading the Book?",
+                                "title":"0.1.1 Who Should Be Reading the Book?",
+                                "spage":"0",
+                                "epage":"0",
+                                "links":[
+                                    {
+                                        "url":"lewis/00000000.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"0.1.2 What Is the User Interface?",
+                                "title":"0.1.2 What Is the User Interface?",
+                                "spage":"0",
+                                "epage":"0",
+                                "links":[
+                                    {
+                                        "url":"lewis/00000000.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name":"0.2 How to Use This Book",
+                        "title":"0.2 How to Use This Book",
+                        "spage":"0",
+                        "epage":"0",
+                        "links":[
+                            {
+                                "url":"lewis/00000000.jpg"
+                            }
+                        ],
+                        "children":[
+                            {
+                                "name":"0.2.1 HyperTopics and Examples",
+                                "title":"0.2.1 HyperTopics and Examples",
+                                "spage":"0",
+                                "epage":"0",
+                                "links":[
+                                    {
+                                        "url":"lewis/00000000.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            },
+                            {
+                                "name":"0.2.2 Exercises",
+                                "title":"0.2.2 Exercises",
+                                "spage":"0",
+                                "epage":"0",
+                                "links":[
+                                    {
+                                        "url":"lewis/00000000.jpg"
+                                    }
+                                ],
+                                "children":[
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]}

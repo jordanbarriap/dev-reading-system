@@ -1,0 +1,97 @@
+
+#chartOut{
+    width: 450px;
+    background-color: #f7fff7;
+    height: 400px;
+    padding-top: 20px;
+}
+
+#chart{
+    padding: 0;
+    margin: 0;
+    width: 450px;
+    height: 401px;
+    background-color: #f7fff7;
+}
+
+#progress-bar{
+    width: 400px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+#chart-detail{
+    width:55px;
+}
+
+#detail{
+    position: absolute;
+    right: 10px;
+}
+
+#tabs{
+    width: 450px;
+    background-color: #f7fff7;
+}
+
+#navTab{
+    margin-bottom: 0;
+}
+
+.tab-content{
+    height: 430px;
+}
+
+.tab-content .tab-pane{
+    padding: 5px;
+}
+
+#tab1 table th{
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#tab1 table td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+#chart2{
+    margin: 0;
+    width: 440px;
+    background-color: #f7fff7;
+}
+
+#choose{
+    position: absolute;
+    left: 20px;
+    top: 210px;
+}
+
+#choose button{
+    height: 29px;
+}
+
+#choose select{
+    width: 280px;
+}
+
+#guidelines {
+    margin: 10px 0 0 5px;
+    padding: 5px;
+    font-size:90%;
+    background-color: #ffffda;
+    color: #333;
+    width: 410px
+}
+
+#control-bar{
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    padding: 0;
+    margin: 0;
+}
