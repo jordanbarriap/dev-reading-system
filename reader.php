@@ -243,6 +243,10 @@ function open_page() {
     // @@@@ call the set highlight on the iframe with the circle
     //parent.document.getElementById("iframe-sun").contentWindow.setHighlight('<?php echo $docno; ?>');
     //parent.window.frames[0].setHighlight('<?php echo $docno; ?>');
+    
+    //Highlight corresponding section in the visualization at the moment a page is opened
+	parent.document.getElementById("iframe-sun").contentWindow.setHighlight('<?php echo $docno; ?>');//added by jbarriapineda in 10-16
+
 	update_page_list();
 }
 
@@ -264,8 +268,8 @@ function update_page_list() {
 		document.getElementById('page_next').style.visibility = 'visible';
 	if(document.getElementById('page_prev'))
 		document.getElementById('page_prev').style.visibility = 'visible';
-	//Highlight corresponding section in the visualization at the moment a page is opened
-	parent.document.getElementById("iframe-sun").contentWindow.setHighlight('<?php echo $docno; ?>');//added by jbarriapineda in 10-16
+
+	
 	
 /*JW : match url-page
 	if(page_disp == <?php echo $end_page; ?>) {
@@ -677,13 +681,6 @@ else
 	       }
 	 });
 	*/
-
-function highlightVisualizationSection(docno){
-    console.log("highlightVisualizationSection "+docno);
-    console.log("paths "+window.parent.d3.selectAll("#iframe-sun"));
-    window.parent.d3.selectAll("path")
-        .style("opacity",0.3);
-}
 
 function getAncestors(node) {
   var path = [];
