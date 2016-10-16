@@ -175,26 +175,17 @@ $.ajax({
                 
                 currentDocno = d.docno;
                 //alert(currentDocno);
+                
+                // select the branch clicked
+                d3.selectAll("path").style("opacity", 0.3);
 
                 // Then highlight only those that are an ancestor of the current segment.
                 var sequenceArray = getAncestors(d);
 
-                // hide the non-selected sections
-                d3.selectAll("path")
-                    .transition()
-                    .duration(500)
+                vis.selectAll("path")
                     .filter(function(node) {
-                        return (sequenceArray.indexOf(node) <0);
+                        return (sequenceArray.indexOf(node) >= 0);
                     })
-                    .style("opacity", 0.2);
-
-                d3.selectAll("path")
-                    .filter(function(node) {
-                        console.log(node);
-                        return (sequenceArray.indexOf(node) >=0);
-                    })
-                    .transition()
-                    .duration(500)
                     .style("opacity", 1);
 
 
@@ -292,13 +283,14 @@ $.ajax({
                 // $(bmc).modal();
 
                 parent.$("#readings").attr('src', goToLink);
-                console.log(currentDocno);
+
                 updateIndexView(currentDocno);
                 return false;
             }
 
             function mouseover(d, i) {
                 d3.select(g[0][i]).select("path").style("opacity", 1.0);
+                
 				d3.select(g[0][i]).select("path").style("stroke","#000");
 				d3.select(g[0][i]).style("stroke-width", "1");
 
@@ -340,31 +332,10 @@ $.ajax({
             }
 
             function mouseout(d, i) {
-
-                var gaux = d3.select(".partition_docno_"+currentDocno);
-
-                if (!gaux)
-                    return;
-
-                var daux = gaux.data()[0]
-
-                if(!daux)
-                    return;
-
-                // Then highlight only those that are an ancestor of the current segment.
-                var sequenceArray = getAncestors(daux);    
-
-				d3.selectAll("path")
-                    .filter(function(node) {
-                        return (sequenceArray.indexOf(node) < 0);
-                    })
-                    .style("stroke","#fff")
-                    .style("opacity",0.2);
-
-				//d3.select(g[0][i]).style("stroke-width", "1");				
-				//d3.select(g[0][i]).style("opacity", 1);
-                //setHighlight(currentDocno);
-
+				d3.select(g[0][i]).select("path").style("stroke","#fff");			
+				d3.select(g[0][i]).style("stroke-width", "1");				
+				d3.select(g[0][i]).style("opacity", 1);
+                setHighlight(currentDocno);
                 /* BEGIN iframe selection */
                 if (d.type == "lecture") {
                     //parent.frames['iframe-sm'].selectFunction('arc' + (d.name.replace(/ /g, "-")), 1);
@@ -455,10 +426,7 @@ function setHighlight(docno){
         return;
 
     // Fade all the segments.
-    d3.selectAll("path")
-        /*.transition()
-        .duration(500)*/
-        .style("opacity", 0.2);
+    d3.selectAll("path").style("opacity", 0.3);
 
     // Then highlight only those that are an ancestor of the current segment.
     var sequenceArray = getAncestors(d);
@@ -467,10 +435,7 @@ function setHighlight(docno){
         .filter(function(node) {
             return (sequenceArray.indexOf(node) >= 0);
         })
-        /*.transition()
-        .duration(500)*/
-        .style("opacity", 1)
-        .style("stroke","black");
+        .style("opacity", 1);
      if(d.type == "lecture"){
          $("#tip").html(d.title);
      }else{
@@ -483,9 +448,9 @@ function setHighlight(docno){
 function updateIndexView(docno){
     //Added by jbarriapineda in 10-10 in order to center the index into the right subsection after clicking the visualization
     var element_current_doc = window.parent.document.getElementById('readingid-' + docno);
-    //setTimeout(function(){
+    setTimeout(function(){
         element_current_doc.scrollIntoView();
-    //},1000);
+    },1000);
     
 }
 

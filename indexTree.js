@@ -183,9 +183,9 @@ $(document).ready(function(){
 					}
         		}
         	}
-			/*if(scroll) {
+			if(scroll) {
 			  scrollToView();
-			}*/
+			}
           }
       });
 	}
