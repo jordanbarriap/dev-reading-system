@@ -111,6 +111,7 @@ $(document).ready(function(){
     var questionStatusButton = document.getElementById("toggle-question-status");
 	var hiddenQuestionStatusButton = document.getElementById("hidden-question-status");
     var indexElement = document.getElementById("index");
+
     
 //    var data = {
 //	        'docids': Object.keys(docIdSet),

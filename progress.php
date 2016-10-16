@@ -27,11 +27,13 @@ foreach ($data as $positionTime) {
 	$bottom = $positionTime["bottom"];
 	$time = $positionTime["time"];
 
-	$pagefileid = $bookid+"_"+$filename;//added by jbarriapineda in 10-08
+	$filename= $positionTime["filename"];
+
+	$pagefileid = $bookid."_".$filename;//added by jbarriapineda in 10-08
 	
-	//insertProgress($usr, $grp, $sid, $pagefileid, $question, $top, $bottom, $time, $datetime, $milliseconds);//added by jbarriapineda in 10-08
+	$sql=insertProgress($usr, $grp, $sid, $pagefileid, $question, $top, $bottom, $time, $datetime, $milliseconds);//added by jbarriapineda in 10-08
 	
-	insertProgress($usr, $grp, $sid, $bookid, $docno, $page, $question, $top, $bottom, $time);
+	//insertProgress($usr, $grp, $sid, $bookid, $docno, $page, $question, $top, $bottom, $time);
 	// TODO: report success/failure
 }
 ?>

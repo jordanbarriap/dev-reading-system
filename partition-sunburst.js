@@ -284,6 +284,7 @@ $.ajax({
 
                 parent.$("#readings").attr('src', goToLink);
 
+                updateIndexView(currentDocno);
                 return false;
             }
 
@@ -442,5 +443,11 @@ function setHighlight(docno){
          $("#tip").html("[Book] <b>" + bookName + "</b>:<br />" + d.name);
      }
      $("#tip").css("color","#000000");
+}
+
+function updateIndexView(docno){
+    //Added by jbarriapineda in 10-10 in order to center the index into the right subsection after clicking the visualization
+    var element_current_doc = window.parent.document.getElementById('readingid-' + docno);
+    element_current_doc.scrollIntoView();
 }
 

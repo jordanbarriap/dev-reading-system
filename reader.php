@@ -264,6 +264,7 @@ function update_page_list() {
 		document.getElementById('page_next').style.visibility = 'visible';
 	if(document.getElementById('page_prev'))
 		document.getElementById('page_prev').style.visibility = 'visible';
+	highlightVisualizationSection('<?php echo $docno; ?>');//added by jbarriapineda in 10-10
 /*JW : match url-page
 	if(page_disp == <?php echo $end_page; ?>) {
 		document.getElementById('page_next').style.visibility = 'hidden';
@@ -674,6 +675,23 @@ else
 	       }
 	 });
 	*/
+
+function highlightVisualizationSection(docno){
+    console.log("highlightVisualizationSection "+docno);
+    console.log("paths "+window.parent.d3.selectAll("#iframe-sun"));
+    window.parent.d3.selectAll("path")
+        .style("opacity",0.3);
+}
+
+function getAncestors(node) {
+  var path = [];
+  var current = node;
+  while (current.parent) {
+    path.unshift(current);
+    current = current.parent;
+  }
+  return path;
+}
 
 </script>
 
