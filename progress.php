@@ -27,7 +27,7 @@ foreach ($data as $positionTime) {
 	$bottom = $positionTime["bottom"];
 	$time = $positionTime["time"];
 
-	$filename= $positionTime["filename"];
+	$filename= $positionTime["filename"];//added by jbarriapineda in 10-16
 
 	$pagefileid = $bookid."_".$filename;//added by jbarriapineda in 10-08
 	

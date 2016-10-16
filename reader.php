@@ -264,7 +264,9 @@ function update_page_list() {
 		document.getElementById('page_next').style.visibility = 'visible';
 	if(document.getElementById('page_prev'))
 		document.getElementById('page_prev').style.visibility = 'visible';
-	highlightVisualizationSection('<?php echo $docno; ?>');//added by jbarriapineda in 10-10
+	//Highlight corresponding section in the visualization at the moment a page is opened
+	parent.document.getElementById("iframe-sun").contentWindow.setHighlight('<?php echo $docno; ?>');//added by jbarriapineda in 10-16
+	
 /*JW : match url-page
 	if(page_disp == <?php echo $end_page; ?>) {
 		document.getElementById('page_next').style.visibility = 'hidden';

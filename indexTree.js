@@ -61,14 +61,14 @@ $(document).ready(function(){
 										subsection_docids.add(leaf_id + "@" + leaf_docno);
 										
                                         leaf_content = leaf_content +
-                                            '<li> <a class="doclink ' + 'docid-' + leaf_id + '" href="#" id="readingid-' + leaf_docno + '" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \'' + reader_url + '?bookid='
+                                            '<li> <a class="doclink ' + 'docid-' + leaf_id + '" href="#" id="readingid-' + leaf_docno + '" onclick=javascript:parent.parent.frames[\'iframe-content\'].location = \'' + reader_url + '?bookid='
                                             + leaf_bookid + '&docno=' + leaf_docno + '&usr='+ usr + '&grp=' + grp + '&sid=' + sid + '&page=1' +'\';">' +
                                             leaf.name + '</a></li>';
                                     });
                                 }
                                 leaf_content = leaf_content + "</ul>";
                                 reading_content = reading_content +
-                                    '<li> <a href="#" style="font-weight:bold;font-size:20px" class="qmark doclink docid-' + reading_id + '" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
+                                    '<li> <a href="#" style="font-weight:bold;font-size:20px" class="qmark doclink docid-' + reading_id + '" onclick=javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
                                     + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1&fromHierarchical=tree' +'\';">?</a>&nbsp;&nbsp;<a id="readingid-' + reading_docno + '" class="doclink ' + 'docid-' + reading_id + '" href="#" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
                                     + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1' +'\';">' +
                                     reading.name + '</a>'+ leaf_content + '</li>';
@@ -294,4 +294,5 @@ function displayQuestions(){
         alert("not ready");
     }
 }
+
 //end of code added by jbarriapineda
