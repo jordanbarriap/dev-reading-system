@@ -216,8 +216,6 @@ setInterval(function() {
 	}
 	//code added by jbarriapineda in 09-29
 	var firstActTracking=window.parent.firstActTracking;
-	console.log(firstActTracking);
-	console.log(window.parent.waitQsPopup);
 	if(firstActTracking){
 		window.parent.firstActTracking=false;
 		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() >= 0.8*jQuery(window.parent.document).height()) {

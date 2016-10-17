@@ -24,7 +24,8 @@ $(document).ready(function(){
 
             // read the lectures and display the name for each
             $.each(result.children, function(i_lecture, lecture){
-                var lecture_content = "<h5>" + lecture.title + "</h5>";
+                console.log(lecture);
+                var lecture_content = "<h5 id='readingid-"+lecture.docno+"'>" + lecture.title + "</h5>";
                 var chapter_content = "<ul>";
 
                 if(lecture.children.length > 0){
@@ -86,7 +87,7 @@ $(document).ready(function(){
                         // @@@@ different book. If the model represents only one book, it is not good to repeat the book name 
                         // @@@@ Another global variable from DB must tell the visualization if multiple books or not
                         chapter_content = chapter_content +
-                            '<li><h5>BOOK:' + bookName + '<br/><a class="doclink" style = "color:black" href="#" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
+                            '<li><h5 id="readingid-'+chapter_docno+'">BOOK:' + bookName + '<br/><a class="doclink" style = "color:black" href="#" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
                             + chapter_bookid + '&docno=' + chapter_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1' +'\';">' +
                             chapter.name + '</a></h5>' + reading_content + '</li>';
                     });
