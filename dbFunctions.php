@@ -94,9 +94,10 @@ function insertProgressForEach($usr, $grp, $sid, $bookid, $docno, $page, $questi
 	$stmt->fetch();
 }
 
-function getTotalPageReadForDocs($usr, $grp, $all_docnos) {
+function getTotalPageReadForDocs($usr, $grp, $all_docnos) {//modify for getting read pages
 	global $config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort;	    
     $sql = "SELECT docno, COUNT(DISTINCT page) AS numPage FROM progress WHERE usr = '".$usr."' AND grp = '".$grp."' AND docno in ".$all_docnos. " GROUP BY docno";
+    
 	//echo $sql."\n";
     $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
 	$docid_pages = array();

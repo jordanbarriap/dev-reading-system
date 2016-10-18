@@ -127,6 +127,7 @@ $(document).ready(function(){
 	  var currentPage = parent.parent.frames['iframe-content'].document.getElementById('current-page');
 	  var docid = parent.parent.frames['iframe-content'].document.getElementById('reader-docid');
 	  var current_reader_url = parent.parent.frames['iframe-content'].location.href;
+      console.log("POUP WHEN REACHING END");
 	  //console.log("currentPage: " + currentPage.value + " docid: " + docid.value + "   MaxPage:" + docIdMaxpage[docid.value]);
 	  
 	  // See whether we need to pop up a question page for readers.
@@ -135,9 +136,11 @@ $(document).ready(function(){
 		 && currentPage != null && currentPage.value == docIdMaxpage[docid.value]) {
 		//pops up a window.
 		// if questions are not displayed.
+
 		if(pendingAnswers==-1 && !window.parent.skippedQuestions[docid.value] && parent.frames['iframe-content'].document.getElementById('question').style.display == 'none') {//modified by jbarriapineda in 29-09
 		  //parent.parent.frames['iframe-content'].location.href = current_reader_url.replace("&fromHierarchical=tree", "") + "&fromHierarchical=tree";
-		  displayQuestions();
+		  
+          displayQuestions();
 		}
 	  }
 	}

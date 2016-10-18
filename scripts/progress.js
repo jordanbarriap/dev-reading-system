@@ -218,7 +218,8 @@ setInterval(function() {
 	var firstActTracking=window.parent.firstActTracking;
 	if(firstActTracking){
 		window.parent.firstActTracking=false;
-		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() >= 0.8*jQuery(window.parent.document).height()) {
+		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() == jQuery(window.parent.document).height()) {
+			console.log("MAX ZOOM");
 			window.parent.waitQsPopup=true;
 			setTimeout(function(){
 				var qs = window.location.search.substring(1);
@@ -245,7 +246,8 @@ setInterval(function() {
 					data: json,
 					success: function(data) {
 						//TODO: error checking... (error callback)
-						document.getElementById("hidden-question-status").click();
+						console.log($("#hidden-question-status"));
+						$("#hidden-question-status").click();
 					}
 				});
 				
@@ -254,7 +256,9 @@ setInterval(function() {
 		}
 	}
 	else{
-		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() == jQuery(window.parent.document).height() && !window.parent.waitQsPopup) {
+		console.log(jQuery(window.parent).scrollTop() + jQuery(window.parent).height());
+		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() >= 0.9*jQuery(window.parent.document).height() & !window.parent.waitQsPopup) {
+			window.parent.waitQsPopup=true;
 			var qs = window.location.search.substring(1);
 		    var map = parseQs(qs);
 		    var grp = map['grp'];
@@ -279,7 +283,8 @@ setInterval(function() {
 				data: json,
 				success: function(data) {
 					//TODO: error checking... (error callback)
-					document.getElementById("hidden-question-status").click();
+					console.log($("#hidden-question-status"));
+					$("#hidden-question-status").click();
 				}
 			});
 			

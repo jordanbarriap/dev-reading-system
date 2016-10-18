@@ -146,7 +146,8 @@ var submit = function() {
 	    	   if (status === 0) {
 	    		   questionImg.src = "q-right.png";
 	    		   statusMessage("Correct!");
-	    		   document.getElementById("hidden-question-status").click();//added by jbarriapineda in 29-09
+	    		   console.log($("#hidden-question-status"));
+	    		   parent.document.getElementById("hidden-question-status").click();//added by jbarriapineda in 29-09
 	    	   } else if (status === 1) {
 	    		   questionImg.src = "q-wrong.png";
 	    		   var message = "Incorrect. Try again.";
