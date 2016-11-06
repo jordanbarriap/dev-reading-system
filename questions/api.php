@@ -34,12 +34,13 @@ if ($task == "status") {
 	$grp = $obj["grp"];
 	$usr = $obj["usr"];
 	$docids = $obj["docids"];
+	$filename = $obj["filename"];
 	
 	$arr = array();
 	
-	foreach ($docids as $docid) {
+	//foreach ($docids as $docid) {
 		$status = 2;
-		$questionIds = docidToQuestionIds($docid);
+		$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);
 		
 		if (count($questionIds) == 0) {
 			$status = 3;
@@ -66,15 +67,16 @@ if ($task == "status") {
 			}
 		}
 		$arr[$docid] = $status;
-	}
+	//}//commented by jbarriapienda in 10-23
 	
 	echo(json_encode($arr));
 } else if ($task == "questions") {
 	$docid = $_GET["docid"];
-	
+	$filename = $_GET["filename"];//added by jbarriapineda in 10-23
+
 	$questions = array();
 	
-	$questionIds = docidToQuestionIds($docid);
+	$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
 	
 	foreach ($questionIds as $id) {
 		$questionText = getQuestion($id);
@@ -86,12 +88,13 @@ if ($task == "status") {
 	echo(json_encode($questions));
 } else if ($task == "lastanswer") {
 	$docid = $_GET["docid"];
+	$filename = $_GET["filename"];//added by jbarriapineda in 10-23
 	$usr = $_GET["usr"];
 	$grp = $_GET["grp"];
 	// returns the last answer of a user for a question
 	$lasts = array();
-	
-	$questionIds = docidToQuestionIds($docid);
+
+	$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
 	foreach ($questionIds as $id) {
 		$last = getLastAnswer($usr, $grp, $id);
 		
@@ -109,12 +112,13 @@ if ($task == "status") {
 	$obj = json_decode($json, true);
 	
 	$docid = $obj["docid"];
+	$filename = $obj["filename"];
 	$grp = $obj["grp"];
 	$usr = $obj["usr"];
 	$sid = $obj["sid"];
 	$answers = $obj["answers"];
 	
-	$questionIds = docidToQuestionIds($docid);
+	$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
 	
 	$correctAnswers = array();
 	foreach ($questionIds as $id) {
@@ -196,8 +200,10 @@ if ($task == "status") {
 	
 	// Queries database.
 	$docid_total_pages = getTotalPageForDocs($all_docnos);
-	$docid_read_pages = getTotalPageReadForDocs($usr, $grp, $all_docnos);
+	$docid_read_pages = getTotalPageReadForDocs2($usr, $grp, $all_docnos);//modified by jbarriapineda in 10-23
+	//print_r($docid_read_pages);//added by jbarriapineda in 10-23
 	$docid_questionids = getTotalQuestionIdsForDocs($all_docids);
+	//print_r($docid_questionids);//added by jbarriapineda in 10-23
 
 	foreach ($docids as $docids_each) {
 		$status = 2;
@@ -212,7 +218,6 @@ if ($task == "status") {
 		  $docid_key = $docid_key.$docid_each.",";
 		  $page_for_read = 0;
 		  $page_read = 0;
-		  
 		  if(array_key_exists($docid_each, $docid_questionids)) {
 		    $questionIds = array_merge($questionIds, explode(',', $docid_questionids[$docid_each]));
 		  }
@@ -226,7 +231,9 @@ if ($task == "status") {
 		  $total_docs = $total_docs + 1;
 		  //echo $docid_each."-".$page_for_read."-".$page_read."-".count($questionIds)."\n";
 		}
-		
+		//echo($docids_each." ");
+		//echo($percentage_per_page / $total_docs);
+		//echo("\n");
 		if($total_docs > 0 and ($percentage_per_page / $total_docs < 0.8) ) {
 		    $status = 4;
 		} else if (count($questionIds) == 0) {
@@ -259,14 +266,29 @@ if ($task == "status") {
 	
 	echo(json_encode($arr));
 } else if ($task == "subsectionquestions") {
+	$docid = $_GET["docid"];//added by jbarriapineda in 11-03
+	$subdocids = $_GET["subdocids"];//added by jbarriapineda in 11-03
 	$docid_array = explode(",", $_GET["docids"]);
 	$questionIds = array();
 	$questions = array();
+	$questionmode = $_GET["questionmode"];//added by jbarriapineda in 11-03
+	$filename = $_GET["filename"];//added by jbarriapineda in 10-23
 	
-	foreach($docid_array as $docid) {	  
-	  $questionIds = array_merge($questionIds, docidToQuestionIds($docid));
+	//foreach($docid_array as $docid){
+	if($questionmode=="page"){//if the user reaches the end of a end-of-section page we show all the questions that can be finished by reading that page till the end
+		$questionIds = array_merge($questionIds, filenameToQuestionIds($filename));//docidToQuestionIds($docid)); //modified by jbarriapineda in 10-23
 	}
-	
+	if($questionmode=="section"){//if a user click a question mark icon from the index, we just have to show the questions related to that section
+		$subdocids_array=explode(",",$subdocids);
+		//if(count($subdocids_array)>0){
+		for($i=0;$i<count($subdocids_array);$i++){
+			$subdocid=$subdocids_array[$i];
+			$questionIds = array_merge($questionIds, docidToQuestionIds2($subdocid)); //added by jbarriapineda in 10-23
+		}
+		//}
+		
+	}
+	//}
 	$questionIds = getSortedUniqueArray($questionIds);
 	
 	foreach ($questionIds as $id) {
@@ -293,10 +315,10 @@ if ($task == "status") {
 	$answers = $obj["answers"];
 	
 	$docid_array = explode(",", $docids);
-	$questionIds = array();	
-	foreach($docid_array as $docid) {
+	$questionIds = array();
+	//foreach($docid_array as $docid) {
 	  $questionIds = array_merge($questionIds, docidToQuestionIds($docid));
-	}
+	//}
 	
 	$questionIds = getSortedUniqueArray($questionIds);
 	
@@ -338,15 +360,17 @@ if ($task == "status") {
 	echo(json_encode($arr));
 } else if ($task == "subsectionlastanswer") {
     $docid_array = explode(",", $_GET["docids"]);
+    $filename = $_GET["filename"];
 	$usr = $_GET["usr"];
 	$grp = $_GET["grp"];
 	
 	$questionIds = array();
 	$lasts = array();
 	
-	foreach($docid_array as $docid) {	  
-	  $questionIds = array_merge($questionIds, docidToQuestionIds($docid));
-	}
+	//foreach($docid_array as $docid) {	  
+	  //$questionIds = array_merge($questionIds, docidToQuestionIds($docid));
+	$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
+	//}
 	
 	$questionIds = getSortedUniqueArray($questionIds);
 	

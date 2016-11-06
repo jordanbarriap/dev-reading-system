@@ -160,6 +160,53 @@ $.ajax({
                     return (d.type == "lecture" ? d.name : ''); // @@@@
                 });
 
+            console.log(d3.select("div#chart")
+                .select("svg"));
+
+            d3.select("div#chart")
+                .select("svg")
+                .append("svg:text")
+                .attr("id","user_success_rate")
+                .style("font-size", "75%")
+                .attr("x", width1*0.4)// margin
+                .attr("y", height1*0.42)// vertical-align
+                .text(function (d) {
+                    return "Your success rate"; // @@@@
+                })
+                 .call(wrap, 50); // wrap the text in <= 30 pixels;
+
+            d3.select("div#chart")
+                .select("svg")
+                .append("svg:text")
+                .style("font-size", "150%")
+                .attr("dx", width1*0.35)// margin
+                .attr("dy", height1*0.55)// vertical-align
+                .text(function (d) {
+                    return "30%"; // @@@@
+                });
+
+            d3.select("div#chart")
+                .select("svg")
+                .append("svg:text")
+                .attr("id","user_success_rate")
+                .style("font-size", "75%")
+                .attr("x", width1*0.56)// margin
+                .attr("y", height1*0.42)// vertical-align
+                .text(function (d) {
+                    return "Class success rate"; // @@@@
+                })
+                .call(wrap, 50);
+
+            d3.select("div#chart")
+                .select("svg")
+                .append("svg:text")
+                .style("font-size", "150%")
+                .attr("dx", width1*0.52)// margin
+                .attr("dy", height1*0.55)// vertical-align
+                .text(function (d) {
+                    return "80%"; // @@@@
+                });
+
             function click(d) {
                 var actionsrc = "sunburst_model"
                 var actiontype = "display_content"
@@ -460,5 +507,40 @@ function updateIndexView(docno){
         element_current_doc.scrollIntoView();
     //},500);
     
+}
+
+function wrap(text, width) {
+    text.each(function () {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            x = text.attr("x"),
+            y = text.attr("y"),
+            dy = 0, //parseFloat(text.attr("dy")),
+            tspan = text.text(null)
+                        .append("tspan")
+                        .attr("x", x)
+                        .attr("y", y)
+                        .attr("dy", dy + "em")
+                        .style("text-anchor","middle");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                            .attr("x", x)
+                            .attr("y", y)
+                            .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                            .style("text-anchor","middle")
+                            .text(word);
+            }
+        }
+    });
 }
 

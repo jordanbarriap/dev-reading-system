@@ -5,7 +5,7 @@
  * Time: 上午7:09
  * To change this template use File | Settings | File Templates.
  */
- var pendingAnswers = -1;//added by jbarriapineda in 29-09
+ var pendingAnswers = -1;//added by jbarriapineda in 09-29
 
 $(document).ready(function(){
 	
@@ -13,6 +13,7 @@ $(document).ready(function(){
 	var docIdSet = {}; // would use Set object, but cross-browser issues
 	var docNoSet = {}; // would use Set object, but cross-browser issues
 	var docIdMaxpage = {};
+    console.log(json_file);//added by jbarriapineda in 10-23
     $.ajax({
         url: json_file, // @@@@
         async: false,
@@ -62,22 +63,28 @@ $(document).ready(function(){
 										subsection_docids.add(leaf_id + "@" + leaf_docno);
 										
                                         leaf_content = leaf_content +
-                                            '<li> <a class="doclink ' + 'docid-' + leaf_id + '" href="#" id="readingid-' + leaf_docno + '" onclick=javascript:parent.parent.frames[\'iframe-content\'].location = \'' + reader_url + '?bookid='
+                                            '<li> <a class="doclink ' + 'docid-' + leaf_id + '" href="#" id="readingid-' + leaf_docno + '" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \'' + reader_url + '?bookid='
                                             + leaf_bookid + '&docno=' + leaf_docno + '&usr='+ usr + '&grp=' + grp + '&sid=' + sid + '&page=1' +'\';">' +
                                             leaf.name + '</a></li>';
                                     });
                                 }
                                 leaf_content = leaf_content + "</ul>";
-                                reading_content = reading_content +
-                                    '<li> <a href="#" style="font-weight:bold;font-size:20px" class="qmark doclink docid-' + reading_id + '" onclick=javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
-                                    + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1&fromHierarchical=tree' +'\';">?</a>&nbsp;&nbsp;<a id="readingid-' + reading_docno + '" class="doclink ' + 'docid-' + reading_id + '" href="#" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
-                                    + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1' +'\';">' +
-                                    reading.name + '</a>'+ leaf_content + '</li>';
+                                
 								var string_subsectionids = "";
+                                var string_subsectiondocids = "";
 								for(var element of subsection_docids) {
+                                    var sub_docid=element.split('@')[0];
+                                      string_subsectiondocids = string_subsectiondocids + sub_docid + ","; 
 									string_subsectionids += element + ",";
 									docIdMaxpage[element.split('@')[0]] = epage;
 								}
+                                string_subsectiondocids=string_subsectiondocids.substring(0,string_subsectiondocids.length-1);
+                                reading_content = reading_content +
+                                    '<li> <a href="#" style="font-weight:bold;font-size:20px" class="qmark doclink docid-' + reading_id + '" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?subdocids='+string_subsectiondocids+'&questionMode=section&bookid='
+                                    + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1&fromHierarchical=tree' +'\';">?</a>&nbsp;&nbsp;<a id="readingid-' + reading_docno + '" class="doclink ' + 'docid-' + reading_id + '" href="#" onclick="javascript:parent.parent.frames[\'iframe-content\'].location = \''+reader_url+'?bookid='
+                                    + reading_bookid + '&docno=' + reading_docno + '&usr='+ usr + '&grp=' + grp + '&sid='+ sid + '&page=1' +'\';">' +
+                                    reading.name + '</a>'+ leaf_content + '</li>';
+
 								string_subsectionids += "-1";
 								docIdSet[string_subsectionids.replace(",-1", "")] = 0;
                             });
@@ -127,7 +134,7 @@ $(document).ready(function(){
 	  var currentPage = parent.parent.frames['iframe-content'].document.getElementById('current-page');
 	  var docid = parent.parent.frames['iframe-content'].document.getElementById('reader-docid');
 	  var current_reader_url = parent.parent.frames['iframe-content'].location.href;
-      console.log("POUP WHEN REACHING END");
+      console.log("POUP WHEN REACHING END");//added by jbarriapineda
 	  //console.log("currentPage: " + currentPage.value + " docid: " + docid.value + "   MaxPage:" + docIdMaxpage[docid.value]);
 	  
 	  // See whether we need to pop up a question page for readers.
@@ -151,7 +158,7 @@ $(document).ready(function(){
 	        'usr': usr,
 	        'grp': grp
 	    };
-		
+		console.log(parent.JSON.stringify(data));//added by jbarriapineda in 10-22
 		$.ajax({
         url: 'questions/api.php?task=subsectionstatus',
         type: 'POST',

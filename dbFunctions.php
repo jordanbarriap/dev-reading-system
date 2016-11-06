@@ -115,6 +115,44 @@ function getTotalPageReadForDocs($usr, $grp, $all_docnos) {//modify for getting 
     return $docid_pages;
 }
 
+function getTotalPageReadForDocs2($usr, $grp, $all_docnos) {//modify for getting read pages
+    global $config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort;      
+    $sql = "SELECT pf.docsrc_pagefile_id, pf.docno_page_id FROM pagefile AS pf, progress2 AS pg WHERE pg.usr = '".$usr."' AND pg.grp = '".$grp."' AND pf.docsrc_pagefile_id=pg.pagefileid GROUP BY pf.docno_page_id;";
+    
+    //echo $sql."\n";
+    $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
+    $docid_exact_page = array();
+    $docid_pages= array();
+    if ($connection){
+        if($res = mysqli_query($connection, $sql)){
+            if(mysqli_num_rows($res) > 0){
+                while($row = mysqli_fetch_array($res)){
+                    array_push($docid_exact_page,$row["docno_page_id"]);
+                }
+            }
+            mysqli_free_result($res);
+        }
+        dbDisconnectMySQL($connection);
+    }
+    $all_docnos_array=explode(",",$all_docnos);
+    for($i=0;$i<count($docid_exact_page);$i++){
+        $doc_page_array=explode("|",$docid_exact_page[$i]);
+        for($j=0;$j<count($doc_page_array);$j++){
+            $doc_page=explode("_",$doc_page_array[$j]);
+            $docno=$doc_page[0];
+            //if(in_array($docno,$all_docnos_array)){//TODO: fix in order to get it work!
+                if(array_key_exists($docno,$docid_pages)){
+                    $docid_pages[$docno]=$docid_pages[$docno]+1;
+                }else{
+                    $docid_pages[$docno]=1;
+                }
+            //}
+        }
+    }
+    //print_r($docid_pages);
+    return $docid_pages;
+}
+
 function getTotalPageRead($usr, $grp, $docid) {
 	$mysqli = getConn();
 	$stmt = $mysqli->prepare("SELECT COUNT(DISTINCT page) AS numPage FROM progress WHERE usr = ? AND grp = ? AND docno like ?");
@@ -124,6 +162,17 @@ function getTotalPageRead($usr, $grp, $docid) {
 	$stmt->bind_result($numPage);
 	$stmt->fetch();
 	return $numPage;
+}
+
+function getTotalPageRead2($usr, $grp, $docid) {//TODO
+    $mysqli = getConn();
+    $stmt = $mysqli->prepare("SELECT COUNT(DISTINCT page) AS numPage FROM progress WHERE usr = ? AND grp = ? AND docno like ?");
+    $newdocid = '%-'.$docid;
+    $stmt->bind_param('sss', $usr, $grp, $newdocid);
+    $stmt->execute();
+    $stmt->bind_result($numPage);
+    $stmt->fetch();
+    return $numPage;
 }
 
 function getTotalPageForDocs($all_docnos) {
@@ -240,6 +289,51 @@ function docidToQuestionIds($docid) {
 		}
 	}
 	return $results;
+}
+
+function docidToQuestionIds2($docid) {
+    $mysqli = getConn();
+    
+    $results = array();
+    
+    //$docids = docidToDocids($docid);
+    
+    //foreach ($docids as $id) {
+        $mysqli = getConn();
+        $stmt = $mysqli->prepare("SELECT idquestions FROM questions WHERE docid = ?");
+        $stmt->bind_param('i', $docid);
+        $stmt->execute();
+        $stmt->bind_result($questions);
+        while ($stmt->fetch()) {
+            array_push($results, $questions);
+        }
+    //}
+    return $results;
+}
+
+function filenameToQuestionIds($filename){//added by jbarriapineda in 10-23
+    global $config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort;
+    $mysqli = getConn();
+    
+    $results = array();
+    
+    $sql = "SELECT idques_bysection FROM pagefile WHERE docsrc_pagefile_id='".$filename."';";
+    $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
+    $string_questionids = "";
+    if ($connection){
+        if($res = mysqli_query($connection, $sql)){
+            if(mysqli_num_rows($res) > 0){
+                $row = mysqli_fetch_array($res);
+                $string_questionids = $row["idques_bysection"];            
+            }
+            mysqli_free_result($res);
+        }
+        dbDisconnectMySQL($connection);
+    }
+
+    $questionids=explode("|",$string_questionids);
+
+    return $questionids;
 }
 
 function getTotalQuestionIdsForDocs($all_docids) {

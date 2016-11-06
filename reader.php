@@ -17,10 +17,14 @@ $dbase = $_GET['dbase'];
 $sid = 'unknown';
 $course = 'unknown';
 $fromHierarchical = 'none';
+$questionMode = 'page';
+$subdocids='none';
 if (isset($_GET['sid'])) $sid = $_GET['sid'];
 if (isset($_GET['course'])) $course = $_GET['course'];
 if (isset($_GET['fromHierarchical'])) $fromHierarchical = $_GET['fromHierarchical'];
 if (isset($_GET['docidQs'])) $docidQs = $_GET['docidQs'];//added by jbarriapineda in 29-09
+if (isset($_GET['questionMode'])) $questionMode = $_GET['questionMode'];//added by jbarriapineda in 11-03
+if (isset($_GET['subdocids'])) $subdocids = $_GET['subdocids'];//added by jbarriapineda in 11-03
 
 // this parameter is received only when the page is load from "previous" or "next" buttons
 $frombutton = '';
@@ -163,6 +167,7 @@ body {
 }
 </style>
 <script>
+
 var corpus_path = '<?php echo $corpus_path; ?>';
 var book_path = '<?php echo $bookInfo["folder"]; ?>';
 var book_folder = '<?php echo $bookInfo["folder"]; ?>';
@@ -320,6 +325,7 @@ Event.observe(window, 'load', function() {
   var docno = '<?php echo $docno; ?>';  
   var docsrc = '<?php echo $bookid;?>';
   var fileName = '<?php echo $fileName; ?>';
+  
   
   var prevc = document.getElementById('prevb');
   var nextc = document.getElementById('nextb');
@@ -531,11 +537,14 @@ else
 
 	var toggleSpecificQuestion = function(docId) {
 	    // Gets docids.
+
 	    var allDocIds = JSON.parse(parent.document.getElementById('allDocIds').value);  
 	    for(var index = 0; index < allDocIds.length; index++) {
 	      var element = allDocIds[index];
 	      if(("," + element).indexOf("," + docId + "@") > -1) {  
-	         qFrame.src = 'questions/question.php?docid=' + docId + '&usr=' + usr + '&grp=' + grp + '&docids=' + element;
+	         //qFrame.src = 'questions/question.php?docid=' + docId + '&usr=' + usr + '&grp=' + grp + '&docids=' + element;
+	         var fileName = '<?php echo $bookid."_".$fileName; ?>';
+	         qFrame.src = 'questions/question.php?docid=' + docId + '&usr=' + usr + '&grp=' + grp + '&docids=' + element+'&filename='+fileName;
 	         $(qFrame).toggle();
 	      }
 	    }
@@ -547,11 +556,15 @@ else
 
 	var toggleQuestion = function() {
 	    // Gets docids.
+	    var questionMode = '<?php echo $questionMode; ?>';
+	    var subdocids = '<?php echo $subdocids; ?>';
 		var allDocIds = JSON.parse(parent.document.getElementById('allDocIds').value);	
 		for(var index = 0; index < allDocIds.length; index++) {
 		  var element = allDocIds[index];
 		  if(("," + element).indexOf("," + docid + "@") > -1) {  
-		     qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp + '&docids=' + element;
+		     //qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp + '&docids=' + element;
+		     var fileName = '<?php echo $bookid."_".$fileName; ?>';
+		     qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp + '&docids=' + element+'&filename='+fileName+'&questionMode='+questionMode+'&subdocids='+subdocids;
 		     $(qFrame).toggle();
 		  }
 		}
@@ -641,7 +654,9 @@ else
 			qFrame.removeAttribute('src');
 		} else if (!qFrame.src) {
 			questionLink.addEventListener('click', toggleQuestion);
-			qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp;
+			//qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp;
+			var fileName = '<?php echo $bookid."_".$fileName; ?>';
+			qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp+'&filename='+fileName;
 		}
 		
 		<?php

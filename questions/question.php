@@ -43,10 +43,15 @@ var qs = getQueryVariables(window);
 var docid = qs['docid'];
 var docids = qs['docids'];
 
+var filename=qs['filename'];//added by jbarriapineda in 10-23
+var questionmode=qs['questionMode'];//added by jbarriapineda in 11-03
+var subdocids=qs['subdocids'];//added by jbarriapineda in 11-03
+
 var qsParent = getQueryVariables(parent.parent.window);
 var usr = qsParent['usr'];
 var grp = qsParent['grp'];
 var sid = qsParent['sid'];
+
 if (!sid) {
 	// happens when using interface when not logged in through Knowledge Tree
 	// Alternatively throw error (i.e., don't allow usage without going through portal)
@@ -135,6 +140,7 @@ var submit = function() {
         'sid': sid,
         'answers': answers
     };
+    console.log(data);//added by jbarriapineda in 10-22
 	jQuery.ajax({
 	       url: 'api.php?task=subsectionsubmit',
 	       type: 'POST',
@@ -175,7 +181,7 @@ document.getElementById('submit').addEventListener('click', submit);
 
 jQuery.ajax({
        url: 'api.php',
-       data: {'task': 'subsectionquestions', 'docid': docid, 'docids': docids},
+       data: {'task': 'subsectionquestions', 'docid': docid, 'docids': docids, 'filename':filename, 'questionmode':questionmode,'subdocids':subdocids},
        dataType: "json",
        success: function(data) {
     	   for (var i = 0; i < data.length; i++) {
