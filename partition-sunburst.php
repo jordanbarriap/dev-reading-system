@@ -65,6 +65,18 @@ if(isset($_GET["docno"])) $docno = $_GET["docno"];
 				case "mir": 
                     res = "Modern Information Retrieval"; // @@@@
                     break;
+				case "mir2": 
+                    res = "Modern Information Retrieval (MIR, 2nd edition)"; // @@@@
+                    break;
+                case "foa": 
+                    res = "Finding Out About: A Cognitive Perspective on Search Engine Technology and the WWW (FOA)"; // @@@@
+                    break;
+                case "ies": 
+                    res = "Information Retrieval: Implementing and Evaluating Search Engines (IES)"; // @@@@
+                    break;
+				case "dbms":
+					res = "Database Management Systems, 3rd Edition";
+					break;
             }
             return res;
         }
