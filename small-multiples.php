@@ -52,6 +52,9 @@
                 case "ies": 
                     res = "Information Retrieval: Implementing and Evaluating Search Engines (IES)"; // @@@@
                     break;
+				case "dbms":
+					res = "Database Management Systems, 3rd Edition";
+					break;
             }
             return " " + res;
         }
