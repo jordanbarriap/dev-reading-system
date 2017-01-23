@@ -21,23 +21,29 @@ $grp = $_GET["grp"];
 $mode = $_GET["mode"];
 
 
+
 include("config.php");
 include("dbFunctions.php");
 include("userFunctions.php");
 
-header('Content-Type: application/json');
 
+
+header('Content-Type: application/json');
+//$start=microtime(true);
 $jsonoutput = getGroupListFromUM($grp);
 // mode == model means it will retrieve the users with their last computed models
 if ($mode == "model"){
     $courseinfo = getCourseInfo($grp);
+    //echo microtime(true) - $start;
+    //echo "models";
     $courseid = $courseinfo["courseid"];
     $domain = $courseinfo["domain"];
     $_group_list = json_decode($jsonoutput,true);
     $_users = &$_group_list["users"];
-    
+
     $_last_models = getLastModels($grp, $courseid, $domain);
     //var_dump($_last_models);
+
     foreach($_users as $key => &$user){
         $login = $user["login"];
             if (isset($_last_models[$login])){

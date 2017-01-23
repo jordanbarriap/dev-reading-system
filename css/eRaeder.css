@@ -48,7 +48,7 @@ body{
 
 /* 1 Incorrect */
 .qShow a.status-1 {
-    color: orange;
+    color: red;
 }
 
 /* 2 Unanswered */
@@ -75,7 +75,7 @@ body{
 
 /* 1 Incorrect */
 .qShow a.status-1-qmark {
-    color: orange;
+    color: red;
 /*    text-decoration: line-through; */
 }
 
@@ -96,6 +96,7 @@ body{
     color: white;
 /*    text-decoration: line-through; */
 }
+
 
 /* ---- reading content ---- */
 

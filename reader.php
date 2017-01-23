@@ -23,6 +23,7 @@ if (isset($_GET['sid'])) $sid = $_GET['sid'];
 if (isset($_GET['course'])) $course = $_GET['course'];
 if (isset($_GET['fromHierarchical'])) $fromHierarchical = $_GET['fromHierarchical'];
 if (isset($_GET['docidQs'])) $docidQs = $_GET['docidQs'];//added by jbarriapineda in 29-09
+if (isset($_GET['filenameQs'])) $filenameQs = $_GET['filenameQs'];//added by jbarriapineda in 11-10
 if (isset($_GET['questionMode'])) $questionMode = $_GET['questionMode'];//added by jbarriapineda in 11-03
 if (isset($_GET['subdocids'])) $subdocids = $_GET['subdocids'];//added by jbarriapineda in 11-03
 
@@ -64,7 +65,7 @@ function track_um($book_um, $docid, $usr, $grp, $sid ) {
 $db = 'hci';
 if($bookid == 'silberschatz') $db = 'db';
 if($bookid == 'tdo') $db = 'tdo';
-
+if($bookid == 'ir') $db = 'ir';
 // @@@@
 // get document information from database (see dbFunctions.php)
 $docInfo = getDocInfo($docno);
@@ -179,6 +180,7 @@ var grp = '<?php echo $grp; ?>';
 
 window.parent.firstActTracking=true;//added by jbarriapineda in 10-01
 window.parent.waitQsPopup=false;//added by jbarriapineda in 10-01
+window.parent.bookid=bookid;
 
 </script>
 <script src='js/jquery.js' type='text/javascript'></script>
@@ -234,7 +236,14 @@ function init_reader(){
     }
 }
 function open_page() {
-	
+	console.log("update question status start new page");
+	console.log(page_disp);
+	console.log(window.parent.docIdMaxpage[docid]);
+	if(window.parent.docIdMaxpage[docid]!=page_disp){
+		//console.log(parent.document.getElementById("hidden-question-status"));
+		parent.document.getElementById("hidden-question-status").click();//added by jbarriapineda in 01-09
+	}
+
 	var fileName;
 	if(page_disp < 10) fileName = "0000000";
 	if(page_disp >= 10 && page_disp < 100) fileName = "000000";
@@ -249,6 +258,8 @@ function open_page() {
     //Highlight corresponding section in the visualization at the moment a page is opened
     parent.currentDocno='<?php echo $docno; ?>';
 	parent.document.getElementById("iframe-sun").contentWindow.setHighlight('<?php echo $docno; ?>');//added by jbarriapineda in 10-16
+
+	parent.window.scrollTo(0,0);//scroll to the top of the page
 	
     //parent.window.frames[0].setHighlight('<?php echo $docno; ?>');
 	update_page_list();
@@ -272,6 +283,7 @@ function update_page_list() {
 		document.getElementById('page_next').style.visibility = 'visible';
 	if(document.getElementById('page_prev'))
 		document.getElementById('page_prev').style.visibility = 'visible';
+	
 	
 	
 /*JW : match url-page
@@ -554,22 +566,55 @@ else
 	};
 	//end of code added by jbarriapineda
 
+	var toggleSpecificQuestionFilename = function(fileName) {
+	    // Gets docids.
+
+	    //var allDocIds = JSON.parse(parent.document.getElementById('allDocIds').value);  
+	    //for(var index = 0; index < allDocIds.length; index++) {
+	    //  var element = allDocIds[index];
+	    //  if(("," + element).indexOf("," + docId + "@") > -1) {  
+	         qFrame.src = 'questions/question.php?docid=-&usr=' + usr + '&grp=' + grp + '&docids=' + '&filename='+fileName+'&questionMode=page&subdocids=';
+	         //qFrame.src = 'questions/question.php?usr=' + usr + '&grp=' + grp + '&filename='+fileName;
+	         $(qFrame).toggle();
+	    //  }
+	    //}
+	    if(!jQuery(qFrame).is(':visible')){//added by jbarriapineda in 30-09
+		     	window.parent.skippedQuestions[fileName]=1;
+		}//end of code added by jbarriapineda
+	};
+	//end of code added by jbarriapineda
+
 	var toggleQuestion = function() {
 	    // Gets docids.
 	    var questionMode = '<?php echo $questionMode; ?>';
 	    var subdocids = '<?php echo $subdocids; ?>';
-		var allDocIds = JSON.parse(parent.document.getElementById('allDocIds').value);	
+		var allDocIds = JSON.parse(parent.document.getElementById('allDocIds').value);
+		var fileName = "";
 		for(var index = 0; index < allDocIds.length; index++) {
 		  var element = allDocIds[index];
 		  if(("," + element).indexOf("," + docid + "@") > -1) {  
 		     //qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp + '&docids=' + element;
-		     var fileName = '<?php echo $bookid."_".$fileName; ?>';
+		     fileName = '<?php echo $bookid."_".$fileName; ?>';
 		     qFrame.src = 'questions/question.php?docid=' + docid + '&usr=' + usr + '&grp=' + grp + '&docids=' + element+'&filename='+fileName+'&questionMode='+questionMode+'&subdocids='+subdocids;
 		     $(qFrame).toggle();
 		  }
 		}
 		if(!jQuery(qFrame).is(':visible')){//added by jbarriapineda in 30-09
-		     	window.parent.skippedQuestions[docid]=1;
+			if(questionMode=="page"){
+		     	window.parent.skippedQuestions[fileName]=1;
+		     	/*console.log("fileName: "+fileName+" fileNameQs: "+window.parent.filenameQs);
+		     	if(fileName==window.parent.filenameQs){
+					window.parent.pendingAnswers=-1;
+				}*/
+
+			}
+			if(questionMode=="section"){
+				window.parent.skippedQuestions[docid]=1;
+				/*console.log("docid: "+docid+" docidQs: "+window.parent.docidQs);
+				if(docid==window.parent.docidQs){
+					window.parent.pendingAnswers=-1;
+				}*/
+			}
 		}//end of code added by jbarriapineda
 
 	};
@@ -578,11 +623,19 @@ else
 		return $(qFrame).visible();
 	};
 
-	
 	if(!window.parent.docidQs) window.parent.docidQs=-1;//added by jbarriapineda in 29-09
-	if(window.parent.docidQs!=-1 && docid!=window.parent.docidQs){//added by jbarriapineda in 29-09
+	if(!window.parent.filenameQs) window.parent.filenameQs=-1;//added by jbarriapineda in 11-03
+	/*if(window.parent.docidQs!=-1 && docid!=window.parent.docidQs){//added by jbarriapineda in 29-09
 	    toggleSpecificQuestion(window.parent.docidQs);
 	    window.parent.docidQs=-1;
+	}//end of code added by jbarriapineda*/
+	var fileName = '<?php echo $bookid."_".$fileName; ?>';
+	//console.log(fileName);
+	if(window.parent.filenameQs!=-1 && fileName!=window.parent.filenameQs){//added by jbarriapineda in 11-03
+		//console.log("toggleSpecificQuestionFilename "+window.parent.filenameQs);
+	    toggleSpecificQuestionFilename(window.parent.filenameQs);
+	    window.parent.filenameQs=-1;
+	    window.parent.pendingAnswers=-1;
 	}//end of code added by jbarriapineda
 	
 

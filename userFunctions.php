@@ -191,7 +191,7 @@ function computeProgress($docno, $_ACT_FROM_UM, $_ACT_FROM_READER, $_ACT_FROM_OL
         $annotations += $_ACT_FROM_OLDREADER[$docno]["annotations"];    
     } 
     
-    $coverage = 1.0 * $distinct / $npages;
+    $coverage = 1.0 * $distinct / $npages;//modified by jbarriapineda in 11-28
     
     $loadrate = $totalhits / $npages;
     $actionrate = ($clicks + $annotations) / $npages;
@@ -211,7 +211,8 @@ function computeProgress($docno, $_ACT_FROM_UM, $_ACT_FROM_READER, $_ACT_FROM_OL
     
     $confidence = ($loadconf + $actionconf) / 2;
     if ($coverage>1.0) $coverage = 1.0;
-    
+    $coverage=$coverage-0.25;//added by jbarraipineda in 11-28
+    if($coverage<0.0) $coverage=0.0;//added by jbarraipineda in 11-28
     return array($coverage,$confidence);
 
 }
@@ -417,6 +418,7 @@ function getActivityFromUM($usr,$grp,$domain){
     //var_dump($docsetbyids);
     
     //  GET THE DOCNOs
+    //$sql = "SELECT docid,docsrc,docno, (epage-spage+1) as npages FROM document WHERE docid in (".$docidset.");";
     $sql = "SELECT docid,docsrc,docno, (epage-spage+1) as npages FROM document WHERE docid in (".$docidset.");";
     $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
     if ($connection){

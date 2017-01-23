@@ -8,7 +8,7 @@ $grp = $_GET["grp"];
 $sid = $_GET["sid"];
 
 $reader_url = $config_readerURL;
-
+$html_reader_url = "http://columbus.exp.sis.pitt.edu/socialreader.reader/index.html";//?readingid=horstmann5542c07_1.xform&usr=dguerra&grp=ADL&sid=TEST#";//added by jbarriapineda in 11-14
 
 $courseInfo = getCourseInfo($grp);
 
@@ -30,33 +30,35 @@ $page = -1;
 if (isset($_GET['bookid']) ) { $bookid = $_GET['bookid'];}
 if (isset($_GET['docno']) ) { $docno = $_GET['docno'];}
 if (isset($_GET['page']) ) { $page = $_GET['page'];}
+if (isset($_GET['readingid']) ) { $readingid = $_GET['readingid'];}//added by jbarriapineda in 11-14
 
-
-// if there were no parameters got from URL
-if(strlen($bookid) == 0){
-    $user_last_doc = getUserLastDocViewed($usr,$grp,$course_domain);
-	
-    if(!is_null($user_last_doc)){
-        $bookid = $user_last_doc["docsrc"];
-        $docno =  $user_last_doc["docno"]; 
-        $page = 1;
-    }else{
-        if($course === 'isd'){
-            $bookid = "lamming";
-            $docno =  "lamming-0001"; 
-            $page = 1; 
-        }
-        if($course === 'tdo'){
-            $bookid = "tdo";
-            $docno =  "tdo-2000";
-            $page = 1;
-        }		
-		if($course === 'ir'){
-            $bookid = "iir";
-            $docno =  "iir-2104";
-            $page = 1;
-        }
-    }
+if(strlen($readingid)==0){
+	// if there were no parameters got from URL
+	if(strlen($bookid) == 0){
+	    $user_last_doc = getUserLastDocViewed($usr,$grp,$course_domain);
+		
+	    if(!is_null($user_last_doc)){
+	        $bookid = $user_last_doc["docsrc"];
+	        $docno =  $user_last_doc["docno"]; 
+	        $page = 1;
+	    }else{
+	        if($course === 'isd'){
+	            $bookid = "lamming";
+	            $docno =  "lamming-0001"; 
+	            $page = 1; 
+	        }
+	        if($course === 'tdo'){
+	            $bookid = "tdo";
+	            $docno =  "tdo-2000";
+	            $page = 1;
+	        }		
+			if($course === 'ir'){
+	            $bookid = "iir";
+	            $docno =  "iir-2104";
+	            $page = 1;
+	        }
+	    }
+	}
 }
 
 if (isset($_GET['docno']) ) { $docno = $_GET['docno'];}
@@ -133,8 +135,19 @@ if (isset($_GET['docno']) ) { $docno = $_GET['docno'];}
     <button id="slide-toggle" class="btn btn-inverse btn-mini"><i class="icon-resize-horizontal icon-white"></i> </button>
   </div>
   <div id="content">
+<?php
+if(strlen($readingid)==0){
+?>
     <iframe id="readings" src="<?php echo $reader_url;?>?bookid=<?php echo $bookid;?>&docno=<?php echo $docno;?>&page=<?php echo $page;?>&usr=<?php echo $usr;?>&grp=<?php echo $grp;?>&sid=<?php echo $sid;?>&course=<?php echo $course;?>&dbase=<?php echo $course_kseadb;?>" 
         name="iframe-content" scrolling="no" style="overflow-x:hidden; overflow:hidden; padding-top: -100px; height: 1130px; width: 100%;"></iframe>
+<?php
+}else{
+?>
+<iframe id="readings" src="<?php echo $html_reader_url;?>?bookid=<?php echo $bookid;?>&readingid=<?php echo $readingid;?>&usr=<?php echo $usr;?>&grp=<?php echo $grp;?>&sid=<?php echo $sid;?>" 
+        name="iframe-content" scrolling="no" style="overflow-x:hidden; overflow:hidden; padding-top: -100px; height: 1130px; width: 100%;"></iframe>
+<?php
+}
+?>
   </div>
 </div>
 
@@ -169,6 +182,7 @@ var groupmodels_url = "<?php echo $config_groupMoldelsURL; ?>";
 groupmodels_url = groupmodels_url+"?grp="+grp+"&mode=model";
 var userName=[], userLogin=[];
 
+
 window.skippedQuestions= [];//added by jbarriapineda in 29-09
 //alert(thisUrl);
 
@@ -176,7 +190,7 @@ $.ajax({
     url: groupmodels_url,
     async:false,
     success: function(result){
-
+    	console.log(result);
 		 for(var i=0;i<result.users.length;i++){
 			userName[i]=result.users[i].name;
 		 	userLogin[i]=result.users[i].login; 
@@ -184,7 +198,7 @@ $.ajax({
 		 //alert(userName);
 		 //alert(userLogin);
 	 }
-})
+});
 
 
 

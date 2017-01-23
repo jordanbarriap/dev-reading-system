@@ -73,6 +73,8 @@ if ($task == "status") {
 } else if ($task == "questions") {
 	$docid = $_GET["docid"];
 	$filename = $_GET["filename"];//added by jbarriapineda in 10-23
+	$usr = $_GET["usr"];//added by jbarriapineda in 01-22
+	$grp = $_GET["grp"];//added by jbarriapineda in 01-22
 
 	$questions = array();
 	
@@ -81,7 +83,8 @@ if ($task == "status") {
 	foreach ($questionIds as $id) {
 		$questionText = getQuestion($id);
 		$answers = getAnswers($id);
-		$question = array("question" => $questionText, "answers" => $answers);
+		$n_attempts = getNumberOfAttempts($usr,$grp,$id);//added by jbarriapineda in 01-22
+		$question = array("question" => $questionText, "answers" => $answers, "n_attempts"=>$n_attempts);//added by jbarriapineda in 01-22
 		array_push($questions, $question);
 	}
 	
@@ -135,7 +138,7 @@ if ($task == "status") {
 	$incorrectIndices = array();
 	
 	// only consider when answer submitted? (if so, change >= to >)
-	if ($count >= 0) {
+	if ($count > 0) {
 		for ($i = 0; $i < count($correctAnswers); $i++) {
 			$correct = true;
 			if ($answers[$i] != $correctAnswers[$i]) {
@@ -145,8 +148,10 @@ if ($task == "status") {
 			$id = $questionIds[$i];
 			insertAnswer($usr, $grp, $sid, $id, json_encode($answers[$i]), $correct);
 		}
-	}
-	
+		
+	}/*else{
+		$status = 2;
+	}*/
 	if (count($incorrectIndices) == 0) {
 		$status = 0;
 	} else {
@@ -182,7 +187,9 @@ if ($task == "status") {
 	$docids = $obj["docids"];
 	
 	$arr = array();
-	
+	$success_rate_arr=getSuccessRate($usr,$grp);//added by jbarriapineda in 11-13
+	$group_success_rate_arr=getGroupSuccessRate($usr,$grp);//added by jbarriapineda in 01-07
+
 	// Concatenates all document ids that need to be queries from database.
 	$all_docnos = "(";
 	$all_docids = "(";
@@ -193,6 +200,30 @@ if ($task == "status") {
 		$docno_to_ids[$docno] = $docid;
 	    $all_docnos = $all_docnos."'".$docno."',";
 		$all_docids = $all_docids."'".$docid."',";
+		$docid_nquestions=0;
+		$docid_questions_array = docidToQuestionIds2($docid);
+		if($docid_questions_array){
+			$docid_nquestions=sizeof($docid_questions_array);
+		}
+		if(!array_key_exists ( $docid, $success_rate_arr )){
+			if($docid_nquestions>0){
+				$success_rate_arr[$docid]=0;
+			}else{
+				$success_rate_arr[$docid]=-1;
+			}
+			
+		}/*else{
+			$success_rate_arr[$docid]=$success_rate_arr[$docid];
+		}*/
+		if(!array_key_exists ( $docid, $group_success_rate_arr )){
+			if($docid_nquestions>0){
+				$group_success_rate_arr[$docid]=0;
+			}else{
+				$group_success_rate_arr[$docid]=-1;
+			}
+		}/*else{
+			$group_success_rate_arr[$docid]=$group_success_rate_arr[$docid];
+		}*/
 	  } 
     }
 	$all_docnos = $all_docnos."'-1')";
@@ -263,9 +294,11 @@ if ($task == "status") {
 		$docid_key = ($docid_key == "") ? $docid_key : str_replace(",-1", "", $docid_key."-1");
 		$arr[$docid_key] = $status;
 	}
-	
-	echo(json_encode($arr));
+	$final_arr=array('status' => $arr, 'success_rate' => $success_rate_arr, 'group_success_rate'=> $group_success_rate_arr);
+	echo(json_encode($final_arr));
 } else if ($task == "subsectionquestions") {
+	$usr=$_GET["usr"];//added by jbarriapineda in 01-06
+	$grp=$_GET["grp"];//added by jbarriapineda in 01-06
 	$docid = $_GET["docid"];//added by jbarriapineda in 11-03
 	$subdocids = $_GET["subdocids"];//added by jbarriapineda in 11-03
 	$docid_array = explode(",", $_GET["docids"]);
@@ -294,7 +327,12 @@ if ($task == "status") {
 	foreach ($questionIds as $id) {
 		$questionText = getQuestion($id);
 		$answers = getAnswers($id);
-		$question = array("question" => $questionText, "answers" => $answers);
+		$correct = getLastAnswerStatus($usr,$grp,$id);
+		$n_attempts = getNumberOfAttempts($usr,$grp,$id);//added by jbarriapineda in 01-22
+		//$correctAnswers = rand(0, 5);//added by jbarriapineda in 11-13
+		//$totalAnswers = rand(5, 10);//added by jbarriapineda in 11-13
+		//$question = array("question" => $questionText, "answers" => $answers, "corrects"=>$correctAnswers, "total"=>$totalAnswers);//added by jbarriapineda in 11-13
+		$question = array("question" => $questionText, "answers" => $answers, "correct"=>$correct, "n_attempts"=>$n_attempts);//added by jbarriapineda in 11-13, modified in 01-22
 		array_push($questions, $question);
 	}
 	
@@ -313,18 +351,39 @@ if ($task == "status") {
 	$usr = $obj["usr"];
 	$sid = $obj["sid"];
 	$answers = $obj["answers"];
+	$questionmode = $obj["questionmode"];//added by jbarriapineda in 11-03
+	$filename = $obj["filename"];//added by jbarriapineda in 10-23
+	$subdocids = $obj["subdocids"];//added by jbarriapineda in 10-23
 	
 	$docid_array = explode(",", $docids);
 	$questionIds = array();
 	//foreach($docid_array as $docid) {
-	  $questionIds = array_merge($questionIds, docidToQuestionIds($docid));
+	//  $questionIds = array_merge($questionIds, docidToQuestionIds($docid));
 	//}
+
+	//foreach($docid_array as $docid){
+	if($questionmode=="page"){//if the user reaches the end of a end-of-section page we show all the questions that can be finished by reading that page till the end
+		$questionIds = array_merge($questionIds, filenameToQuestionIds($filename));//docidToQuestionIds($docid)); //modified by jbarriapineda in 10-23
+	}
+	if($questionmode=="section"){//if a user click a question mark icon from the index, we just have to show the questions related to that section
+		$subdocids_array=explode(",",$subdocids);
+		//if(count($subdocids_array)>0){
+		for($i=0;$i<count($subdocids_array);$i++){
+			$subdocid=$subdocids_array[$i];
+			$questionIds = array_merge($questionIds, docidToQuestionIds2($subdocid)); //added by jbarriapineda in 10-23
+		}
+		//}
+		
+	}
 	
 	$questionIds = getSortedUniqueArray($questionIds);
-	
+	//echo "docid ".$docid;
+	//print_r($questionIds);
 	$correctAnswers = array();
+	$n_attempts = array();//added by jbarriapineda in 22-01
 	foreach ($questionIds as $id) {
 		array_push($correctAnswers, getCorrectAnswerIndices($id));
+		array_push($n_attempts, getNumberOfAttempts($usr,$grp,$id));//added by jbarriapineda in 22-01
 	}
 	
 	$status = 2;
@@ -333,11 +392,11 @@ if ($task == "status") {
 	foreach ($answers as $array) {
 		$count += count($array);
 	}
-	
+	//echo "count ".$count;
 	$incorrectIndices = array();
 	
 	// only consider when answer submitted? (if so, change >= to >)
-	if ($count >= 0) {
+	if ($count > 0) {
 		for ($i = 0; $i < count($correctAnswers); $i++) {
 			$correct = true;
 			if ($answers[$i] != $correctAnswers[$i]) {
@@ -348,29 +407,51 @@ if ($task == "status") {
 			insertAnswer($usr, $grp, $sid, $id, json_encode($answers[$i]), $correct);
 		}
 	}
-	
-	if (count($incorrectIndices) == 0) {
-		$status = 0;
-	} else {
-		$status = 1;
+	if ($count == 0){//added by jbarriapineda in 01-06
+		$status=2;
+	}else{
+		if (count($incorrectIndices) == 0) {
+			$status = 0;
+		} else {
+			$status = 1;
+		}
 	}
 	
+	
 	// TODO: return status the same way it is for the status API (0 is correct, etc.)
-	$arr = array('status' => $status, 'incorrect' => $incorrectIndices);
+	$arr = array('status' => $status, 'incorrect' => $incorrectIndices,"n_attempts"=> $n_attempts);//modified by jbarriapineda in 22-01
 	echo(json_encode($arr));
 } else if ($task == "subsectionlastanswer") {
     $docid_array = explode(",", $_GET["docids"]);
     $filename = $_GET["filename"];
 	$usr = $_GET["usr"];
 	$grp = $_GET["grp"];
-	
+	$questionmode = $_GET["questionmode"];//added by jbarriapineda in 11-03
+	$subdocids = $_GET["subdocids"];//added by jbarriapineda in 01-06
 	$questionIds = array();
 	$lasts = array();
 	
 	//foreach($docid_array as $docid) {	  
 	  //$questionIds = array_merge($questionIds, docidToQuestionIds($docid));
-	$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
+	//$questionIds = filenameToQuestionIds($filename);//docidToQuestionIds($docid);//commented by jbarriapineda in 10-23
 	//}
+
+	$filename = $_GET["filename"];//added by jbarriapineda in 10-23
+	
+	//foreach($docid_array as $docid){
+	if($questionmode=="page"){//if the user reaches the end of a end-of-section page we show all the questions that can be finished by reading that page till the end
+		$questionIds = array_merge($questionIds, filenameToQuestionIds($filename));//docidToQuestionIds($docid)); //modified by jbarriapineda in 10-23
+	}
+	if($questionmode=="section"){//if a user click a question mark icon from the index, we just have to show the questions related to that section
+		$subdocids_array=explode(",",$subdocids);
+		//if(count($subdocids_array)>0){
+		for($i=0;$i<count($subdocids_array);$i++){
+			$subdocid=$subdocids_array[$i];
+			$questionIds = array_merge($questionIds, docidToQuestionIds2($subdocid)); //added by jbarriapineda in 10-23
+		}
+		//}
+		
+	}
 	
 	$questionIds = getSortedUniqueArray($questionIds);
 	

@@ -5,7 +5,7 @@
  * Time: 上午7:09
  * To change this template use File | Settings | File Templates.
  */
- var pendingAnswers = -1;//added by jbarriapineda in 09-29
+ window.parent.pendingAnswers = -1;//added by jbarriapineda in 09-29
 
 $(document).ready(function(){
 	
@@ -13,7 +13,7 @@ $(document).ready(function(){
 	var docIdSet = {}; // would use Set object, but cross-browser issues
 	var docNoSet = {}; // would use Set object, but cross-browser issues
 	var docIdMaxpage = {};
-    console.log(json_file);//added by jbarriapineda in 10-23
+    //console.log(json_file);//added by jbarriapineda in 10-23
     $.ajax({
         url: json_file, // @@@@
         async: false,
@@ -105,6 +105,9 @@ $(document).ready(function(){
                 index = index + "<li>" + lecture_content + "</li>";
             });
 
+            window.parent.docIdMaxpage=docIdMaxpage;//added by jbarriapineda in 01-10
+            console.log(window.parent.docIdMaxpage);
+
             index = index + "<ul>";
             $("#index").append(index);
 			var allDocIds = "<input type=\"hidden\" id=\"allDocIds\" value='" + parent.JSON.stringify(Object.keys(docIdSet)) + "'>";
@@ -134,7 +137,7 @@ $(document).ready(function(){
 	  var currentPage = parent.parent.frames['iframe-content'].document.getElementById('current-page');
 	  var docid = parent.parent.frames['iframe-content'].document.getElementById('reader-docid');
 	  var current_reader_url = parent.parent.frames['iframe-content'].location.href;
-      console.log("POUP WHEN REACHING END");//added by jbarriapineda
+      console.log("Popup when reaching end");//added by jbarriapineda
 	  //console.log("currentPage: " + currentPage.value + " docid: " + docid.value + "   MaxPage:" + docIdMaxpage[docid.value]);
 	  
 	  // See whether we need to pop up a question page for readers.
@@ -143,10 +146,11 @@ $(document).ready(function(){
 		 && currentPage != null && currentPage.value == docIdMaxpage[docid.value]) {
 		//pops up a window.
 		// if questions are not displayed.
-
+        //console.log("First barrier");
+        console.log(pendingAnswers);
 		if(pendingAnswers==-1 && !window.parent.skippedQuestions[docid.value] && parent.frames['iframe-content'].document.getElementById('question').style.display == 'none') {//modified by jbarriapineda in 29-09
 		  //parent.parent.frames['iframe-content'].location.href = current_reader_url.replace("&fromHierarchical=tree", "") + "&fromHierarchical=tree";
-		  
+		  console.log("Display questions");
           displayQuestions();
 		}
 	  }
@@ -158,14 +162,17 @@ $(document).ready(function(){
 	        'usr': usr,
 	        'grp': grp
 	    };
-		console.log(parent.JSON.stringify(data));//added by jbarriapineda in 10-22
+        console.log("updateIndexForQuestionStatus");
+		//console.log(parent.JSON.stringify(data));//added by jbarriapineda in 10-22
 		$.ajax({
         url: 'questions/api.php?task=subsectionstatus',
         type: 'POST',
         data: parent.JSON.stringify(data),
 	    contentType: 'application/json',
         dataType: "json",
-        success: function(result) {
+        success: function(data) {
+            console.log(data);
+            var result=data["status"];//added by jbarriapineda in 11-13
         	for (var key in result) {
         		if (result.hasOwnProperty(key)) {
         			var value = result[key];
@@ -194,6 +201,9 @@ $(document).ready(function(){
 					}
         		}
         	}
+            var success_rates=data["success_rate"];//added by jbarriapineda in 11-14
+            var group_success_rates=data["group_success_rate"];//added by jbarriapineda in 01-07
+            updateSuccessRates(success_rates,group_success_rates);//added by jbarriapineda in 11-14
 			if(scroll) {
 			  scrollToView();
 			}
@@ -280,13 +290,15 @@ function displayQuestions(){
       },
       buttons: {
         "Yes, I'm ready": function() {
+          window.parent.pendingAnswers=-1;
           $(this).dialog("close");
           parent.parent.frames['iframe-content'].location.href = current_reader_url.replace("&fromHierarchical=tree", "") + "&fromHierarchical=tree";
           $(this).parent().parent().css('overflow', 'initial');
         },
         "No, I'll do it later": function() {
-          pendingAnswers=$(readerdocid).val();
+          window.parent.pendingAnswers=$(readerdocid).val();
           window.parent.docidQs=$(readerdocid).val();
+          window.parent.filenameQs=window.parent.bookid+"_"+parent.frames['readings'].contentWindow.filename.innerHTML;
           $(this).dialog("close");
           $(this).parent().parent().css('overflow', 'initial');
         }
@@ -304,6 +316,14 @@ function displayQuestions(){
     }else{
         alert("not ready");
     }
+}
+
+function updateSuccessRates(success_rates_array,group_success_rates_array){//added by jbarriapineda in 11-14
+    //console.log(parent.parent.frames);
+    //parent.parent.frames['iframe-sb'].document.successrate=success_rates_array;
+    //console.log(group_success_rates_array);
+    window.parent.successrate=success_rates_array;
+    window.parent.group_successrate=group_success_rates_array;
 }
 
 //end of code added by jbarriapineda

@@ -32,6 +32,9 @@ var dbase = 'kseahci';
 if (bookid=='tdo'){
     dbase = 'kseatdo';
 }
+if (bookid=='ir'){
+	dbase = 'kseair';
+}
 
 console.log("The dbase is:"+dbase+" cause bookid = "+bookid +" and url ="+url);
 

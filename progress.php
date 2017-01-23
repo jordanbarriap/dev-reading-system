@@ -26,6 +26,8 @@ foreach ($data as $positionTime) {
 	$top = $positionTime["top"];
 	$bottom = $positionTime["bottom"];
 	$time = $positionTime["time"];
+	$datetime = $positionTime["datetime"];
+	$milliseconds = $positionTime["milliseconds"];
 
 	$filename= $positionTime["filename"];//added by jbarriapineda in 10-16
 

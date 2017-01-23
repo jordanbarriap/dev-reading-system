@@ -1,6 +1,7 @@
 // set the url for get user progress
 progress_url = progress_url + "?usr="+usr+"&grp="+grp+"&sid="+sid+"&mode=all"
-
+console.log("progress_url");
+console.log(progress_url);
 $.ajax({
     url: progress_url,
     async:false,
@@ -44,6 +45,7 @@ $.ajax({
             }
             diagram.push({
                 docNum:result.progress[countDoc].docno,
+                uprogress:uprogress,
                 diagramColor:theColor
             })
         }
@@ -118,7 +120,7 @@ $.ajax({
                 })
                 .attr("class", function (d) { 
                     classname = "partition_depth_" + d.depth;
-
+                    
                     if (d.depth > 0){
                         classname += " partition_docno_" + d.docno;
                     }
@@ -129,6 +131,101 @@ $.ajax({
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout);
 
+            g.filter(function(d){return d.depth==4;})
+                .each(function(d,i){
+                    d.success_rate=window.parent.successrate[d.id];
+                    d.group_success_rate=window.parent.group_successrate[d.id];
+                    //console.log(d.group_success_rate);
+                });
+
+            g.filter(function(d){return d.depth==3;})
+                .each(function(d,i){
+                    if(d.children){
+                        var sub_succrate=0;
+                        var sub_group_succrate=0;
+                        var valid_subsections=0;
+                        for(var i=0;i<d.children.length;i++){
+                            //console.log(parseFloat(window.parent.successrate[d.children[i].id]));
+                            //sub_succrate=sub_succrate+parseFloat(window.parent.successrate[d.children[i].id]);
+                            //valid_subsections++;
+                            data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
+                            if(data_subsection.success_rate!=-1){
+                                sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
+                                sub_group_succrate=sub_group_succrate+parseFloat(data_subsection.group_success_rate);
+                                valid_subsections++;
+                            }
+                        }
+                        if(window.parent.successrate[d.id]!=-1){
+                            d.success_rate=(sub_succrate+parseFloat(window.parent.successrate[d.id]))/(1+valid_subsections); 
+                        }else{
+                            d.success_rate=sub_succrate/valid_subsections; 
+                        }
+                        if(window.parent.group_successrate[d.id]!=-1){
+                            d.group_success_rate=(sub_group_succrate+parseFloat(window.parent.group_successrate[d.id]))/(1+valid_subsections); 
+                        }else{
+                            d.group_success_rate=sub_group_succrate/valid_subsections;
+                        }
+                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
+                        //console.log("final success_rate: "+d.success_rate);
+                    }else{
+                         d.success_rate=window.parent.successrate[d.id];
+                         d.group_success_rate=window.parent.group_successrate[d.id];
+                    }
+                });
+
+            g.filter(function(d){return d.depth==2;})
+                .each(function(d,i){
+                    if(d.children){
+                        var sub_succrate=0;
+                        var sub_group_succrate=0;
+                        var valid_subsections=0;
+                        for(var i=0;i<d.children.length;i++){
+                            //console.log(parseFloat(window.parent.successrate[d.children[i].id]));
+                            //sub_succrate=sub_succrate+parseFloat(window.parent.successrate[d.children[i].id]);
+                            //valid_subsections++;
+                            data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
+                            if(data_subsection.success_rate!=-1){
+                                sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
+                                sub_group_succrate=sub_group_succrate+parseFloat(data_subsection.group_success_rate);
+                                valid_subsections++;
+                            }
+                        }
+                        d.success_rate=sub_succrate/valid_subsections;
+                        d.group_success_rate=sub_group_succrate/valid_subsections;
+                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
+                        //console.log("final success_rate 2: "+d.success_rate);
+                    }else{
+                         d.success_rate=window.parent.successrate[d.id];
+                         d.group_success_rate=window.parent.group_successrate[d.id];
+                    }
+                });
+
+
+            g.filter(function(d){return d.depth==1;})
+                .each(function(d,i){
+                    if(d.children){
+                        var sub_succrate=0;
+                        var sub_group_succrate=0;
+                        var valid_subsections=0;
+                        for(var i=0;i<d.children.length;i++){
+                            //console.log("docno: "+d.children[i].docno);
+                            //console.log(d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__);
+                            data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
+                            if(data_subsection.success_rate!=-1){
+                                sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
+                                sub_group_succrate=sub_group_succrate+parseFloat(data_subsection.group_success_rate);
+                                valid_subsections++;
+                            }
+                        }
+                        d.success_rate=sub_succrate/valid_subsections;
+                        d.group_success_rate=sub_group_succrate/valid_subsections;
+                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
+                        //console.log("final success_rate 1: "+d.success_rate);
+                    }else{
+                         d.success_rate=window.parent.successrate[d.id];
+                         d.group_success_rate=window.parent.group_successrate[d.id];
+                    }
+                });
 
             d3.select("#chart").on("mouseleave", mouseleave);
 
@@ -141,6 +238,48 @@ $.ajax({
                     var count = 0;
                     for (count = 0; count < diagram.length; count++) {
                         if (diagram[count].docNum == d.docno) {
+                            var status=window.parent.document.getElementById('readingid-' + d.docno).classList.item(2);
+                            if(status){
+                               status=status.substr(status.length-1,status.length);
+                               console.log(status+" "+d.success_rate);
+                               if(status=="0" || d.success_rate==-1){
+                                    diagram[count].uprogress=Number(diagram[count].uprogress)+0.25;
+                                    var uprogress=Number(diagram[count].uprogress);
+                                    //console.log(uprogress);
+                                    if(uprogress>1.0) uprogress=1.0;
+                                    if (uprogress >= 0 && uprogress < 0.1) {
+                                        var theColor = colors[0];
+                                    }
+                                    if (uprogress >= 0.1 && uprogress < 0.2) {
+                                        var theColor = colors[1];
+                                    }
+                                    if (uprogress >= 0.2 && uprogress < 0.3) {
+                                        var theColor = colors[2];
+                                    }
+                                    if (uprogress >= 0.3 && uprogress < 0.4) {
+                                        var theColor = colors[3];
+                                    }
+                                    if (uprogress >= 0.4 && uprogress < 0.5) {
+                                        var theColor = colors[4];
+                                    }
+                                    if (uprogress >= 0.5 && uprogress < 0.6) {
+                                        var theColor = colors[5];
+                                    }
+                                    if (uprogress >= 0.6 && uprogress < 0.7) {
+                                        var theColor = colors[6];
+                                    }
+                                    if (uprogress >= 0.7 && uprogress < 0.8) {
+                                        var theColor = colors[7];
+                                    }
+                                    if (uprogress >= 0.8 && uprogress < 0.9) {
+                                        var theColor = colors[8];
+                                    }
+                                    if (uprogress >= 0.9 && uprogress <= 1) {
+                                        var theColor = colors[9];
+                                    }
+                                    diagram[count].diagramColor=theColor;
+                               }
+                            }
                             return d3.rgb(diagram[count].diagramColor)
                         }
                     }
@@ -178,17 +317,18 @@ $.ajax({
             d3.select("div#chart")
                 .select("svg")
                 .append("svg:text")
+                .attr("id","user_success_rate_num")
                 .style("font-size", "150%")
                 .attr("dx", width1*0.35)// margin
                 .attr("dy", height1*0.55)// vertical-align
                 .text(function (d) {
-                    return "30%"; // @@@@
+                    return "- %";//.toFixed(2)+"%";
                 });
 
             d3.select("div#chart")
                 .select("svg")
                 .append("svg:text")
-                .attr("id","user_success_rate")
+                .attr("id","group_success_rate")
                 .style("font-size", "75%")
                 .attr("x", width1*0.56)// margin
                 .attr("y", height1*0.42)// vertical-align
@@ -200,12 +340,16 @@ $.ajax({
             d3.select("div#chart")
                 .select("svg")
                 .append("svg:text")
+                .attr("id","group_success_rate_num")
                 .style("font-size", "150%")
                 .attr("dx", width1*0.52)// margin
                 .attr("dy", height1*0.55)// vertical-align
                 .text(function (d) {
-                    return "80%"; // @@@@
+                    return "- %"; // @@@@
                 });
+
+            //console.log("SUCCESS RATE!");
+            //console.log(window.parent.successrate);
 
             function click(d) {
                 var actionsrc = "sunburst_model"
@@ -222,7 +366,8 @@ $.ajax({
                 
                 parent.currentDocno = d.docno;
                 //alert(parent.currentDocno);
-                
+                console.log(d.children);
+
                 // select the branch clicked
                 d3.selectAll("path")
                     .style("stroke","#fff")
@@ -237,6 +382,8 @@ $.ajax({
                     })
                     .style("stroke","#000")
                     .style("opacity", 1);
+
+                
 
 
                 if(d.children != null && d.children.length > 0){
@@ -343,7 +490,17 @@ $.ajax({
                 
 				d3.select(g[0][i]).select("path").style("stroke","#000");
 				d3.select(g[0][i]).style("stroke-width", "1");
-
+                
+                d3.select("#user_success_rate_num").text(function(){
+                    var sectionSuccessRate=d.success_rate;//window.parent.successrate[d.id];
+                    if (sectionSuccessRate==-1) return "- %";
+                    return Math.round(100*sectionSuccessRate)+"%";//.toFixed(2)+"%";
+                })
+                d3.select("#group_success_rate_num").text(function(){
+                    var groupSectionSuccessRate=d.group_success_rate;//window.parent.successrate[d.id];
+                    if (groupSectionSuccessRate==-1) return "- %";
+                    return Math.round(100*groupSectionSuccessRate)+"%";//.toFixed(2)+"%";
+                })
                 /*
                 // Fade all the segments.
                 d3.selectAll("path").style("opacity", 0.3);
@@ -498,6 +655,17 @@ function setHighlight(docno){
          $("#tip").html("[Book] <b>" + bookName + "</b>:<br />" + d.name);
      }
      $("#tip").css("color","#000000");
+
+     d3.select("#user_success_rate_num").text(function(){
+        var sectionSuccessRate=d.success_rate;//window.parent.successrate[d.id];
+        if (sectionSuccessRate==-1) return "- %";
+        return Math.round(100*sectionSuccessRate)+"%";//.toFixed(2)+"%";
+     });
+     d3.select("#group_success_rate_num").text(function(){
+        var groupSectionSuccessRate=d.group_success_rate;//window.parent.successrate[d.id];
+        if (groupSectionSuccessRate==-1) return "- %";
+        return Math.round(100*groupSectionSuccessRate)+"%";//.toFixed(2)+"%";
+     });
 }
 
 function updateIndexView(docno){

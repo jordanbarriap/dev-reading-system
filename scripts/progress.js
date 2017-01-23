@@ -139,8 +139,89 @@ var positionTimes = [];
  */
 
 var updateDelay = 1; // seconds
+var cont=0;
 setInterval(function() {
 	if (!idle) {
+		//code added by jbarriapineda in 09-29
+		var firstActTracking=window.parent.firstActTracking;
+		if(firstActTracking){
+			
+			window.parent.firstActTracking=false;
+			if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() == jQuery(window.parent.document).height()) {
+				window.parent.waitQsPopup=true;
+				console.log("firstActTracking");
+				setTimeout(function(){
+					var qs = window.location.search.substring(1);
+				    var map = parseQs(qs);
+				    var grp = map['grp'];
+				    var usr = map['usr'];
+				    var sid = map['sid'];
+					if (!sid) {
+						// happens when using interface when not logged in through Knowledge Tree
+						// Alternatively throw error (i.e., don't allow usage without going through portal)
+						sid = null;
+					}
+				    
+					var toSend = {};
+					toSend['data'] = positionTimes;
+					toSend['grp'] = grp;
+					toSend['usr'] = usr;
+					toSend['sid'] = sid;
+					var json = JSON.stringify(toSend);
+					$.ajax({
+						url: send_progress_url,
+						type: 'post',
+						contentType: 'application/json',
+						data: json,
+						success: function(data) {
+							//TODO: error checking... (error callback)
+							console.log("update hidden question status first");
+							console.log($("#hidden-question-status"));
+							$("#hidden-question-status").click();
+						}
+					});
+					
+					positionTimes = [];
+				},45000);
+			}
+		}
+		else{
+			if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() >= 0.9*jQuery(window.parent.document).height() & !window.parent.waitQsPopup) {
+				window.parent.waitQsPopup=true;
+				var qs = window.location.search.substring(1);
+			    var map = parseQs(qs);
+			    var grp = map['grp'];
+			    var usr = map['usr'];
+			    var sid = map['sid'];
+				if (!sid) {
+					// happens when using interface when not logged in through Knowledge Tree
+					// Alternatively throw error (i.e., don't allow usage without going through portal)
+					sid = null;
+				}
+			    
+				var toSend = {};
+				toSend['data'] = positionTimes;
+				toSend['grp'] = grp;
+				toSend['usr'] = usr;
+				toSend['sid'] = sid;
+				var json = JSON.stringify(toSend);
+				$.ajax({
+					url: send_progress_url,
+					type: 'post',
+					contentType: 'application/json',
+					data: json,
+					success: function(data) {
+						//TODO: error checking... (error callback)
+						console.log("update hidden question status");
+						console.log($("#hidden-question-status"));
+						$("#hidden-question-status").click();
+					}
+				});
+				
+				positionTimes = [];
+			}
+		}
+		//end of code added by jbarriapineda
 		var readings = document.getElementById('readings');
 		var readingsWindow = readings.contentWindow;
 		var readingsDoc = readings.contentDocument || readingsWindow.document;
@@ -214,88 +295,11 @@ setInterval(function() {
 		    }
 		}
 	}
-	//code added by jbarriapineda in 09-29
-	var firstActTracking=window.parent.firstActTracking;
-	if(firstActTracking){
-		window.parent.firstActTracking=false;
-		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() == jQuery(window.parent.document).height()) {
-			console.log("MAX ZOOM");
-			window.parent.waitQsPopup=true;
-			setTimeout(function(){
-				var qs = window.location.search.substring(1);
-			    var map = parseQs(qs);
-			    var grp = map['grp'];
-			    var usr = map['usr'];
-			    var sid = map['sid'];
-				if (!sid) {
-					// happens when using interface when not logged in through Knowledge Tree
-					// Alternatively throw error (i.e., don't allow usage without going through portal)
-					sid = null;
-				}
-			    
-				var toSend = {};
-				toSend['data'] = positionTimes;
-				toSend['grp'] = grp;
-				toSend['usr'] = usr;
-				toSend['sid'] = sid;
-				var json = JSON.stringify(toSend);
-				$.ajax({
-					url: send_progress_url,
-					type: 'post',
-					contentType: 'application/json',
-					data: json,
-					success: function(data) {
-						//TODO: error checking... (error callback)
-						console.log($("#hidden-question-status"));
-						$("#hidden-question-status").click();
-					}
-				});
-				
-				positionTimes = [];
-			},45000);
-		}
-	}
-	else{
-		console.log(jQuery(window.parent).scrollTop() + jQuery(window.parent).height());
-		if(jQuery(window.parent).scrollTop() + jQuery(window.parent).height() >= 0.9*jQuery(window.parent.document).height() & !window.parent.waitQsPopup) {
-			window.parent.waitQsPopup=true;
-			var qs = window.location.search.substring(1);
-		    var map = parseQs(qs);
-		    var grp = map['grp'];
-		    var usr = map['usr'];
-		    var sid = map['sid'];
-			if (!sid) {
-				// happens when using interface when not logged in through Knowledge Tree
-				// Alternatively throw error (i.e., don't allow usage without going through portal)
-				sid = null;
-			}
-		    
-			var toSend = {};
-			toSend['data'] = positionTimes;
-			toSend['grp'] = grp;
-			toSend['usr'] = usr;
-			toSend['sid'] = sid;
-			var json = JSON.stringify(toSend);
-			$.ajax({
-				url: send_progress_url,
-				type: 'post',
-				contentType: 'application/json',
-				data: json,
-				success: function(data) {
-					//TODO: error checking... (error callback)
-					console.log($("#hidden-question-status"));
-					$("#hidden-question-status").click();
-				}
-			});
-			
-			positionTimes = [];
-		}
-	}
-	//end of code added by jbarriapineda
 }, updateDelay*1000);
 
 var sendDelay = 5; // seconds //code modified by jbarriapineda in 09-29
 setInterval(function() {
+	console.log("Send progress");
 	if (positionTimes.length > 0) {
 		var qs = window.location.search.substring(1);
 	    var map = parseQs(qs);
@@ -320,8 +324,9 @@ setInterval(function() {
 			contentType: 'application/json',
 			data: json,
 			success: function(data) {
-				console.log(data);
+				//console.log(data);
 				//TODO: error checking... (error callback)
+				console.log("Regular index update");
 				//document.getElementById("hidden-question-status").click();//code commented by jbarriapineda in 29-09
 			}
 		});

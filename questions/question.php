@@ -58,27 +58,83 @@ if (!sid) {
 	sid = null;
 }
 
-var addQuestion = function(question, answers, prefix) {
+var addQuestion = function(question, answers, prefix,correct,n_attempts) {
 	var div = document.createElement('div');
 	div.classList.add('question')
+	if(correct==0){
+		var correctImg = document.createElement("img");
+		correctImg.classList.add("status-correct");
+		correctImg.classList.add("status");
+		//correctImg.src="../img/correct.png";
+		div.appendChild(correctImg);
+	}
+	if(correct==1){
+		var correctImg = document.createElement("img");
+		correctImg.classList.add("status-incorrect");
+		correctImg.classList.add("status");
+		//correctImg.src="../img/incorrect.png";
+		div.appendChild(correctImg);
+	}
+	if(correct==2){
+		var correctImg = document.createElement("img");
+		correctImg.classList.add("status-non-answered");
+		correctImg.classList.add("status");
+		//correctImg.src="../img/incorrect.png";
+		div.appendChild(correctImg);
+	}
 	var questionElement = document.createElement('h3');
-	var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
-	questionElement.textContent = prefix + questionContent;
+	var attempts_info = document.createElement('span');
+	if(n_attempts>0){
+		var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
+		if(correct==0){
+			if(n_attempts==1){
+				//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Full credit!";
+				attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => Full credit!";
+			}
+			else{
+				if(n_attempts==2){
+					//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Half credit!";
+					attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => Half credit!";
+				}else{
+					//questionContent=questionContent+"<span class='attempt_info'> ("+n_attempts+"/2 attempts) => No credit!</span>";
+					attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => No credit!";
+				}
+			}
+		}
+	}else{
+		var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
+	}
+	
+	/*if (correct==0){
+		questionElement.textContent = prefix + '<img src="../img/correct.png" alt="Correct answer" class="status-correct">' + questionContent;
+	}else{*/
+	questionElement.textContent = prefix +  questionContent ;
+	//}
+	
 	div.appendChild(questionElement);
+	div.appendChild(attempts_info);
+
+	var br1 = document.createElement('br');
+    div.appendChild(br1);
+
     for (var i = 0; i < answers.length; i++) {
     	var label = document.createElement('label');
     	var input = document.createElement('input');
     	input.classList.add('answer')
     	input.type = "checkbox";
+    	if(correct==0){
+    		input.disabled=true;
+    	}
     	label.appendChild(input);
 		answerContent = answers[i].charAt(0).toUpperCase() + answers[i].slice(1);
     	var answerText = document.createTextNode(answerContent);
     	label.appendChild(answerText);
     	div.appendChild(label);
-    	var br = document.createElement('br');
-    	div.appendChild(br);
+    	var br2 = document.createElement('br');
+    	div.appendChild(br2);
     }
-	
+    var br3 = document.createElement('br');
+    div.appendChild(br3);
     document.getElementById('questions').appendChild(div);
 };
 
@@ -138,9 +194,14 @@ var submit = function() {
         'usr': usr,
         'grp': grp,
         'sid': sid,
-        'answers': answers
+        'answers': answers,
+        'filename':filename,
+        'questionmode':questionmode,
+        'subdocids':subdocids
     };
     console.log(data);//added by jbarriapineda in 10-22
+    console.log(parent.parent.pendingAnswers);//added by jbarriapineda 
+    parent.parent.pendingAnswers=-1;
 	jQuery.ajax({
 	       url: 'api.php?task=subsectionsubmit',
 	       type: 'POST',
@@ -152,8 +213,10 @@ var submit = function() {
 	    	   if (status === 0) {
 	    		   questionImg.src = "q-right.png";
 	    		   statusMessage("Correct!");
-	    		   console.log($("#hidden-question-status"));
-	    		   parent.document.getElementById("hidden-question-status").click();//added by jbarriapineda in 29-09
+	    		   //console.log($("#hidden-question-status"));
+	    		   $(".status").removeClass().addClass("status status-correct");//change all questions to show a correct icon
+	    		   $(".question").find("input").attr("disabled", true);
+	    		   $("#submit").attr('disabled','disabled');//disable submit button
 	    	   } else if (status === 1) {
 	    		   questionImg.src = "q-wrong.png";
 	    		   var message = "Incorrect. Try again.";
@@ -161,15 +224,34 @@ var submit = function() {
 	    			   var incorrect = data['incorrect'];
 	                   // change to 1-based indexing
 	                   incorrect = incorrect.map(function(x){return x+1;});
+
+	                   for(var i=1;i<=$("#questions").children().length;i++){//disable checkbox for correct questions
+	                   	    if(incorrect.indexOf(i)<0){
+	                   	    	$($("#questions").children()[i-1]).find("input").attr("disabled", true);//css("pointer-events","none");
+	                   	    	$($("#questions").children()[i-1]).find(".status").removeClass().addClass("status status-correct");
+	                   	    }else{
+	                   	    	$($("#questions").children()[i-1]).find(".status").removeClass().addClass("status status-incorrect");
+	                   	    }
+	                   }
+
 	                   // to string
 	                   incorrect = incorrect.join(', ');
 	                   message = "Incorrect (" + incorrect + "). Try again.";
+	                   //Added by jbarriapineda in 01-06-2017
 	    		   }
 	    		   
 	    		   statusMessage(message);
 	    	   } else if (status === 2) {
 	    		   statusMessage("At least one selection required.");
 	    	   }
+	    	   //console.log("Actualizar question status submit");//added by jbarriapineda in 11-08
+	    	   //console.log($("#hidden-question-status").length);
+
+	    	   //Refresh index
+	    	   parent.parent.document.getElementById("hidden-question-status").click();//added by jbarriapineda in 29-09
+	    	   console.log(parent.parent.document.getElementById("iframe-sun").src);
+	    	   //Refresh progress visualization
+	    	   parent.parent.document.getElementById("iframe-sun").src=parent.parent.document.getElementById("iframe-sun").src;//added by jbarriapineda in 01-08
 	    	   //parent.updateQuestionStatus(status);
 	      }
 	 });
@@ -181,9 +263,11 @@ document.getElementById('submit').addEventListener('click', submit);
 
 jQuery.ajax({
        url: 'api.php',
-       data: {'task': 'subsectionquestions', 'docid': docid, 'docids': docids, 'filename':filename, 'questionmode':questionmode,'subdocids':subdocids},
+       data: {'task': 'subsectionquestions', 'usr': usr, 'grp': grp, 'docid': docid, 'docids': docids, 'filename':filename, 'questionmode':questionmode,'subdocids':subdocids},
        dataType: "json",
        success: function(data) {
+       	   console.log("QUESTIONS");
+       	   var ncorrects=0;//added by jbarriapineda in 01-06
     	   for (var i = 0; i < data.length; i++) {
     		   var question = data[i];
     		   var prefix = '';
@@ -191,17 +275,30 @@ jQuery.ajax({
     			   prefix = (i+1) + '. ';
     		   }
     		   
-    		   addQuestion(question['question'], question['answers'], prefix);
+    		   addQuestion(question['question'], question['answers'], prefix, question['correct'],question['n_attempts']);//modified by jbarriapineda in 01-22
+
+    		   //added by jbarriapineda in 01-06
+    		   if(question['correct']==0){
+    		   	ncorrects++;
+    		   }
     	   }
-    	   
+    	   //added by jbarriapineda in 01-06
+    	   //if all answers are correct, disable submit button
+    	   if(ncorrects==data.length){
+    	   		document.getElementById('submit').disabled=true;
+    	   }else{
+    	   		document.getElementById('submit').disabled=false;
+    	   }
     	   // now get last answer
     	   // could change api to fetch questions and last answer at once,
     	   // but this keeps things simpler
     	   jQuery.ajax({
     		   url: 'api.php',
-    	       data: {'task': 'subsectionlastanswer', 'docid': docid, 'docids': docids, 'usr': usr, 'grp': grp},
+    	       data: {'task': 'subsectionlastanswer', 'docid': docid, 'docids': docids, 'filename':filename, 'questionmode':questionmode, 'subdocids':subdocids, 'usr': usr, 'grp': grp},
     	       dataType: "json",
     	       success: function(data) {
+    	       	   console.log("LAST ANSWERS");
+    	       	   console.log(data);
     	    	   setAnswers(data);
     	       }
     	   });
