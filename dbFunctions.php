@@ -247,12 +247,23 @@ function getLastAnswerStatus($usr, $grp, $id) {
 
 function getNumberOfAttempts($usr,$grp,$id){
     $mysqli = getConn();
-    $stmt = $mysqli->prepare("SELECT COUNT(*) n_attempts FROM submitted_answers WHERE usr = ? AND grp = ? AND idquestions = ?");
+    $stmt = $mysqli->prepare("SELECT COUNT(*) n_attempts FROM submitted_answers WHERE usr = ? AND grp = ? AND idquestions = ? AND correct = 0");
     $stmt->bind_param('ssi', $usr, $grp, $id);
     $stmt->execute();
-    $stmt->bind_result($n_attempts);
+    $stmt->bind_result($n_incorrect);
     $stmt->store_result(); // without this, num_rows won't work
     $stmt->fetch();
+    $stmt2 = $mysqli->prepare("SELECT COUNT(*) n_attempts FROM submitted_answers WHERE usr = ? AND grp = ? AND idquestions = ? AND correct = 1");
+    $stmt2->bind_param('ssi', $usr, $grp, $id);
+    $stmt2->execute();
+    $stmt2->bind_result($n_correct);
+    $stmt2->store_result(); // without this, num_rows won't work
+    $stmt2->fetch();
+    if($n_correct>0){
+        $n_attempts=$n_incorrect+1;
+    }else{
+        $n_attempts=$n_incorrect;
+    }
     return $n_attempts;
 }
 

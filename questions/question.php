@@ -83,27 +83,15 @@ var addQuestion = function(question, answers, prefix,correct,n_attempts) {
 		div.appendChild(correctImg);
 	}
 	var questionElement = document.createElement('h3');
-	var attempts_info = document.createElement('span');
-	if(n_attempts>0){
+	var attempts_info = document.createElement('div');
+	attempts_info.setAttribute( 'class', 'attempts-div');
+	//if(n_attempts>0){
+	var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
+	attempts_info.innerHTML=generateAttemptsMsg(correct,n_attempts);
+	/*}else{
 		var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
-		if(correct==0){
-			if(n_attempts==1){
-				//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Full credit!";
-				attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => Full credit!";
-			}
-			else{
-				if(n_attempts==2){
-					//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Half credit!";
-					attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => Half credit!";
-				}else{
-					//questionContent=questionContent+"<span class='attempt_info'> ("+n_attempts+"/2 attempts) => No credit!</span>";
-					attempts_info.innerHTML=" ("+n_attempts+"/2 attempts) => No credit!";
-				}
-			}
-		}
-	}else{
-		var questionContent = question.trim().charAt(0).toUpperCase() + question.trim().slice(1);
-	}
+		attempts_info.innerHTML=" "+n_attempts+"/2 attempts";
+	}*/
 	
 	/*if (correct==0){
 		questionElement.textContent = prefix + '<img src="../img/correct.png" alt="Correct answer" class="status-correct">' + questionContent;
@@ -112,7 +100,9 @@ var addQuestion = function(question, answers, prefix,correct,n_attempts) {
 	//}
 	
 	div.appendChild(questionElement);
-	div.appendChild(attempts_info);
+	/*if(n_attempts>0){*/
+		div.appendChild(attempts_info);
+	/*}*/
 
 	var br1 = document.createElement('br');
     div.appendChild(br1);
@@ -217,20 +207,31 @@ var submit = function() {
 	    		   $(".status").removeClass().addClass("status status-correct");//change all questions to show a correct icon
 	    		   $(".question").find("input").attr("disabled", true);
 	    		   $("#submit").attr('disabled','disabled');//disable submit button
+	    		   var n_attempts = data["n_attempts"];
+	    		   for(var i=1;i<=$("#questions").children().length;i++){//disable checkbox for correct questions
+	    		   		var ith_attempts=n_attempts[i-1];
+	    		   		$($("#questions").children()[i-1]).find(".attempts-div").html(generateAttemptsMsg(0,ith_attempts));//updates attempts message
+	    		   }
 	    	   } else if (status === 1) {
 	    		   questionImg.src = "q-wrong.png";
 	    		   var message = "Incorrect. Try again.";
-	    		   if (numQuestions() > 1) {
+	    		   if (numQuestions() >= 1) {
 	    			   var incorrect = data['incorrect'];
 	                   // change to 1-based indexing
 	                   incorrect = incorrect.map(function(x){return x+1;});
-
+	                   var n_attempts = data["n_attempts"];
 	                   for(var i=1;i<=$("#questions").children().length;i++){//disable checkbox for correct questions
+	                   		var ith_attempts=n_attempts[i-1];
+	                   		//console.log(ith_attempts+" actualizar globo");
+	                   	    //console.log($($("#questions").children()[i-1]).find(".attempts-div"));
+	                   		$($("#questions").children()[i-1]).find(".attempts-div").html("");
 	                   	    if(incorrect.indexOf(i)<0){
 	                   	    	$($("#questions").children()[i-1]).find("input").attr("disabled", true);//css("pointer-events","none");
 	                   	    	$($("#questions").children()[i-1]).find(".status").removeClass().addClass("status status-correct");
+	                   	    	$($("#questions").children()[i-1]).find(".attempts-div").html(generateAttemptsMsg(0,ith_attempts));//updates attempts message
 	                   	    }else{
 	                   	    	$($("#questions").children()[i-1]).find(".status").removeClass().addClass("status status-incorrect");
+	                   	    	$($("#questions").children()[i-1]).find(".attempts-div").html(generateAttemptsMsg(1,ith_attempts));//updates attempts message
 	                   	    }
 	                   }
 
@@ -304,6 +305,40 @@ jQuery.ajax({
     	   });
       }
 });
+
+//added by jbarriapineda in 01-23
+function generateAttemptsMsg(correct,n_attempts){
+	var attempts_info="";
+	if(n_attempts==0){
+		attempts_info=" "+n_attempts+"/2 attempts";
+		return attempts_info;
+	}
+	if(correct==0){
+		if(n_attempts==1){
+			//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Full credit!";
+			attempts_info=" "+n_attempts+"/2 attempts => Full credit!";
+		}
+		else{
+			if(n_attempts==2){
+				//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Half credit!";
+				attempts_info=" "+n_attempts+"/2 attempts => Half credit!";
+			}else{
+				//questionContent=questionContent+"<span class='attempt_info'> ("+n_attempts+"/2 attempts) => No credit!</span>";
+				attempts_info=" "+n_attempts+"/2 attempts => No credit!";
+			}
+		}
+	}
+	if(correct==1){
+		if(n_attempts<2){
+			attempts_info=" "+n_attempts+"/2 attempts";
+		}else{
+			if(n_attempts>2){
+				attempts_info=" "+n_attempts+"/2 attempts => No credit!";
+			}
+		}	
+	}
+	return attempts_info;
+}
 	
 </script>
 	

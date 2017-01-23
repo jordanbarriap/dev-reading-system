@@ -380,10 +380,9 @@ if ($task == "status") {
 	//echo "docid ".$docid;
 	//print_r($questionIds);
 	$correctAnswers = array();
-	$n_attempts = array();//added by jbarriapineda in 22-01
+	
 	foreach ($questionIds as $id) {
 		array_push($correctAnswers, getCorrectAnswerIndices($id));
-		array_push($n_attempts, getNumberOfAttempts($usr,$grp,$id));//added by jbarriapineda in 22-01
 	}
 	
 	$status = 2;
@@ -407,6 +406,13 @@ if ($task == "status") {
 			insertAnswer($usr, $grp, $sid, $id, json_encode($answers[$i]), $correct);
 		}
 	}
+
+	//Update number of attempts for each question
+	$n_attempts = array();//added by jbarriapineda in 22-01
+	foreach ($questionIds as $id) {
+		array_push($n_attempts, getNumberOfAttempts($usr,$grp,$id));//added by jbarriapineda in 22-01
+	}
+
 	if ($count == 0){//added by jbarriapineda in 01-06
 		$status=2;
 	}else{
