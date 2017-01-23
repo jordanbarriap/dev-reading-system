@@ -316,15 +316,15 @@ function generateAttemptsMsg(correct,n_attempts){
 	if(correct==0){
 		if(n_attempts==1){
 			//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Full credit!";
-			attempts_info=" "+n_attempts+"/2 attempts => Full credit!";
+			attempts_info=" "+n_attempts+"/2 attempts &rarr; Full credit!";
 		}
 		else{
 			if(n_attempts==2){
 				//questionContent=questionContent+" ("+n_attempts+"/2 attempts) => Half credit!";
-				attempts_info=" "+n_attempts+"/2 attempts => Half credit!";
+				attempts_info=" "+n_attempts+"/2 attempts &rarr; Half credit!";
 			}else{
 				//questionContent=questionContent+"<span class='attempt_info'> ("+n_attempts+"/2 attempts) => No credit!</span>";
-				attempts_info=" "+n_attempts+"/2 attempts => No credit!";
+				attempts_info=" "+n_attempts+"/2 attempts &rarr; No credit!";
 			}
 		}
 	}
@@ -333,7 +333,7 @@ function generateAttemptsMsg(correct,n_attempts){
 			attempts_info=" "+n_attempts+"/2 attempts";
 		}else{
 			if(n_attempts>2){
-				attempts_info=" "+n_attempts+"/2 attempts => No credit!";
+				attempts_info=" "+n_attempts+"/2 attempts &rarr; No credit!";
 			}
 		}	
 	}
