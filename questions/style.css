@@ -73,10 +73,10 @@ h3{
 .attempts-div{
   position: relative;
   width: 200px;
-  height: 30px;
+  height: 25px;
   vertical-align: middle;
   text-align: center;
-  line-height: 30px;
+  line-height: 25px;
   background-color: #fff;
   border: 3px solid #666;
   -webkit-border-radius: 20px;
@@ -92,7 +92,7 @@ h3{
   width: 0;
   height: 0;
   left: 25px;
-  top: 30px;
-  border: 10px solid;
+  top: 25px;
+  border: 8px solid;
   border-color: #666 transparent transparent #666;
 }
