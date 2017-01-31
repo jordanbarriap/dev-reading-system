@@ -57,6 +57,11 @@ if(strlen($readingid)==0){
 	            $docno =  "iir-2104";
 	            $page = 1;
 	        }
+			if($course === 'dbms'){
+	            $bookid = "dbms";
+	            $docno =  "dbms-2413";
+	            $page = 1;
+	        }
 	    }
 	}
 }
