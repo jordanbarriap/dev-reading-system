@@ -1,0 +1,2074 @@
+{
+  "name" : "Database Management Systems",
+  "type" : "course",
+  "children" : [ {
+    "name" : "Lecture 1",
+    "type" : "lecture",
+    "title" : "<b>Lecture 01</b><br /> Class Introduction and Relational Model",
+    "docno" : "lecture-1",
+    "id" : "1",
+    "children" : [ {
+      "name" : "Chapter 1: Overview of Database Systems",
+      "type" : "doc",
+      "docno" : "dbms-2413",
+      "bookid" : "dbms",
+      "title" : "Chapter 1: Overview of Database Systems",
+      "spage" : "38",
+      "epage" : "39",
+      "id" : "2413",
+      "links" : [ {
+        "url" : "dbms/00000038.jpg",
+        "pageNumber" : 38,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000039.jpg",
+        "pageNumber" : 39,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "1.2 A Historical Perspective",
+        "type" : "doc",
+        "docno" : "dbms-2415",
+        "bookid" : "dbms",
+        "title" : "1.2 A Historical Perspective",
+        "spage" : "41",
+        "epage" : "43",
+        "id" : "2415",
+        "links" : [ {
+          "url" : "dbms/00000041.jpg",
+          "pageNumber" : 41,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000042.jpg",
+          "pageNumber" : 42,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000043.jpg",
+          "pageNumber" : 43,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "1.3 File Systems versus a DBMS",
+        "type" : "doc",
+        "docno" : "dbms-2416",
+        "bookid" : "dbms",
+        "title" : "1.3 File Systems versus a DBMS",
+        "spage" : "43",
+        "epage" : "44",
+        "id" : "2416",
+        "links" : [ {
+          "url" : "dbms/00000043.jpg",
+          "pageNumber" : 43,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000044.jpg",
+          "pageNumber" : 44,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "1.4 Advantages of a DBMS",
+        "type" : "doc",
+        "docno" : "dbms-2417",
+        "bookid" : "dbms",
+        "title" : "1.4 Advantages of a DBMS",
+        "spage" : "44",
+        "epage" : "45",
+        "id" : "2417",
+        "links" : [ {
+          "url" : "dbms/00000044.jpg",
+          "pageNumber" : 44,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000045.jpg",
+          "pageNumber" : 45,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+          "name" : "1.7.3 Points to Note",
+          "type" : "doc",
+          "docno" : "dbms-2426",
+          "bookid" : "dbms",
+          "title" : "1.7.3 Points to Note",
+          "spage" : "54",
+          "epage" : "54",
+          "id" : "2426",
+          "links" : [ {
+            "url" : "dbms/00000054.jpg",
+            "pageNumber" : 54,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+      }, {
+        "name" : "1.8 Structure of a DBMS",
+        "type" : "doc",
+        "docno" : "dbms-2427",
+        "bookid" : "dbms",
+        "title" : "1.8 Structure of a DBMS",
+        "spage" : "54",
+        "epage" : "56",
+        "id" : "2427",
+        "links" : [ {
+          "url" : "dbms/00000054.jpg",
+          "pageNumber" : 54,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000055.jpg",
+          "pageNumber" : 55,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000056.jpg",
+          "pageNumber" : 56,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "1.9 People Who Work with Databases",
+        "type" : "doc",
+        "docno" : "dbms-2428",
+        "bookid" : "dbms",
+        "title" : "1.9 People Who Work with Databases",
+        "spage" : "56",
+        "epage" : "57",
+        "id" : "2428",
+        "links" : [ {
+          "url" : "dbms/00000056.jpg",
+          "pageNumber" : 56,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000057.jpg",
+          "pageNumber" : 57,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 2",
+    "type" : "lecture",
+    "title" : "<b>Lecture 02</b><br /> Relational Model and Relational Algebra",
+    "docno" : "lecture-2",
+    "id" : "2",
+    "children" : [ {
+      "name" : "Chapter 3: The Relational Model",
+      "type" : "doc",
+      "docno" : "dbms-2429",
+      "bookid" : "dbms",
+      "title" : "Chapter 3: The Relational Model",
+      "spage" : "92",
+      "epage" : "94",
+      "id" : "2429",
+      "links" : [ {
+        "url" : "dbms/00000092.jpg",
+        "pageNumber" : 92,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000093.jpg",
+        "pageNumber" : 93,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000094.jpg",
+        "pageNumber" : 94,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "3.1 Introduction to the Relational Model",
+        "type" : "doc",
+        "docno" : "dbms-2430",
+        "bookid" : "dbms",
+        "title" : "3.1 Introduction to the Relational Model",
+        "spage" : "94",
+        "epage" : "97",
+        "id" : "2430",
+        "links" : [ {
+          "url" : "dbms/00000094.jpg",
+          "pageNumber" : 94,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000095.jpg",
+          "pageNumber" : 95,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000096.jpg",
+          "pageNumber" : 96,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000097.jpg",
+          "pageNumber" : 97,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "3.1.1 Creating and Modifying Relations Using SQL",
+          "type" : "doc",
+          "docno" : "dbms-2431",
+          "bookid" : "dbms",
+          "title" : "3.1.1 Creating and Modifying Relations Using SQL",
+          "spage" : "97",
+          "epage" : "98",
+          "id" : "2431",
+          "links" : [ {
+            "url" : "dbms/00000097.jpg",
+            "pageNumber" : 97,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000098.jpg",
+            "pageNumber" : 98,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "3.2 Integrity Constraints over Relations",
+        "type" : "doc",
+        "docno" : "dbms-2432",
+        "bookid" : "dbms",
+        "title" : "3.2 Integrity Constraints over Relations",
+        "spage" : "98",
+        "epage" : "99",
+        "id" : "2432",
+        "links" : [ {
+          "url" : "dbms/00000098.jpg",
+          "pageNumber" : 98,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000099.jpg",
+          "pageNumber" : 99,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "3.2.1 Key Constraints",
+          "type" : "doc",
+          "docno" : "dbms-2433",
+          "bookid" : "dbms",
+          "title" : "3.2.1 Key Constraints",
+          "spage" : "99",
+          "epage" : "101",
+          "id" : "2433",
+          "links" : [ {
+            "url" : "dbms/00000099.jpg",
+            "pageNumber" : 99,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000100.jpg",
+            "pageNumber" : 100,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000101.jpg",
+            "pageNumber" : 101,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "3.2.2 Foreign Key Constraints",
+          "type" : "doc",
+          "docno" : "dbms-2434",
+          "bookid" : "dbms",
+          "title" : "3.2.2 Foreign Key Constraints",
+          "spage" : "101",
+          "epage" : "103",
+          "id" : "2434",
+          "links" : [ {
+            "url" : "dbms/00000101.jpg",
+            "pageNumber" : 101,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000102.jpg",
+            "pageNumber" : 102,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000103.jpg",
+            "pageNumber" : 103,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 3",
+    "type" : "lecture",
+    "title" : "<b>Lecture 03</b><br /> Relational Algebra and SQL",
+    "docno" : "lecture-3",
+    "id" : "3",
+    "children" : [ {
+      "name" : "4.2 Relational Algebra",
+      "type" : "doc",
+      "docno" : "dbms-2455",
+      "bookid" : "dbms",
+      "title" : "4.2 Relational Algebra",
+      "spage" : "137",
+      "epage" : "137",
+      "id" : "2455",
+      "links" : [ {
+        "url" : "dbms/00000137.jpg",
+        "pageNumber" : 137,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "4.2.1 Selection and Projection",
+        "type" : "doc",
+        "docno" : "dbms-2456",
+        "bookid" : "dbms",
+        "title" : "4.2.1 Selection and Projection",
+        "spage" : "138",
+        "epage" : "139",
+        "id" : "2456",
+        "links" : [ {
+          "url" : "dbms/00000138.jpg",
+          "pageNumber" : 138,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000139.jpg",
+          "pageNumber" : 139,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "4.2.2 Set Operations",
+        "type" : "doc",
+        "docno" : "dbms-2457",
+        "bookid" : "dbms",
+        "title" : "4.2.2 Set Operations",
+        "spage" : "139",
+        "epage" : "141",
+        "id" : "2457",
+        "links" : [ {
+          "url" : "dbms/00000139.jpg",
+          "pageNumber" : 139,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000140.jpg",
+          "pageNumber" : 140,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000141.jpg",
+          "pageNumber" : 141,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "4.2.3 Renaming",
+        "type" : "doc",
+        "docno" : "dbms-2458",
+        "bookid" : "dbms",
+        "title" : "4.2.3 Renaming",
+        "spage" : "141",
+        "epage" : "142",
+        "id" : "2458",
+        "links" : [ {
+          "url" : "dbms/00000141.jpg",
+          "pageNumber" : 141,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000142.jpg",
+          "pageNumber" : 142,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "4.2.4 Joins",
+        "type" : "doc",
+        "docno" : "dbms-2459",
+        "bookid" : "dbms",
+        "title" : "4.2.4 Joins",
+        "spage" : "142",
+        "epage" : "144",
+        "id" : "2459",
+        "links" : [ {
+          "url" : "dbms/00000142.jpg",
+          "pageNumber" : 142,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000143.jpg",
+          "pageNumber" : 143,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000144.jpg",
+          "pageNumber" : 144,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 4",
+    "type" : "lecture",
+    "title" : "<b>Lecture 04</b><br /> SQL",
+    "docno" : "lecture-4",
+    "id" : "4",
+    "children" : [ {
+      "name" : "5.2 The Form of a Basic SQL Query",
+      "type" : "doc",
+      "docno" : "dbms-2469",
+      "bookid" : "dbms",
+      "title" : "5.2 The Form of a Basic SQL Query",
+      "spage" : "168",
+      "epage" : "173",
+      "id" : "2469",
+      "links" : [ {
+        "url" : "dbms/00000168.jpg",
+        "pageNumber" : 168,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000169.jpg",
+        "pageNumber" : 169,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000170.jpg",
+        "pageNumber" : 170,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000171.jpg",
+        "pageNumber" : 171,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000172.jpg",
+        "pageNumber" : 172,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000173.jpg",
+        "pageNumber" : 173,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "5.2.1 Examples of Basic SQL Queries",
+        "type" : "doc",
+        "docno" : "dbms-2470",
+        "bookid" : "dbms",
+        "title" : "5.2.1 Examples of Basic SQL Queries",
+        "spage" : "173",
+        "epage" : "174",
+        "id" : "2470",
+        "links" : [ {
+          "url" : "dbms/00000173.jpg",
+          "pageNumber" : 173,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000174.jpg",
+          "pageNumber" : 174,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.2.2 Expressions and Strings in the SELECT Command",
+        "type" : "doc",
+        "docno" : "dbms-2471",
+        "bookid" : "dbms",
+        "title" : "5.2.2 Expressions and Strings in the SELECT Command",
+        "spage" : "174",
+        "epage" : "176",
+        "id" : "2471",
+        "links" : [ {
+          "url" : "dbms/00000174.jpg",
+          "pageNumber" : 174,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000175.jpg",
+          "pageNumber" : 175,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000176.jpg",
+          "pageNumber" : 176,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 5",
+    "type" : "lecture",
+    "title" : "<b>Lecture 05</b><br /> SQL",
+    "docno" : "lecture-5",
+    "id" : "5",
+    "children" : [ {
+      "name" : "5.4 Nested Queries",
+      "type" : "doc",
+      "docno" : "dbms-2473",
+      "bookid" : "dbms",
+      "title" : "5.4 Nested Queries",
+      "spage" : "179",
+      "epage" : "180",
+      "id" : "2473",
+      "links" : [ {
+        "url" : "dbms/00000179.jpg",
+        "pageNumber" : 179,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000180.jpg",
+        "pageNumber" : 180,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "5.4.1 Introduction to Nested Queries",
+        "type" : "doc",
+        "docno" : "dbms-2474",
+        "bookid" : "dbms",
+        "title" : "5.4.1 Introduction to Nested Queries",
+        "spage" : "180",
+        "epage" : "182",
+        "id" : "2474",
+        "links" : [ {
+          "url" : "dbms/00000180.jpg",
+          "pageNumber" : 180,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000181.jpg",
+          "pageNumber" : 181,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000182.jpg",
+          "pageNumber" : 182,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.4.2 Correlated Nested Queries",
+        "type" : "doc",
+        "docno" : "dbms-2475",
+        "bookid" : "dbms",
+        "title" : "5.4.2 Correlated Nested Queries",
+        "spage" : "182",
+        "epage" : "183",
+        "id" : "2475",
+        "links" : [ {
+          "url" : "dbms/00000182.jpg",
+          "pageNumber" : 182,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000183.jpg",
+          "pageNumber" : 183,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.4.3 Set-Comparison Operators",
+        "type" : "doc",
+        "docno" : "dbms-2476",
+        "bookid" : "dbms",
+        "title" : "5.4.3 Set-Comparison Operators",
+        "spage" : "183",
+        "epage" : "184",
+        "id" : "2476",
+        "links" : [ {
+          "url" : "dbms/00000183.jpg",
+          "pageNumber" : 183,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000184.jpg",
+          "pageNumber" : 184,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.4.4 More Examples of Nested Queries",
+        "type" : "doc",
+        "docno" : "dbms-2477",
+        "bookid" : "dbms",
+        "title" : "5.4.4 More Examples of Nested Queries",
+        "spage" : "184",
+        "epage" : "186",
+        "id" : "2477",
+        "links" : [ {
+          "url" : "dbms/00000184.jpg",
+          "pageNumber" : 184,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000185.jpg",
+          "pageNumber" : 185,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000186.jpg",
+          "pageNumber" : 186,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "5.5 Aggregate Operators",
+      "type" : "doc",
+      "docno" : "dbms-2478",
+      "bookid" : "dbms",
+      "title" : "5.5 Aggregate Operators",
+      "spage" : "186",
+      "epage" : "189",
+      "id" : "2478",
+      "links" : [ {
+        "url" : "dbms/00000186.jpg",
+        "pageNumber" : 186,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000187.jpg",
+        "pageNumber" : 187,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000188.jpg",
+        "pageNumber" : 188,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000189.jpg",
+        "pageNumber" : 189,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "5.5.1 The GROUP BY and HAVING Clauses",
+        "type" : "doc",
+        "docno" : "dbms-2479",
+        "bookid" : "dbms",
+        "title" : "5.5.1 The GROUP BY and HAVING Clauses",
+        "spage" : "189",
+        "epage" : "193",
+        "id" : "2479",
+        "links" : [ {
+          "url" : "dbms/00000189.jpg",
+          "pageNumber" : 189,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000190.jpg",
+          "pageNumber" : 190,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000191.jpg",
+          "pageNumber" : 191,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000192.jpg",
+          "pageNumber" : 192,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000193.jpg",
+          "pageNumber" : 193,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.5.2 More Examples of Aggregate Queries",
+        "type" : "doc",
+        "docno" : "dbms-2480",
+        "bookid" : "dbms",
+        "title" : "5.5.2 More Examples of Aggregate Queries",
+        "spage" : "193",
+        "epage" : "197",
+        "id" : "2480",
+        "links" : [ {
+          "url" : "dbms/00000193.jpg",
+          "pageNumber" : 193,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000194.jpg",
+          "pageNumber" : 194,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000195.jpg",
+          "pageNumber" : 195,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000196.jpg",
+          "pageNumber" : 196,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000197.jpg",
+          "pageNumber" : 197,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "5.6 Null Values",
+      "type" : "doc",
+      "docno" : "dbms-2481",
+      "bookid" : "dbms",
+      "title" : "5.6 Null Values",
+      "spage" : "197",
+      "epage" : "197",
+      "id" : "2481",
+      "links" : [ {
+        "url" : "dbms/00000197.jpg",
+        "pageNumber" : 197,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "5.6.1 Comparisons Using Null Values",
+        "type" : "doc",
+        "docno" : "dbms-2482",
+        "bookid" : "dbms",
+        "title" : "5.6.1 Comparisons Using Null Values",
+        "spage" : "198",
+        "epage" : "198",
+        "id" : "2482",
+        "links" : [ {
+          "url" : "dbms/00000198.jpg",
+          "pageNumber" : 198,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "5.6.2 Logical Connectives AND, OR, and NOT",
+        "type" : "doc",
+        "docno" : "dbms-2483",
+        "bookid" : "dbms",
+        "title" : "5.6.2 Logical Connectives AND, OR, and NOT",
+        "spage" : "198",
+        "epage" : "198",
+        "id" : "2483",
+        "links" : [ {
+          "url" : "dbms/00000198.jpg",
+          "pageNumber" : 198,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 6",
+    "type" : "lecture",
+    "title" : "<b>Lecture 06</b><br /> ER Model and Schema Refinement",
+    "docno" : "lecture-6",
+    "id" : "6",
+    "children" : [ {
+      "name" : "Chapter 2: Introduction to Database Design",
+      "type" : "doc",
+      "docno" : "dbms-2497",
+      "bookid" : "dbms",
+      "title" : "Chapter 2: Introduction to Database Design",
+      "spage" : "60",
+      "epage" : "61",
+      "id" : "2497",
+      "links" : [ {
+        "url" : "dbms/00000060.jpg",
+        "pageNumber" : 60,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000061.jpg",
+        "pageNumber" : 61,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "2.1 Database Design and ER Diagrams",
+        "type" : "doc",
+        "docno" : "dbms-2498",
+        "bookid" : "dbms",
+        "title" : "2.1 Database Design and ER Diagrams",
+        "spage" : "61",
+        "epage" : "62",
+        "id" : "2498",
+        "links" : [ {
+          "url" : "dbms/00000061.jpg",
+          "pageNumber" : 61,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000062.jpg",
+          "pageNumber" : 62,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "2.1.1 Beyond ER Design",
+          "type" : "doc",
+          "docno" : "dbms-2499",
+          "bookid" : "dbms",
+          "title" : "2.1.1 Beyond ER Design",
+          "spage" : "62",
+          "epage" : "63",
+          "id" : "2499",
+          "links" : [ {
+            "url" : "dbms/00000062.jpg",
+            "pageNumber" : 62,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000063.jpg",
+            "pageNumber" : 63,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "2.2 Entities, Attributes, and Entity Sets",
+        "type" : "doc",
+        "docno" : "dbms-2500",
+        "bookid" : "dbms",
+        "title" : "2.2 Entities, Attributes, and Entity Sets",
+        "spage" : "63",
+        "epage" : "64",
+        "id" : "2500",
+        "links" : [ {
+          "url" : "dbms/00000063.jpg",
+          "pageNumber" : 63,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000064.jpg",
+          "pageNumber" : 64,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "2.3 Relationships and Relationship Sets",
+        "type" : "doc",
+        "docno" : "dbms-2501",
+        "bookid" : "dbms",
+        "title" : "2.3 Relationships and Relationship Sets",
+        "spage" : "64",
+        "epage" : "67",
+        "id" : "2501",
+        "links" : [ {
+          "url" : "dbms/00000064.jpg",
+          "pageNumber" : 64,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000065.jpg",
+          "pageNumber" : 65,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000066.jpg",
+          "pageNumber" : 66,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000067.jpg",
+          "pageNumber" : 67,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "2.4 Additional Features of the ER Model",
+        "type" : "doc",
+        "docno" : "dbms-2502",
+        "bookid" : "dbms",
+        "title" : "2.4 Additional Features of the ER Model",
+        "spage" : "67",
+        "epage" : "67",
+        "id" : "2502",
+        "links" : [ {
+          "url" : "dbms/00000067.jpg",
+          "pageNumber" : 67,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "2.4.1 Key Constraints",
+          "type" : "doc",
+          "docno" : "dbms-2503",
+          "bookid" : "dbms",
+          "title" : "2.4.1 Key Constraints",
+          "spage" : "67",
+          "epage" : "69",
+          "id" : "2503",
+          "links" : [ {
+            "url" : "dbms/00000067.jpg",
+            "pageNumber" : 67,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000068.jpg",
+            "pageNumber" : 68,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000069.jpg",
+            "pageNumber" : 69,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "2.4.2 Participation Constraints",
+          "type" : "doc",
+          "docno" : "dbms-2504",
+          "bookid" : "dbms",
+          "title" : "2.4.2 Participation Constraints",
+          "spage" : "69",
+          "epage" : "70",
+          "id" : "2504",
+          "links" : [ {
+            "url" : "dbms/00000069.jpg",
+            "pageNumber" : 69,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000070.jpg",
+            "pageNumber" : 70,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "2.4.3 Weak Entities",
+          "type" : "doc",
+          "docno" : "dbms-2505",
+          "bookid" : "dbms",
+          "title" : "2.4.3 Weak Entities",
+          "spage" : "70",
+          "epage" : "72",
+          "id" : "2505",
+          "links" : [ {
+            "url" : "dbms/00000070.jpg",
+            "pageNumber" : 70,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000071.jpg",
+            "pageNumber" : 71,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000072.jpg",
+            "pageNumber" : 72,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "2.4.4 Class Hierarchies",
+          "type" : "doc",
+          "docno" : "dbms-2506",
+          "bookid" : "dbms",
+          "title" : "2.4.4 Class Hierarchies",
+          "spage" : "72",
+          "epage" : "74",
+          "id" : "2506",
+          "links" : [ {
+            "url" : "dbms/00000072.jpg",
+            "pageNumber" : 72,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000073.jpg",
+            "pageNumber" : 73,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000074.jpg",
+            "pageNumber" : 74,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 7",
+    "type" : "lecture",
+    "title" : "<b>Lecture 07</b><br /> Schema Refinement",
+    "docno" : "lecture-7",
+    "id" : "7",
+    "children" : [ {
+      "name" : "Chapter 19: Schema Refinement and Normal Forms",
+      "type" : "doc",
+      "docno" : "dbms-2518",
+      "bookid" : "dbms",
+      "title" : "Chapter 19: Schema Refinement and Normal Forms",
+      "spage" : "640",
+      "epage" : "641",
+      "id" : "2518",
+      "links" : [ {
+        "url" : "dbms/00000640.jpg",
+        "pageNumber" : 640,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000641.jpg",
+        "pageNumber" : 641,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "19.1 Introduction to Schema Refinement ",
+        "type" : "doc",
+        "docno" : "dbms-2519",
+        "bookid" : "dbms",
+        "title" : "19.1 Introduction to Schema Refinement ",
+        "spage" : "641",
+        "epage" : "641",
+        "id" : "2519",
+        "links" : [ {
+          "url" : "dbms/00000641.jpg",
+          "pageNumber" : 641,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "19.1.1 Problems Caused by Redundancy ",
+          "type" : "doc",
+          "docno" : "dbms-2520",
+          "bookid" : "dbms",
+          "title" : "19.1.1 Problems Caused by Redundancy ",
+          "spage" : "641",
+          "epage" : "643",
+          "id" : "2520",
+          "links" : [ {
+            "url" : "dbms/00000641.jpg",
+            "pageNumber" : 641,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000642.jpg",
+            "pageNumber" : 642,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000643.jpg",
+            "pageNumber" : 643,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.1.2 Decompositions ",
+          "type" : "doc",
+          "docno" : "dbms-2521",
+          "bookid" : "dbms",
+          "title" : "19.1.2 Decompositions ",
+          "spage" : "643",
+          "epage" : "644",
+          "id" : "2521",
+          "links" : [ {
+            "url" : "dbms/00000643.jpg",
+            "pageNumber" : 643,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000644.jpg",
+            "pageNumber" : 644,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.1.3 Problems Related to Decomposition ",
+          "type" : "doc",
+          "docno" : "dbms-2522",
+          "bookid" : "dbms",
+          "title" : "19.1.3 Problems Related to Decomposition ",
+          "spage" : "644",
+          "epage" : "645",
+          "id" : "2522",
+          "links" : [ {
+            "url" : "dbms/00000644.jpg",
+            "pageNumber" : 644,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000645.jpg",
+            "pageNumber" : 645,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "19.2 Functional Dependencies ",
+        "type" : "doc",
+        "docno" : "dbms-2523",
+        "bookid" : "dbms",
+        "title" : "19.2 Functional Dependencies ",
+        "spage" : "646",
+        "epage" : "647",
+        "id" : "2523",
+        "links" : [ {
+          "url" : "dbms/00000646.jpg",
+          "pageNumber" : 646,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000647.jpg",
+          "pageNumber" : 647,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "19.3 Reasoning about FDs ",
+        "type" : "doc",
+        "docno" : "dbms-2524",
+        "bookid" : "dbms",
+        "title" : "19.3 Reasoning about FDs ",
+        "spage" : "647",
+        "epage" : "647",
+        "id" : "2524",
+        "links" : [ {
+          "url" : "dbms/00000647.jpg",
+          "pageNumber" : 647,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "19.3.1 Closure of a Set of FDs ",
+          "type" : "doc",
+          "docno" : "dbms-2525",
+          "bookid" : "dbms",
+          "title" : "19.3.1 Closure of a Set of FDs ",
+          "spage" : "647",
+          "epage" : "649",
+          "id" : "2525",
+          "links" : [ {
+            "url" : "dbms/00000647.jpg",
+            "pageNumber" : 647,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000648.jpg",
+            "pageNumber" : 648,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000649.jpg",
+            "pageNumber" : 649,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.3.2 Attribute Closure ",
+          "type" : "doc",
+          "docno" : "dbms-2526",
+          "bookid" : "dbms",
+          "title" : "19.3.2 Attribute Closure ",
+          "spage" : "649",
+          "epage" : "650",
+          "id" : "2526",
+          "links" : [ {
+            "url" : "dbms/00000649.jpg",
+            "pageNumber" : 649,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000650.jpg",
+            "pageNumber" : 650,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "19.4 Normal Forms ",
+        "type" : "doc",
+        "docno" : "dbms-2527",
+        "bookid" : "dbms",
+        "title" : "19.4 Normal Forms ",
+        "spage" : "650",
+        "epage" : "650",
+        "id" : "2527",
+        "links" : [ {
+          "url" : "dbms/00000650.jpg",
+          "pageNumber" : 650,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "19.4.1 Boyce-Codd Normal Form ",
+          "type" : "doc",
+          "docno" : "dbms-2528",
+          "bookid" : "dbms",
+          "title" : "19.4.1 Boyce-Codd Normal Form ",
+          "spage" : "650",
+          "epage" : "652",
+          "id" : "2528",
+          "links" : [ {
+            "url" : "dbms/00000650.jpg",
+            "pageNumber" : 650,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000651.jpg",
+            "pageNumber" : 651,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000652.jpg",
+            "pageNumber" : 652,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.4.2 Third Normal Form ",
+          "type" : "doc",
+          "docno" : "dbms-2529",
+          "bookid" : "dbms",
+          "title" : "19.4.2 Third Normal Form ",
+          "spage" : "652",
+          "epage" : "654",
+          "id" : "2529",
+          "links" : [ {
+            "url" : "dbms/00000652.jpg",
+            "pageNumber" : 652,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000653.jpg",
+            "pageNumber" : 653,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000654.jpg",
+            "pageNumber" : 654,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "19.5 Properties of Decompositions ",
+        "type" : "doc",
+        "docno" : "dbms-2530",
+        "bookid" : "dbms",
+        "title" : "19.5 Properties of Decompositions ",
+        "spage" : "654",
+        "epage" : "654",
+        "id" : "2530",
+        "links" : [ {
+          "url" : "dbms/00000654.jpg",
+          "pageNumber" : 654,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "19.5.1 Lossless-Join Decomposition ",
+          "type" : "doc",
+          "docno" : "dbms-2531",
+          "bookid" : "dbms",
+          "title" : "19.5.1 Lossless-Join Decomposition ",
+          "spage" : "654",
+          "epage" : "656",
+          "id" : "2531",
+          "links" : [ {
+            "url" : "dbms/00000654.jpg",
+            "pageNumber" : 654,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000655.jpg",
+            "pageNumber" : 655,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000656.jpg",
+            "pageNumber" : 656,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.5.2 Dependency-Preserving Decomposition ",
+          "type" : "doc",
+          "docno" : "dbms-2532",
+          "bookid" : "dbms",
+          "title" : "19.5.2 Dependency-Preserving Decomposition ",
+          "spage" : "656",
+          "epage" : "657",
+          "id" : "2532",
+          "links" : [ {
+            "url" : "dbms/00000656.jpg",
+            "pageNumber" : 656,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000657.jpg",
+            "pageNumber" : 657,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "19.6 Normalization ",
+        "type" : "doc",
+        "docno" : "dbms-2533",
+        "bookid" : "dbms",
+        "title" : "19.6 Normalization ",
+        "spage" : "657",
+        "epage" : "657",
+        "id" : "2533",
+        "links" : [ {
+          "url" : "dbms/00000657.jpg",
+          "pageNumber" : 657,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "19.6.1 Decomposition into BCNF ",
+          "type" : "doc",
+          "docno" : "dbms-2534",
+          "bookid" : "dbms",
+          "title" : "19.6.1 Decomposition into BCNF ",
+          "spage" : "657",
+          "epage" : "660",
+          "id" : "2534",
+          "links" : [ {
+            "url" : "dbms/00000657.jpg",
+            "pageNumber" : 657,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000658.jpg",
+            "pageNumber" : 658,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000659.jpg",
+            "pageNumber" : 659,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000660.jpg",
+            "pageNumber" : 660,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "19.6.2 Decomposition into 3NF ",
+          "type" : "doc",
+          "docno" : "dbms-2535",
+          "bookid" : "dbms",
+          "title" : "19.6.2 Decomposition into 3NF ",
+          "spage" : "660",
+          "epage" : "664",
+          "id" : "2535",
+          "links" : [ {
+            "url" : "dbms/00000660.jpg",
+            "pageNumber" : 660,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000661.jpg",
+            "pageNumber" : 661,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000662.jpg",
+            "pageNumber" : 662,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000663.jpg",
+            "pageNumber" : 663,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000664.jpg",
+            "pageNumber" : 664,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "19.7 Schema Refinement in Database Design ",
+        "type" : "doc",
+        "docno" : "dbms-2536",
+        "bookid" : "dbms",
+        "title" : "19.7 Schema Refinement in Database Design ",
+        "spage" : "664",
+        "epage" : "664",
+        "id" : "2536",
+        "links" : [ {
+          "url" : "dbms/00000664.jpg",
+          "pageNumber" : 664,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 8",
+    "type" : "lecture",
+    "title" : "<b>Lecture 08</b><br /> Storate and Indexing",
+    "docno" : "lecture-8",
+    "id" : "8",
+    "children" : [ {
+      "name" : "Chapter 8: Overview of Storage and Indexing",
+      "type" : "doc",
+      "docno" : "dbms-2548",
+      "bookid" : "dbms",
+      "title" : "Chapter 8: Overview of Storage and Indexing",
+      "spage" : "308",
+      "epage" : "309",
+      "id" : "2548",
+      "links" : [ {
+        "url" : "dbms/00000308.jpg",
+        "pageNumber" : 308,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000309.jpg",
+        "pageNumber" : 309,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "8.1 Data on External Storage",
+        "type" : "doc",
+        "docno" : "dbms-2549",
+        "bookid" : "dbms",
+        "title" : "8.1 Data on External Storage",
+        "spage" : "309",
+        "epage" : "310",
+        "id" : "2549",
+        "links" : [ {
+          "url" : "dbms/00000309.jpg",
+          "pageNumber" : 309,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000310.jpg",
+          "pageNumber" : 310,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "8.2 File Organizations and Indexing",
+        "type" : "doc",
+        "docno" : "dbms-2550",
+        "bookid" : "dbms",
+        "title" : "8.2 File Organizations and Indexing",
+        "spage" : "310",
+        "epage" : "312",
+        "id" : "2550",
+        "links" : [ {
+          "url" : "dbms/00000310.jpg",
+          "pageNumber" : 310,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000311.jpg",
+          "pageNumber" : 311,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000312.jpg",
+          "pageNumber" : 312,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "8.2.1 Clustered Indexes",
+          "type" : "doc",
+          "docno" : "dbms-2551",
+          "bookid" : "dbms",
+          "title" : "8.2.1 Clustered Indexes",
+          "spage" : "312",
+          "epage" : "312",
+          "id" : "2551",
+          "links" : [ {
+            "url" : "dbms/00000312.jpg",
+            "pageNumber" : 312,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "8.2.2 Primary and Secondary Indexes",
+          "type" : "doc",
+          "docno" : "dbms-2552",
+          "bookid" : "dbms",
+          "title" : "8.2.2 Primary and Secondary Indexes",
+          "spage" : "312",
+          "epage" : "313",
+          "id" : "2552",
+          "links" : [ {
+            "url" : "dbms/00000312.jpg",
+            "pageNumber" : 312,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000313.jpg",
+            "pageNumber" : 313,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "8.3 Index Data Structures",
+        "type" : "doc",
+        "docno" : "dbms-2553",
+        "bookid" : "dbms",
+        "title" : "8.3 Index Data Structures",
+        "spage" : "313",
+        "epage" : "313",
+        "id" : "2553",
+        "links" : [ {
+          "url" : "dbms/00000313.jpg",
+          "pageNumber" : 313,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "8.3.2 Tree-Based Indexing",
+          "type" : "doc",
+          "docno" : "dbms-2555",
+          "bookid" : "dbms",
+          "title" : "8.3.2 Tree-Based Indexing",
+          "spage" : "315",
+          "epage" : "317",
+          "id" : "2555",
+          "links" : [ {
+            "url" : "dbms/00000315.jpg",
+            "pageNumber" : 315,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000316.jpg",
+            "pageNumber" : 316,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000317.jpg",
+            "pageNumber" : 317,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 9",
+    "type" : "lecture",
+    "title" : "<b>Lecture 09</b><br /> Storage and Indexing",
+    "docno" : "lecture-9",
+    "id" : "9",
+    "children" : [ {
+      "name" : "Chapter 9: Storing Data: Disks and Files",
+      "type" : "doc",
+      "docno" : "dbms-2569",
+      "bookid" : "dbms",
+      "title" : "Chapter 9: Storing Data: Disks and Files",
+      "spage" : "339",
+      "epage" : "340",
+      "id" : "2569",
+      "links" : [ {
+        "url" : "dbms/00000339.jpg",
+        "pageNumber" : 339,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000340.jpg",
+        "pageNumber" : 340,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "9.1 The Memory Hierarchy",
+        "type" : "doc",
+        "docno" : "dbms-2570",
+        "bookid" : "dbms",
+        "title" : "9.1 The Memory Hierarchy",
+        "spage" : "340",
+        "epage" : "341",
+        "id" : "2570",
+        "links" : [ {
+          "url" : "dbms/00000340.jpg",
+          "pageNumber" : 340,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000341.jpg",
+          "pageNumber" : 341,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "9.1.1 Magnetic Disks",
+          "type" : "doc",
+          "docno" : "dbms-2571",
+          "bookid" : "dbms",
+          "title" : "9.1.1 Magnetic Disks",
+          "spage" : "341",
+          "epage" : "343",
+          "id" : "2571",
+          "links" : [ {
+            "url" : "dbms/00000341.jpg",
+            "pageNumber" : 341,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000342.jpg",
+            "pageNumber" : 342,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000343.jpg",
+            "pageNumber" : 343,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "9.1.2 Performance Implications of Disk Structure",
+          "type" : "doc",
+          "docno" : "dbms-2572",
+          "bookid" : "dbms",
+          "title" : "9.1.2 Performance Implications of Disk Structure",
+          "spage" : "343",
+          "epage" : "344",
+          "id" : "2572",
+          "links" : [ {
+            "url" : "dbms/00000343.jpg",
+            "pageNumber" : 343,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000344.jpg",
+            "pageNumber" : 344,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "9.4 Buffer Manager",
+        "type" : "doc",
+        "docno" : "dbms-2581",
+        "bookid" : "dbms",
+        "title" : "9.4 Buffer Manager",
+        "spage" : "353",
+        "epage" : "355",
+        "id" : "2581",
+        "links" : [ {
+          "url" : "dbms/00000353.jpg",
+          "pageNumber" : 353,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000354.jpg",
+          "pageNumber" : 354,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000355.jpg",
+          "pageNumber" : 355,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "9.4.1 Buffer Replacement Policies",
+          "type" : "doc",
+          "docno" : "dbms-2582",
+          "bookid" : "dbms",
+          "title" : "9.4.1 Buffer Replacement Policies",
+          "spage" : "355",
+          "epage" : "357",
+          "id" : "2582",
+          "links" : [ {
+            "url" : "dbms/00000355.jpg",
+            "pageNumber" : 355,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000356.jpg",
+            "pageNumber" : 356,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000357.jpg",
+            "pageNumber" : 357,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 10",
+    "type" : "lecture",
+    "title" : "<b>Lecture 10</b><br /> Transaction and Concurrency",
+    "docno" : "lecture-10",
+    "id" : "10",
+    "children" : [ {
+      "name" : "Chapter 16: Overview of Transaction Management",
+      "type" : "doc",
+      "docno" : "dbms-2592",
+      "bookid" : "dbms",
+      "title" : "Chapter 16: Overview of Transaction Management",
+      "spage" : "554",
+      "epage" : "555",
+      "id" : "2592",
+      "links" : [ {
+        "url" : "dbms/00000554.jpg",
+        "pageNumber" : 554,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000555.jpg",
+        "pageNumber" : 555,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "16.1 The ACID Properties ",
+        "type" : "doc",
+        "docno" : "dbms-2593",
+        "bookid" : "dbms",
+        "title" : "16.1 The ACID Properties ",
+        "spage" : "555",
+        "epage" : "556",
+        "id" : "2593",
+        "links" : [ {
+          "url" : "dbms/00000555.jpg",
+          "pageNumber" : 555,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000556.jpg",
+          "pageNumber" : 556,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "16.1.1 Consistency and Isolation ",
+          "type" : "doc",
+          "docno" : "dbms-2594",
+          "bookid" : "dbms",
+          "title" : "16.1.1 Consistency and Isolation ",
+          "spage" : "556",
+          "epage" : "557",
+          "id" : "2594",
+          "links" : [ {
+            "url" : "dbms/00000556.jpg",
+            "pageNumber" : 556,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000557.jpg",
+            "pageNumber" : 557,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "16.1.2 Atomicity and Durability ",
+          "type" : "doc",
+          "docno" : "dbms-2595",
+          "bookid" : "dbms",
+          "title" : "16.1.2 Atomicity and Durability ",
+          "spage" : "557",
+          "epage" : "557",
+          "id" : "2595",
+          "links" : [ {
+            "url" : "dbms/00000557.jpg",
+            "pageNumber" : 557,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "16.2 Transactions and Schedules ",
+        "type" : "doc",
+        "docno" : "dbms-2596",
+        "bookid" : "dbms",
+        "title" : "16.2 Transactions and Schedules ",
+        "spage" : "558",
+        "epage" : "559",
+        "id" : "2596",
+        "links" : [ {
+          "url" : "dbms/00000558.jpg",
+          "pageNumber" : 558,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000559.jpg",
+          "pageNumber" : 559,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "16.3 Concurrent Execution of Transactions ",
+        "type" : "doc",
+        "docno" : "dbms-2597",
+        "bookid" : "dbms",
+        "title" : "16.3 Concurrent Execution of Transactions ",
+        "spage" : "559",
+        "epage" : "559",
+        "id" : "2597",
+        "links" : [ {
+          "url" : "dbms/00000559.jpg",
+          "pageNumber" : 559,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "16.3.1 Motivation for Concurrent Execution ",
+          "type" : "doc",
+          "docno" : "dbms-2598",
+          "bookid" : "dbms",
+          "title" : "16.3.1 Motivation for Concurrent Execution ",
+          "spage" : "559",
+          "epage" : "559",
+          "id" : "2598",
+          "links" : [ {
+            "url" : "dbms/00000559.jpg",
+            "pageNumber" : 559,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "16.4 Lock-Based Concurrency Control ",
+        "type" : "doc",
+        "docno" : "dbms-2602",
+        "bookid" : "dbms",
+        "title" : "16.4 Lock-Based Concurrency Control ",
+        "spage" : "565",
+        "epage" : "565",
+        "id" : "2602",
+        "links" : [ {
+          "url" : "dbms/00000565.jpg",
+          "pageNumber" : 565,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "16.4.1 Strict Two-Phase Locking (Strict 2PL) ",
+          "type" : "doc",
+          "docno" : "dbms-2603",
+          "bookid" : "dbms",
+          "title" : "16.4.1 Strict Two-Phase Locking (Strict 2PL) ",
+          "spage" : "566",
+          "epage" : "568",
+          "id" : "2603",
+          "links" : [ {
+            "url" : "dbms/00000566.jpg",
+            "pageNumber" : 566,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000567.jpg",
+            "pageNumber" : 567,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000568.jpg",
+            "pageNumber" : 568,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        }, {
+          "name" : "16.4.2 Deadlocks ",
+          "type" : "doc",
+          "docno" : "dbms-2604",
+          "bookid" : "dbms",
+          "title" : "16.4.2 Deadlocks ",
+          "spage" : "568",
+          "epage" : "568",
+          "id" : "2604",
+          "links" : [ {
+            "url" : "dbms/00000568.jpg",
+            "pageNumber" : 568,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 11",
+    "type" : "lecture",
+    "title" : "<b>Lecture 11</b><br /> Transaction and Concurrency",
+    "docno" : "lecture-11",
+    "id" : "11",
+    "children" : [ {
+      "name" : "Chapter 17: Concurreny Control",
+      "type" : "doc",
+      "docno" : "dbms-2615",
+      "bookid" : "dbms",
+      "title" : "Chapter 17: Concurreny Control",
+      "spage" : "584",
+      "epage" : "585",
+      "id" : "2615",
+      "links" : [ {
+        "url" : "dbms/00000584.jpg",
+        "pageNumber" : 584,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000585.jpg",
+        "pageNumber" : 585,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "17.1.1 View Serializability ",
+        "type" : "doc",
+        "docno" : "dbms-2617",
+        "bookid" : "dbms",
+        "title" : "17.1.1 View Serializability ",
+        "spage" : "588",
+        "epage" : "588",
+        "id" : "2617",
+        "links" : [ {
+          "url" : "dbms/00000588.jpg",
+          "pageNumber" : 588,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "17.2 Introduction to Lock Management ",
+        "type" : "doc",
+        "docno" : "dbms-2618",
+        "bookid" : "dbms",
+        "title" : "17.2 Introduction to Lock Management ",
+        "spage" : "588",
+        "epage" : "588",
+        "id" : "2618",
+        "links" : [ {
+          "url" : "dbms/00000588.jpg",
+          "pageNumber" : 588,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "17.2.1 Implementing Lock and Unlock Requests ",
+          "type" : "doc",
+          "docno" : "dbms-2619",
+          "bookid" : "dbms",
+          "title" : "17.2.1 Implementing Lock and Unlock Requests ",
+          "spage" : "589",
+          "epage" : "590",
+          "id" : "2619",
+          "links" : [ {
+            "url" : "dbms/00000589.jpg",
+            "pageNumber" : 589,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000590.jpg",
+            "pageNumber" : 590,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "17.3 Lock Conversions ",
+        "type" : "doc",
+        "docno" : "dbms-2620",
+        "bookid" : "dbms",
+        "title" : "17.3 Lock Conversions ",
+        "spage" : "590",
+        "epage" : "591",
+        "id" : "2620",
+        "links" : [ {
+          "url" : "dbms/00000590.jpg",
+          "pageNumber" : 590,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000591.jpg",
+          "pageNumber" : 591,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "17.4 Dealing With Deadlocks ",
+        "type" : "doc",
+        "docno" : "dbms-2621",
+        "bookid" : "dbms",
+        "title" : "17.4 Dealing With Deadlocks ",
+        "spage" : "591",
+        "epage" : "593",
+        "id" : "2621",
+        "links" : [ {
+          "url" : "dbms/00000591.jpg",
+          "pageNumber" : 591,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000592.jpg",
+          "pageNumber" : 592,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000593.jpg",
+          "pageNumber" : 593,
+          "type" : "jpg"
+        } ],
+        "children" : [ {
+          "name" : "17.4.1 Deadlock Prevention ",
+          "type" : "doc",
+          "docno" : "dbms-2622",
+          "bookid" : "dbms",
+          "title" : "17.4.1 Deadlock Prevention ",
+          "spage" : "593",
+          "epage" : "594",
+          "id" : "2622",
+          "links" : [ {
+            "url" : "dbms/00000593.jpg",
+            "pageNumber" : 593,
+            "type" : "jpg"
+          }, {
+            "url" : "dbms/00000594.jpg",
+            "pageNumber" : 594,
+            "type" : "jpg"
+          } ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "Lecture 12",
+    "type" : "lecture",
+    "title" : "<b>Lecture 12</b><br /> Crash Recovery",
+    "docno" : "lecture-12",
+    "id" : "12",
+    "children" : [ {
+      "name" : "16.7 Introduction to Crash Recovery ",
+      "type" : "doc",
+      "docno" : "dbms-2610",
+      "bookid" : "dbms",
+      "title" : "16.7 Introduction to Crash Recovery ",
+      "spage" : "575",
+      "epage" : "576",
+      "id" : "2610",
+      "links" : [ {
+        "url" : "dbms/00000575.jpg",
+        "pageNumber" : 575,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000576.jpg",
+        "pageNumber" : 576,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "16.7.1 Stealing Frames and Forcing Pages ",
+        "type" : "doc",
+        "docno" : "dbms-2611",
+        "bookid" : "dbms",
+        "title" : "16.7.1 Stealing Frames and Forcing Pages ",
+        "spage" : "576",
+        "epage" : "577",
+        "id" : "2611",
+        "links" : [ {
+          "url" : "dbms/00000576.jpg",
+          "pageNumber" : 576,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000577.jpg",
+          "pageNumber" : 577,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "16.7.2 Recovery-Related Steps during Normal Execution ",
+        "type" : "doc",
+        "docno" : "dbms-2612",
+        "bookid" : "dbms",
+        "title" : "16.7.2 Recovery-Related Steps during Normal Execution ",
+        "spage" : "577",
+        "epage" : "578",
+        "id" : "2612",
+        "links" : [ {
+          "url" : "dbms/00000577.jpg",
+          "pageNumber" : 577,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000578.jpg",
+          "pageNumber" : 578,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "Chapter 18: Crash Recovery",
+      "type" : "doc",
+      "docno" : "dbms-2631",
+      "bookid" : "dbms",
+      "title" : "Chapter 18: Crash Recovery",
+      "spage" : "614",
+      "epage" : "615",
+      "id" : "2631",
+      "links" : [ {
+        "url" : "dbms/00000614.jpg",
+        "pageNumber" : 614,
+        "type" : "jpg"
+      }, {
+        "url" : "dbms/00000615.jpg",
+        "pageNumber" : 615,
+        "type" : "jpg"
+      } ],
+      "children" : [ {
+        "name" : "18.2 The Log",
+        "type" : "doc",
+        "docno" : "dbms-2633",
+        "bookid" : "dbms",
+        "title" : "18.2 The Log",
+        "spage" : "617",
+        "epage" : "620",
+        "id" : "2633",
+        "links" : [ {
+          "url" : "dbms/00000617.jpg",
+          "pageNumber" : 617,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000618.jpg",
+          "pageNumber" : 618,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000619.jpg",
+          "pageNumber" : 619,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000620.jpg",
+          "pageNumber" : 620,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "18.3 Other Recovery-Related Structures",
+        "type" : "doc",
+        "docno" : "dbms-2634",
+        "bookid" : "dbms",
+        "title" : "18.3 Other Recovery-Related Structures",
+        "spage" : "620",
+        "epage" : "621",
+        "id" : "2634",
+        "links" : [ {
+          "url" : "dbms/00000620.jpg",
+          "pageNumber" : 620,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000621.jpg",
+          "pageNumber" : 621,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "18.4 The Write-Ahead Log Protocol",
+        "type" : "doc",
+        "docno" : "dbms-2635",
+        "bookid" : "dbms",
+        "title" : "18.4 The Write-Ahead Log Protocol",
+        "spage" : "621",
+        "epage" : "622",
+        "id" : "2635",
+        "links" : [ {
+          "url" : "dbms/00000621.jpg",
+          "pageNumber" : 621,
+          "type" : "jpg"
+        }, {
+          "url" : "dbms/00000622.jpg",
+          "pageNumber" : 622,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      }, {
+        "name" : "18.5 Checkpointing",
+        "type" : "doc",
+        "docno" : "dbms-2636",
+        "bookid" : "dbms",
+        "title" : "18.5 Checkpointing",
+        "spage" : "622",
+        "epage" : "622",
+        "id" : "2636",
+        "links" : [ {
+          "url" : "dbms/00000622.jpg",
+          "pageNumber" : 622,
+          "type" : "jpg"
+        } ],
+        "children" : [ ]
+      } ]
+    } ]
+  } ]
+}
