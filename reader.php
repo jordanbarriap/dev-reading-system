@@ -463,19 +463,128 @@ $disp_page = $start_page + $page - 1 + $config_page_corr_offset[$bookid];
 </style>
 
 <?php
-// @@@@
-$prev_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getSectionByPage($bookid, $disp_page, $disp_page - 1);
-$next_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getSectionByPage($bookid, $disp_page, $disp_page + 1);
+$courseKey = $config_book_key_course_key_map[$bookid];
 
-//$prev_url = get_section_by_page($bookid, $disp_page, $disp_page - 1, 'hcibooks', $usr, $grp);
-//$next_url = get_section_by_page($bookid, $disp_page, $disp_page + 1, 'hcibooks', $usr, $grp);
+if($courseKey == 'dbms') {
+	session_start();
+	$session_key = $courseKey.'/navigationPath';
+	
+	if($_SESSION[$session_key] == null) {
+		//create navigation list from JSON provided for the indexTree
+		$_SESSION[$session_key] = createNavigationPath($courseKey);
+	}
+	
+	$navigationPath = $_SESSION[$session_key];
+	$currentPageNavigationIndex = findCurrentPageIndex();
+	
+	$prev_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getPreviousPage($bookid, $disp_page);
+	$next_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getNextPage($bookid, $disp_page);
+} else {
+	$prev_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getSectionByPage($bookid, $disp_page, $disp_page - 1);
+	$next_url = $config_readerURL."?bookid=".$bookid."&usr=".$usr."&grp=".$grp."&sid=".$sid."&course=".$course."&dbase=".$dbase."&".getSectionByPage($bookid, $disp_page, $disp_page + 1);
+}
 
-//$prev_url = get_section_by_page($bookid, $disp_page, $disp_page - 1, 'eRaeder', $usr, $grp, $sid);
-//$next_url = get_section_by_page($bookid, $disp_page, $disp_page + 1, 'eRaeder', $usr, $grp, $sid);
+
+function findCurrentPageIndex() {
+	global $docno, $disp_page, $navigationPath;
+
+	for ($x = 0; $x <= count($navigationPath); $x++) {
+		$navigation = $navigationPath[$x];
+		if($navigation -> docno == $docno && $navigation -> bookPage == $disp_page) {
+			return $x;
+		}
+	}
+
+	return 0;
+}
 
 
-//print "</td></tr></table>";
+//create navigation list from JSON data for only once. It stores the navigation array in a static field.
+function createNavigationPath($courseKey) {
+	$navigation_path = array();
 
+	$jsonFileContent = file_get_contents("data/".$courseKey.".json");
+	$json = json_decode($jsonFileContent, true);
+
+	$lectureArray = $json['children'];
+
+	foreach ($lectureArray as $lecture) {
+		foreach($lecture['children'] as $child) {
+			createNewNavigation($child, $navigation_path, 1);
+		}
+	}
+
+	return $navigation_path;
+}
+
+function createNewNavigation($child, &$navigation_path, $sectionPage) {
+	if($child !== null) {
+		foreach($child['links'] as $page) {
+			$navigation = new stdClass();
+			$navigation -> docno = $child['docno'];
+			$navigation -> sectionPage = $sectionPage;
+			$navigation -> bookPage = $page['pageNumber'];
+
+
+			$sectionPage = $sectionPage + 1;
+			array_push($navigation_path, $navigation);
+		}
+
+		if($child['children'] !== null) {
+			foreach($child['children'] as $sub_child) {
+				createNewNavigation($sub_child, $navigation_path,  1);
+			}
+		}
+	}
+
+	return $navigation_index;
+}
+
+function getNextPage($bookid, $disp_page) {
+	global $navigationPath, $currentPageNavigationIndex;
+	
+	$tempIndex = $currentPageNavigationIndex;
+	
+	$current_page = $navigationPath[$tempIndex];
+	$tempIndex = $tempIndex + 1;
+	
+	$next_page = $navigationPath[$tempIndex++];
+	
+	while($current_page -> bookPage == $next_page -> bookPage) { //Next section starts in current page, get further next page
+		$next_page = $navigationPath[$tempIndex++];
+	}
+	
+	$docno = $next_page -> docno;
+	$in_section_page = $next_page -> sectionPage;
+	$target_page = $next_page -> bookPage;
+	
+	return "&docno=".$docno."&page=".$in_section_page."&page_nav=".$target_page;
+}
+
+function getPreviousPage($bookid, $disp_page) {
+	global $navigationPath, $currentPageNavigationIndex;
+	
+	$tempIndex = $currentPageNavigationIndex;
+	$current_page = $navigationPath[$tempIndex];
+	$prev_page = null;
+	
+	if($tempIndex == 0) { //first page, there is no prev page
+		$prev_page = $current_page;
+	} else {
+		$tempIndex = $tempIndex -1;//previous page index
+		$prev_page = $navigationPath[$tempIndex--];
+		
+		while($tempIndex > 0 && ($current_page -> bookPage === $prev_page -> bookPage)) { //Previous section starts in current page, get further previous page
+			$prev_page = $navigationPath[$tempIndex--];
+		}
+	}
+	
+	$docno = $prev_page -> docno;
+	$in_section_page = $prev_page -> sectionPage;
+	$target_page = $prev_page -> bookPage;
+
+	return "&docno=".$docno."&page=".$in_section_page."&page_nav=".$target_page;
+}
 ?>
 <!--img id='image' style="border:2px dotted green" src="<?php echo $imagePath; ?>"-->
 	<style>
