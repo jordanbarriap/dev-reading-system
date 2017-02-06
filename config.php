@@ -39,6 +39,20 @@ $config_page_corr_offset = array(
 	"lamming" => 0,
 	"tdo"=> 0);
 	
+$config_book_key_course_key_map = array(
+	"lamming" => "isd",
+	"shnm" => "isd",
+	"preece" => "isd",
+ 	"dix" => "isd", 
+	"tdo" => "tdo",
+	"iir" => "ir",
+	"mir" => "ir",
+	"foa" => "ir",
+	"ies" => "ir",
+	"mir2" => "ir",
+	"dbms" => "dbms"
+);
+	
 //$config_colors = array("#E5E5E5","#F7FBFF","#DEEBF7","#C6DBEF","#9ECAE1","#6BAED6","#4292C6","#2171B5","#08519C","#08306B");
                        
 $config_colors = array("#d73027","#f46d43","#fdae61","#fee08b","#ffffbf","#ffffbf","#d9ef8b","#a6d96a","#66bd63","#1a9850");
