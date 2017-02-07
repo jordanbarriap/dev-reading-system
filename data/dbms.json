@@ -61,11 +61,7 @@
           "url" : "dbms/00000043.jpg",
           "pageNumber" : 43,
           "type" : "jpg"
-        }, {
-          "url" : "dbms/00000044.jpg",
-          "pageNumber" : 44,
-          "type" : "jpg"
-        } ],
+        }],
         "children" : [ ]
       }, {
         "name" : "1.4 Advantages of a DBMS",
