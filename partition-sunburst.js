@@ -135,7 +135,6 @@ $.ajax({
                 .each(function(d,i){
                     d.success_rate=window.parent.successrate[d.id];
                     d.group_success_rate=window.parent.group_successrate[d.id];
-                    //console.log(d.group_success_rate);
                 });
 
             g.filter(function(d){return d.depth==3;})
@@ -145,29 +144,31 @@ $.ajax({
                         var sub_group_succrate=0;
                         var valid_subsections=0;
                         for(var i=0;i<d.children.length;i++){
-                            //console.log(parseFloat(window.parent.successrate[d.children[i].id]));
-                            //sub_succrate=sub_succrate+parseFloat(window.parent.successrate[d.children[i].id]);
-                            //valid_subsections++;
                             data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
-                            if(data_subsection.success_rate!=-1){
+                            if(data_subsection.success_rate != -1){
                                 sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
                                 sub_group_succrate=sub_group_succrate+parseFloat(data_subsection.group_success_rate);
                                 valid_subsections++;
                             }
                         }
-                        if(window.parent.successrate[d.id]!=-1){
-                            d.success_rate=(sub_succrate+parseFloat(window.parent.successrate[d.id]))/(1+valid_subsections); 
-                        }else{
-                            d.success_rate=sub_succrate/valid_subsections; 
+						
+						if(valid_subsections > 0) {
+							if(window.parent.successrate[d.id] != -1){
+								d.success_rate=(sub_succrate+parseFloat(window.parent.successrate[d.id]))/(1+valid_subsections); 
+							} else{
+								d.success_rate=sub_succrate/valid_subsections; 
+							}
+							
+							 if(window.parent.group_successrate[d.id]!=-1){
+								d.group_success_rate = (sub_group_succrate+parseFloat(window.parent.group_successrate[d.id]))/(1+valid_subsections); 
+							} else {
+								d.group_success_rate = sub_group_succrate/valid_subsections;
+							}
+						} else {
+                        	d.success_rate = -1;
+                        	d.group_success_rate = -1;
                         }
-                        if(window.parent.group_successrate[d.id]!=-1){
-                            d.group_success_rate=(sub_group_succrate+parseFloat(window.parent.group_successrate[d.id]))/(1+valid_subsections); 
-                        }else{
-                            d.group_success_rate=sub_group_succrate/valid_subsections;
-                        }
-                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
-                        //console.log("final success_rate: "+d.success_rate);
-                    }else{
+					} else{
                          d.success_rate=window.parent.successrate[d.id];
                          d.group_success_rate=window.parent.group_successrate[d.id];
                     }
@@ -180,9 +181,6 @@ $.ajax({
                         var sub_group_succrate=0;
                         var valid_subsections=0;
                         for(var i=0;i<d.children.length;i++){
-                            //console.log(parseFloat(window.parent.successrate[d.children[i].id]));
-                            //sub_succrate=sub_succrate+parseFloat(window.parent.successrate[d.children[i].id]);
-                            //valid_subsections++;
                             data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
                             if(data_subsection.success_rate!=-1){
                                 sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
@@ -190,10 +188,14 @@ $.ajax({
                                 valid_subsections++;
                             }
                         }
-                        d.success_rate=sub_succrate/valid_subsections;
-                        d.group_success_rate=sub_group_succrate/valid_subsections;
-                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
-                        //console.log("final success_rate 2: "+d.success_rate);
+						
+                        if(valid_subsections > 0) {
+                        	d.success_rate=sub_succrate/valid_subsections;
+                        	d.group_success_rate=sub_group_succrate/valid_subsections;
+                        } else {
+                        	d.success_rate=-1;
+                        	d.group_success_rate=-1;
+                        }
                     }else{
                          d.success_rate=window.parent.successrate[d.id];
                          d.group_success_rate=window.parent.group_successrate[d.id];
@@ -208,8 +210,6 @@ $.ajax({
                         var sub_group_succrate=0;
                         var valid_subsections=0;
                         for(var i=0;i<d.children.length;i++){
-                            //console.log("docno: "+d.children[i].docno);
-                            //console.log(d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__);
                             data_subsection=d3.select(".partition_docno_"+d.children[i].docno)[0][0].__data__;
                             if(data_subsection.success_rate!=-1){
                                 sub_succrate=sub_succrate+parseFloat(data_subsection.success_rate);
@@ -217,10 +217,14 @@ $.ajax({
                                 valid_subsections++;
                             }
                         }
-                        d.success_rate=sub_succrate/valid_subsections;
-                        d.group_success_rate=sub_group_succrate/valid_subsections;
-                        //d.success_rate=(window.parent.successrate[d.id]+sub_succrate)/(valid_subsections+1);
-                        //console.log("final success_rate 1: "+d.success_rate);
+                        
+                        if(valid_subsections > 0) {
+                        	d.success_rate=sub_succrate/valid_subsections;
+                        	d.group_success_rate=sub_group_succrate/valid_subsections;
+                        } else {
+                        	d.success_rate=-1;
+                        	d.group_success_rate=-1;
+                        }
                     }else{
                          d.success_rate=window.parent.successrate[d.id];
                          d.group_success_rate=window.parent.group_successrate[d.id];
