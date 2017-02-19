@@ -61,27 +61,19 @@ if (!sid) {
 var addQuestion = function(question, answers, prefix,correct,n_attempts) {
 	var div = document.createElement('div');
 	div.classList.add('question')
-	if(correct==0){
-		var correctImg = document.createElement("img");
-		correctImg.classList.add("status-correct");
-		correctImg.classList.add("status");
-		//correctImg.src="../img/correct.png";
-		div.appendChild(correctImg);
+	var img = document.createElement("img");
+	
+	if(correct==0) {
+		img.classList.add("status-correct");
+	} else if(correct==1){
+		img.classList.add("status-incorrect");
+	} else if(correct==2){
+		img.classList.add("status-non-answered");
 	}
-	if(correct==1){
-		var correctImg = document.createElement("img");
-		correctImg.classList.add("status-incorrect");
-		correctImg.classList.add("status");
-		//correctImg.src="../img/incorrect.png";
-		div.appendChild(correctImg);
-	}
-	if(correct==2){
-		var correctImg = document.createElement("img");
-		correctImg.classList.add("status-non-answered");
-		correctImg.classList.add("status");
-		//correctImg.src="../img/incorrect.png";
-		div.appendChild(correctImg);
-	}
+
+	img.classList.add("status");
+	div.appendChild(img);
+	
 	var questionElement = document.createElement('h3');
 	var attempts_info = document.createElement('div');
 	attempts_info.setAttribute( 'class', 'attempts-div');
@@ -201,7 +193,6 @@ var submit = function() {
 	       success: function(data) {
 	    	   var status = data['status'];
 	    	   if (status === 0) {
-	    		   questionImg.src = "q-right.png";
 	    		   statusMessage("Correct!");
 	    		   //console.log($("#hidden-question-status"));
 	    		   $(".status").removeClass().addClass("status status-correct");//change all questions to show a correct icon
@@ -213,7 +204,6 @@ var submit = function() {
 	    		   		$($("#questions").children()[i-1]).find(".attempts-div").html(generateAttemptsMsg(0,ith_attempts));//updates attempts message
 	    		   }
 	    	   } else if (status === 1) {
-	    		   questionImg.src = "q-wrong.png";
 	    		   var message = "Incorrect. Try again.";
 	    		   if (numQuestions() >= 1) {
 	    			   var incorrect = data['incorrect'];

@@ -206,10 +206,16 @@ function getTotalPageForDoc($docid) {
 
 function insertAnswer($usr, $grp, $sid, $id, $last, $last_correct) {
 	$mysqli = getConn();
-	$stmt = $mysqli->prepare("INSERT INTO submitted_answers (usr,grp,sid,idquestions,time,answer,correct) VALUES (?,?,?,?,now(),?,?)");
-	$stmt->bind_param('sssisi', $usr, $grp, $sid, $id, $last, $last_correct);
-	$stmt->execute();
-	$stmt->fetch();
+	
+	$lastAnswerStatus = getLastAnswerStatus($usr, $grp, $id);
+	
+	if($lastAnswerStatus != 0) { //If the question is not correctly answered before, insert new answer
+		$stmt = $mysqli->prepare("INSERT INTO submitted_answers (usr,grp,sid,idquestions,time,answer,correct) VALUES (?,?,?,?,now(),?,?)");
+		$stmt->bind_param('sssisi', $usr, $grp, $sid, $id, $last, $last_correct);
+		$stmt->execute();
+		$stmt->fetch();
+	}
+	
 }
 
 function getLastAnswer($usr, $grp, $id) {
