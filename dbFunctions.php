@@ -392,21 +392,13 @@ function getSuccessRate($student_id,$group_id){//added by jbarriapineda in 01-02
     $results = array();
     
     $sql="SELECT 
-               SA.grp,
-               SA.usr,
-               D.docid,
-               D.docno,
-               SUM(SA.correct) / (COUNT(*)) AS avg_succrate,
-               count(*) as nb_attempts,
-               count(distinct SA.idquestions) as nb_unique_idquestions,
-            GROUP_CONCAT(DISTINCT CONVERT(SA.idquestions, CHAR(8)) ORDER BY CONVERT(SA.idquestions, CHAR(8)) ASC SEPARATOR ',') as idquestions_list
+               Q.docid, SUM(SA.correct) / (COUNT(*)) AS avg_succrate
             FROM
                readingcircle_dev.submitted_answers AS SA,
-               readingcircle_dev.questions AS Q,
-               readingcircle_dev.document AS D
+               readingcircle_dev.questions AS Q
             WHERE
-               SA.idquestions = Q.idquestions AND Q.docid = D.docid AND SA.usr='".$student_id."' AND SA.grp='".$group_id."' 
-            GROUP BY SA.grp, SA.usr, D.docid";
+               SA.idquestions = Q.idquestions AND SA.usr='".$student_id."' AND SA.grp='".$group_id."' 
+            GROUP BY SA.grp, SA.usr, Q.docid";
 
     $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
     $success_rates = array();
@@ -414,7 +406,6 @@ function getSuccessRate($student_id,$group_id){//added by jbarriapineda in 01-02
         if($res = mysqli_query($connection, $sql)){
             if(mysqli_num_rows($res) > 0){
                 while($row=mysqli_fetch_array($res)){
-                    //echo $row["docid"]."-".$row["avg_succrate"];
                     $success_rates[$row["docid"]] = $row["avg_succrate"];
                 }          
             }
@@ -433,24 +424,20 @@ function getGroupSuccessRate($student_id,$group_id){//added by jbarriapineda in 
     
     $results = array();
     
-    $sql="SELECT AVG(G.avg_succrate) as group_avg_succrate, G.docid
-        FROM (SELECT 
-                       SA.grp,
-                       SA.usr,
-                       D.docid,
-                       D.docno,
-                       SUM(SA.correct) / (COUNT(*)) AS avg_succrate,
-                       count(*) as nb_attempts,
-                       count(distinct SA.idquestions) as nb_unique_idquestions,
-                    GROUP_CONCAT(DISTINCT CONVERT(SA.idquestions, CHAR(8)) ORDER BY CONVERT(SA.idquestions, CHAR(8)) ASC SEPARATOR ',') as idquestions_list
-                    FROM
-                       readingcircle_dev.submitted_answers AS SA,
-                       readingcircle_dev.questions AS Q,
-                       readingcircle_dev.document AS D
-                    WHERE
-                       SA.idquestions = Q.idquestions AND Q.docid = D.docid AND SA.usr<>'".$student_id."' AND SA.grp='".$group_id."' 
-                    GROUP BY SA.grp, SA.usr, D.docid) as G
-        GROUP BY G.docid";
+    $sql="	SELECT 
+			    AVG(G.avg_succrate) AS group_avg_succrate, G.docid
+			FROM
+			    (SELECT 
+    				Q.docid, SUM(SA.correct) / (COUNT(*)) AS avg_succrate
+			    FROM
+			        readingcircle_dev.submitted_answers AS SA, 
+    				readingcircle_dev.questions AS Q
+			    WHERE
+			        SA.idquestions = Q.idquestions
+			            AND SA.usr <> '".$student_id."'
+			            AND SA.grp = '".$group_id."'
+			    GROUP BY SA.grp , SA.usr , Q.docid) AS G
+			GROUP BY G.docid";
 
     $connection = dbConnectMySQL($config_dbHost, $config_dbUser, $config_dbPass, $config_dbName, $config_dbPort);
     $success_rates = array();
